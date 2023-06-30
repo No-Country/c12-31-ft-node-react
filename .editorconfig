@@ -1,0 +1,7 @@
+[*]
+end_of_line = lf
+charset = utf-8
+
+[*.{js,ts,json,yaml,yml}]
+indent_size = 2
+indent_style = space

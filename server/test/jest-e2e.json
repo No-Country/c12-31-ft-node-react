@@ -1,0 +1,9 @@
+{
+  "rootDir": "../",
+  "preset": "ts-jest",
+  "testRegex": ".*\\.e2e-spec\\.ts$",
+  "testEnvironment": "node",
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1"
+  }
+}
