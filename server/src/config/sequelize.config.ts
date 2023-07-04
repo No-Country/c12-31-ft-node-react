@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import "dotenv/config";
 import { Sequelize } from "sequelize-typescript";
 import { logger } from "./logger.config";
