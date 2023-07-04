@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { sequelize } from "./config/sequelize.config";
 import { logger } from "./config/logger.config";
 import { app } from "./config/app.config";
@@ -10,3 +11,4 @@ app.listen(PORT, async () => {
 
   logger.info(`🔥 App ready an listening on PORT ${PORT} 🔥`);
 });
+console.log('Hello is mi')

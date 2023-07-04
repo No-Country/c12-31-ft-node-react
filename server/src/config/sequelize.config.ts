@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import "dotenv/config";
 import { Sequelize } from "sequelize-typescript";
 import { logger } from "./logger.config";
@@ -8,7 +9,7 @@ export const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     dialect: "postgres",
-    host: "localhost",
+    host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT, 10),
     models: [__dirname + "/../models/*.model.ts"],
     logging: logger.info.bind(logger),

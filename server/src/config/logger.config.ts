@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { pino } from "pino";
 import pinoHttp from "pino-http";
 
