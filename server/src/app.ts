@@ -11,4 +11,3 @@ app.listen(PORT, async () => {
 
   logger.info(`🔥 App ready an listening on PORT ${PORT} 🔥`);
 });
-console.log('Hello is mi')
