@@ -4,10 +4,10 @@ import { DataTypes } from "sequelize";
 import { AllowNull, CreatedAt, Default, Model, UpdatedAt, AutoIncrement, Column, PrimaryKey, Table, HasOne } from "sequelize-typescript";
 import Wallet from "./wallet.model";
 // NOTE: sequelize-typescript complains if column decorator is not at bottom of decorator stack
-/* export enum Rol {
+export enum Rol {
   admin = "admin",
   user = "user",
-} */
+} 
 @Exclude()
 @Table
 class User extends Model<User> {
@@ -20,15 +20,15 @@ class User extends Model<User> {
   @Expose()
   @AllowNull(false)
   @Column(DataTypes.STRING)
-  correo: string;
+  email: string;
 
-  /* @Expose()
-  @Column(DataTypes.ENUM())
-  rol: Rol; */
+  @Expose()
+  @Column(DataTypes.ENUM({values:[Rol.admin,Rol.user]}))
+  rol: Rol; 
 
   @AllowNull(false)
   @Column(DataTypes.STRING)
-  passsword: string;
+  password: string;
 
   @Default(true)
   @Column(DataTypes.BOOLEAN)

@@ -16,7 +16,7 @@ class Wallet extends Model<Wallet> {
   id: number;
 
   @ForeignKey(()=>User)
-  @Column(DataTypes.DECIMAL)
+  @Column(DataTypes.INTEGER)
   userId:number;
 
   @Expose()
@@ -33,11 +33,12 @@ class Wallet extends Model<Wallet> {
   @Column(DataTypes.DECIMAL)
   balance_dolars:number;
 
+  @BelongsTo(() => User,'id')
+  user: User;
+
   @HasMany(() => Transaction)
   transactions: Transaction[];
   
-  @BelongsTo(() => User,'id')
-  user: User;
 
   @CreatedAt
   creationDate: Date;
