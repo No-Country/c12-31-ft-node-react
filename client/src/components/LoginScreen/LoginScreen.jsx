@@ -25,6 +25,8 @@ export const LoginScreen = () => {
         }
     }
 
+    
+
   return (
     <div className='p-10 mt-10 flex-col bg-zinc-50 max-h-screen'>
         <h1 className='text-xl font-semibold mb-3'>Iniciar sesión</h1>
