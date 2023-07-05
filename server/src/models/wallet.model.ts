@@ -25,13 +25,15 @@ class Wallet extends Model<Wallet> {
   currency: string;
 
 //Provisional
+  @Expose()
   @Default(0)
   @Column(DataTypes.DECIMAL)
   balance_pesos:number;
 //Provisional
+  @Expose()
   @Default(0)
   @Column(DataTypes.DECIMAL)
-  balance_dolars:number;
+  balance_dollars:number;
 
   @BelongsTo(() => User,'id')
   user: User;

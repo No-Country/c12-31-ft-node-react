@@ -24,7 +24,9 @@ export class UserService {
   public static async findOne(id: number, all?: boolean): Promise<User> {
     //si all es true, devuelve todos los usuarios, si es false, devuelve solo los activos
     if (all) {
-      const user = await this.userRepository.findByPk(id);
+      const user = await this.userRepository.findByPk(id, {
+        include: "wallet",
+      });
       if (!user) {
         throw new HttpError(404, "User not found");
       }
@@ -32,6 +34,7 @@ export class UserService {
     } else {
       const user = await this.userRepository.findOne({
         where: { id: id, active: true },
+        include: "wallet",
       });
       if (!user) {
         throw new HttpError(404, "User not found");

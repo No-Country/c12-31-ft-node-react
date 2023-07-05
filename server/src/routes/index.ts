@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Router } from "express";
 import { userRouter } from "./user.route";
+import { walletRouter } from "./wallet.route";
 
 const router = Router();
 
 // NOTE: Puts al routers here
-router.use("/users", userRouter);
+router.use("/user", userRouter);
+router.use("/wallet", walletRouter);
 
 export { router };

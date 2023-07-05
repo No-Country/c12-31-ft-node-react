@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { CreateUserDto } from "src/dto/create-user.dto";
 import { UpdateUserDto } from "src/dto/update-user.dto";
 import { UserService } from "src/services/user.service";
+import { WalletService } from "src/services/wallet.service";
 import { serializeResponse } from "src/utils/serialize-response";
 
 export class UserController {
@@ -13,7 +14,7 @@ export class UserController {
     try {
       const userDto: CreateUserDto = req.body;
       const user = await UserService.create(userDto);
-      console.log(req.body);
+      await WalletService.create(user.id, "ARS");
       res.status(201).json(serializeResponse(user));
     } catch (error) {
       next(error);

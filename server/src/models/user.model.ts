@@ -50,6 +50,7 @@ class User extends Model<User> {
   @Column(DataTypes.BOOLEAN)
   active:boolean;
 
+  @Expose()
   @HasOne(() => Wallet)
   wallet: Wallet;
 
