@@ -17,7 +17,7 @@ export const LoginScreen = () => {
          //VALIDACION
          if(email === "" || contraseña === "" ||  pais === ""  ){
             setError(true)
-            setMensaje("Los campos deben estar completos ")
+            setMensaje("Complete todos los campos")
             return
         }else{
             setError(false)
@@ -28,7 +28,7 @@ export const LoginScreen = () => {
   return (
     <div className='p-10 mt-10 flex-col bg-zinc-50'>
         <h1 className='text-xl font-semibold mb-3'>Iniciar sesión</h1>
-        <form action="" className='bg-zinc-300 rounded-3xl p-7 f'>
+        <form action="" className='bg-zinc-300 rounded-3xl p-7'>
 
         {error && <p className="text-red-500 text-center text-lg">{mensaje}</p>}
 
