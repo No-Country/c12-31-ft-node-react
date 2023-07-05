@@ -8,7 +8,8 @@
     "test:e2e": "jest -c test/jest-e2e.json",
     "dev": "ts-node-dev --rs -r tsconfig-paths/register --poll src/app.ts",
     "build": "tsc",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "keywords": [],
   "author": "",

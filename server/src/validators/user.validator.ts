@@ -2,11 +2,23 @@ import { body } from "express-validator";
 import { validateRequestMiddleware } from "src/middleware/validate-request.middleware";
 
 export const createUserValidator = [
-  body("name").isString().notEmpty().withMessage("Name is required length do define"),
-  body("lastname").isString().notEmpty().withMessage("Name is required length do define"),
-  body("address").isString().notEmpty().withMessage("Name is required length do define"),
+  body("name")
+    .isString()
+    .notEmpty()
+    .withMessage("Name is required length do define"),
+  body("lastname")
+    .isString()
+    .notEmpty()
+    .withMessage("Name is required length do define"),
+  body("address")
+    .isString()
+    .notEmpty()
+    .withMessage("Name is required length do define"),
   body("email").isEmail().withMessage("Name is required length do define"),
-  body("password").isString().notEmpty().withMessage("Name is required length do define"),
+  body("password")
+    .isString()
+    .notEmpty()
+    .withMessage("Name is required length do define"),
   validateRequestMiddleware,
 ];
 

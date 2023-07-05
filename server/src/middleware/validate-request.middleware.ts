@@ -9,9 +9,9 @@ export async function validateRequestMiddleware<T>(
   next: NextFunction
 ) {
   const result = validationResult(req);
-  if (result.isEmpty()){ 
+  if (result.isEmpty()) {
     req.body = matchedData(req, { locations: ["body"] }) as T;
-    return next()
+    return next();
   }
   // TODO: Apply error formatting
   else return next(result.array());

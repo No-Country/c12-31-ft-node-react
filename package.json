@@ -9,7 +9,8 @@
     "lint": "npm run lint --workspaces",
     "test": "npm run test --workspace server",
     "test:server": "jest server/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:fix": "npm run lint -- --fix --workspaces"
   },
   "workspaces": [
     "client",
