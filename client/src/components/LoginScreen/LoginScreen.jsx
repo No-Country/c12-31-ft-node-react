@@ -26,11 +26,13 @@ export const LoginScreen = () => {
     }
 
   return (
-    <div className='p-10 mt-10 flex-col bg-zinc-50'>
+    <div className='p-10 mt-10 flex-col bg-zinc-50 max-h-screen'>
         <h1 className='text-xl font-semibold mb-3'>Iniciar sesión</h1>
-        <form action="" className='bg-zinc-300 rounded-3xl p-7'>
+        <form action="" className='bg-zinc-300 rounded-3xl px-7 py-5'>
+            <div className='h-6'>
+                {error && <p className="text-red-500 text-center text-lg">{mensaje}</p>}
+            </div>
 
-        {error && <p className="text-red-500 text-center text-lg">{mensaje}</p>}
 
         <div className="flex-col flex py-1">
             <p className="font-semibold">Pais</p>
@@ -56,7 +58,7 @@ export const LoginScreen = () => {
                 />
             </div>
 
-            <div className='py-1'>
+            <div className='py-1 mb-6'>
                 <p className='mb-1 font-semibold'>Contraseña</p>
                 <input 
                     type="password" 
