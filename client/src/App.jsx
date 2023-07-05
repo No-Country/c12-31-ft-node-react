@@ -1,10 +1,13 @@
-import Registro from "./components/Registro"
+
+import React from 'react'
+import { LoginScreen } from './components/LoginScreen/LoginScreen'
 
 function App() {
   return (
-    <>
-    <Registro/>
-    </>
+    <div>
+      <LoginScreen />
+    </div>
+
   )
 }
 
