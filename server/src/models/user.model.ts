@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Exclude, Expose } from "class-transformer";
 import { DataTypes } from "sequelize";
-import { AllowNull, CreatedAt, Default, Model, UpdatedAt, AutoIncrement, Column, PrimaryKey, Table, HasOne } from "sequelize-typescript";
+import { AllowNull, CreatedAt, Default, Model, UpdatedAt, AutoIncrement, Column, PrimaryKey, Table, HasOne, Unique } from "sequelize-typescript";
 import Wallet from "./wallet.model";
 // NOTE: sequelize-typescript complains if column decorator is not at bottom of decorator stack
 export enum Rol {
@@ -19,6 +19,22 @@ class User extends Model<User> {
 
   @Expose()
   @AllowNull(false)
+  @Column(DataTypes.STRING)
+  name: string;
+
+  @Expose()
+  @AllowNull(false)
+  @Column(DataTypes.STRING)
+  lastname: string;
+
+  @Expose()
+  @AllowNull(false)
+  @Column(DataTypes.STRING)
+  address: string;
+
+  @Expose()
+  @AllowNull(false)
+  @Unique
   @Column(DataTypes.STRING)
   email: string;
 

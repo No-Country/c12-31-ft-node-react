@@ -13,6 +13,7 @@ export class UserController {
     try {
       const userDto: CreateUserDto = req.body;
       const user = await UserService.create(userDto);
+      console.log(req.body);
       res.status(201).json(serializeResponse(user));
     } catch (error) {
       next(error);

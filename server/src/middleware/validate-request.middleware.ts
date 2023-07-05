@@ -1,6 +1,7 @@
 import { NextFunction, Response } from "express";
 import { validationResult } from "express-validator";
 import { RequestWithTypedBody } from "src/types/custom-request.type";
+import { matchedData } from "express-validator";
 
 export async function validateRequestMiddleware<T>(
   req: RequestWithTypedBody<T>,
@@ -8,7 +9,10 @@ export async function validateRequestMiddleware<T>(
   next: NextFunction
 ) {
   const result = validationResult(req);
-  if (result.isEmpty()) return next();
+  if (result.isEmpty()){ 
+    req.body = matchedData(req, { locations: ["body"] }) as T;
+    return next()
+  }
   // TODO: Apply error formatting
   else return next(result.array());
 }
