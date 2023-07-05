@@ -66,12 +66,14 @@ function Registro() {
     <div className="bg-white">
       <h2 className="text-center text-black font-bol m-12 text-xl">Estas por registrar un nuevo usuario en tu billetera virtual</h2>
 
-      {error && <p className="text-red-500 text-center text-xl">{mensaje}</p>}
-      {exito && <p className="text-green-500 text-center text-xl">{mensaje}</p>} 
+
 
       <div className="flex justify-center items-center">
       <form  className="flex flex-col gap-4 p-10 m-5 w-96 bg-[#D9D9D9] rounded-2xl h-full ">
-
+        <div className="h-4 m-2">
+        {error && <p className="text-red-500 text-center text-sm">{mensaje}</p>}
+        {exito && <p className="text-green-500 text-center text-lg">{mensaje}</p>} 
+        </div>
         <div className="flex-col flex">
             <label htmlFor="mail" className="text-lg ">Ingresa un email</label>
             <input 
