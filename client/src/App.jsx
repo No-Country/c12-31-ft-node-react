@@ -1,12 +1,22 @@
-import React from 'react'
-import { Dashboard } from './components/Dashboard'
+
+import LoginScreen from './components/LoginScreen/LoginScreen'
+import Registro from './components/Registro/Registro' 
+import HomePageContainer from './components/container/HomePageContainer'
+import AppRoutes from './routes/AppRoutes'
+import { UserContextProvider } from './context/useUserContext'
+
 
 function App() {
+  
   return (
-    <div>
-      <Dashboard />
-    </div>
-
+    <>
+      {/* <HomePageContainer/>
+      <LoginScreen/>
+      <Registro/>  */}
+      <UserContextProvider>
+      <AppRoutes />
+      </UserContextProvider>
+    </>
   )
 }
 

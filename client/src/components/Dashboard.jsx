@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavBar } from './NavBar'
-
+import { AiOutlineEye } from "react-icons/ai";
 
 
 
@@ -12,7 +12,8 @@ export const Dashboard = () => {
         <div className='flex w-full bg-gray-200'>
             <div className='p-8 w-2/4'>
                 <h1 className='text-xl'>Saldo actual</h1>
-                <h1 className='mt-2 text-3xl font-bold'>$28.48</h1>
+                <AiOutlineEye className='text-4xl'/>
+                <h1 className='text-3xl font-bold'>$28.48</h1>
             </div>
             <div className='w-20'></div>
             <div className='px-4 w-2/4 flex flex-col justify-center items-end'>
