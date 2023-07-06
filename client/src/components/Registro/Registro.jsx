@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-
+ */
 
 function Registro() {
 
@@ -98,10 +98,10 @@ function Registro() {
                 className="absolute right-2 top-2 bg-transparent border-none"
                 onClick={handleToggleContraseña1}
                 >
-                <FontAwesomeIcon
+{/*                 <FontAwesomeIcon
                     icon={mostrarContraseña1 ? faEye : faEyeSlash}
                     className="text-gray-400"
-                />
+                /> */}
                 </button>
             </div>
         </div>
@@ -122,10 +122,10 @@ function Registro() {
                 className="absolute right-2 top-2 bg-transparent border-none"
                 onClick={handleToggleContraseña2}
                 >
-                <FontAwesomeIcon
+{/*                 <FontAwesomeIcon
                     icon={mostrarContraseña2 ? faEye : faEyeSlash}
                     className="text-gray-400"
-                />
+                /> */}
                 </button>
             </div>
         </div>

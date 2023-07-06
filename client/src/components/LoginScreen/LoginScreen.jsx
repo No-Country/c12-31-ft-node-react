@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-export const LoginScreen = () => {
+function LoginScreen () {
 
       //STATES
       const [email, setEmail] = useState("");
@@ -100,3 +100,5 @@ export const LoginScreen = () => {
     </div>
   )
 }
+
+export default LoginScreen;
