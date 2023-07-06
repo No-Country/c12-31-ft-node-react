@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavBar } from './NavBar'
 import { AiOutlineEye } from "react-icons/ai";
+import { NavBarBottom } from './NavBarBottom/NavBarBottom';
 
 
 
@@ -21,6 +22,8 @@ export const Dashboard = () => {
                 <button className="btn btn-sm w-full px-2">Extraer dinero</button>
             </div>
         </div>
+
+        <NavBarBottom />
     </div>
   )
 }
