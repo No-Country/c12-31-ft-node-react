@@ -3,8 +3,14 @@ services:
     image: postgres:15
     restart: always
     ports:
-      - "5432:5432"
+      - "${DB_PORT}:5432"
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+  server:
+    env_file: .env
+    build:
+      dockerfile: server.Dockerfile
+    depends_on:
+      - database

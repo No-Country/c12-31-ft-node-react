@@ -1,0 +1,11 @@
+.git/
+.gitignore
+.dockerignore
+.editorconfig
+.prettierrc
+.textlintrc.json
+*.md
+Dockerfile
+docker-compose.yaml
+node_modules
+.npmrc
