@@ -9,16 +9,16 @@ export const createUserValidator = [
   body("lastname")
     .isString()
     .notEmpty()
-    .withMessage("Name is required length do define"),
+    .withMessage("lastname is required length do define"),
   body("address")
     .isString()
     .notEmpty()
-    .withMessage("Name is required length do define"),
-  body("email").isEmail().withMessage("Name is required length do define"),
+    .withMessage("address is required length do define"),
+  body("email").isEmail().withMessage("email is required length do define"),
   body("password")
     .isString()
     .notEmpty()
-    .withMessage("Name is required length do define"),
+    .withMessage("password is required length do define"),
   validateRequestMiddleware,
 ];
 

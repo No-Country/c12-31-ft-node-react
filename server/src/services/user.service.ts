@@ -3,11 +3,14 @@ import { CreateUserDto } from "src/dto/create-user.dto";
 import { UpdateUserDto } from "src/dto/update-user.dto";
 import User from "src/models/user.model";
 import { HttpError } from "src/types/http-error.type";
+import { encrypt, compare } from "../utils/hash";
 
 export class UserService {
   private static readonly userRepository = sequelize.getRepository(User);
 
   public static async create(createUserDto: CreateUserDto): Promise<User> {
+    const passwordHash = await encrypt(createUserDto.password);
+    createUserDto.password = passwordHash;
     const user = await this.userRepository.create(createUserDto);
     return user;
   }
@@ -53,9 +56,21 @@ export class UserService {
     });
     return user;
   }
-
-  public static async remove(id: number): Promise<void> {
+  /* public static async remove(id: number): Promise<void> {
     const user = await this.findOne(id);
     await user.destroy();
+  } */
+  public static async login(email: string, password: string): Promise<User> {
+    const user = await this.userRepository.findOne({
+      where: { email: email, active: true },
+    });
+    if (!user) {
+      throw new HttpError(404, "User not found");
+    }
+    const passwordMatch = await compare(password, user.password);
+    if (!passwordMatch) {
+      throw new HttpError(400, "Invalid password");
+    }
+    return user;
   }
 }

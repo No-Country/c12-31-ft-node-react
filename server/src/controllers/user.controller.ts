@@ -62,7 +62,19 @@ export class UserController {
       next(error);
     }
   }
-
+  static async login(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { email, password } = req.body;
+      const user = await UserService.login(email, password);
+      res.json(serializeResponse(user));
+    } catch (error) {
+      next(error);
+    }
+  }
   // static async remove(req: Request, res: Response, next:NextFunction): Promise<void> {
   //     try {
   //         const id = Number(req.params.id);
