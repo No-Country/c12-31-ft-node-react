@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { sequelize } from "./config/sequelize.config";
 import { logger } from "./config/logger.config";
 import { app } from "./config/app.config";

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import express, { json } from "express";
 import { exceptionHandlerMiddleware } from "src/middleware/excepction-handler.middleware";
 import swaggerUi from "swagger-ui-express";
