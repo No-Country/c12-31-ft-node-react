@@ -50,17 +50,35 @@ export class WalletController {
     }
   }
 
-  static async updateBalanceDollars(
+  static async convertBalanceToDollars(
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<void> {
     try {
       const walletId = Number(req.params.walletId);
-      const updateBalance = Number(req.body.updateBalance);
-      const wallet = await WalletService.updateBalanceDollars(
+      const amountToConvert = Number(req.body.amountToConvert);
+      const wallet = await WalletService.convertBalanceToDollars(
         walletId,
-        updateBalance
+        amountToConvert
+      );
+      res.json(serializeResponse(wallet));
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async convertDllsToArs(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const walletId = Number(req.params.walletId);
+      const amountToConvert = Number(req.body.amountToConvert);
+      const wallet = await WalletService.convertBalanceToPesos(
+        walletId,
+        amountToConvert
       );
       res.json(serializeResponse(wallet));
     } catch (error) {

@@ -37,23 +37,43 @@ export class WalletService {
     updateBalance: number
   ): Promise<Wallet> {
     const wallet = await this.findOne(walletId);
-    wallet.balance_pesos = wallet.balance_pesos + updateBalance;
-    await this.walletRepository.update(wallet, {
-      where: { id: walletId },
-    });
+    wallet.balance_pesos = Number(wallet.balance_pesos) + updateBalance;
+    await wallet.save();
     return wallet;
   }
 
-  public static async updateBalanceDollars(
+  public static async convertBalanceToDollars(
     walletId: number,
-    updateBalance: number
+    amountToConvert: number
   ): Promise<Wallet> {
     const wallet = await this.findOne(walletId);
-    wallet.balance_dollars = wallet.balance_dollars + updateBalance;
-    await this.walletRepository.update(wallet, {
-      where: { id: walletId },
-    });
-    return wallet;
+
+    if (wallet.balance_pesos >= amountToConvert) {
+      wallet.balance_pesos = Number(wallet.balance_pesos) - amountToConvert;
+      wallet.balance_dollars =
+        Number(wallet.balance_dollars) + amountToConvert / 150;
+      await wallet.save();
+      return wallet;
+    } else {
+      throw new HttpError(400, "Saldo insuficiente en pesos");
+    }
+  }
+
+  public static async convertBalanceToPesos(
+    walletId: number,
+    amountToConvert: number
+  ): Promise<Wallet> {
+    const wallet = await this.findOne(walletId);
+
+    if (wallet.balance_dollars >= amountToConvert) {
+      wallet.balance_dollars = Number(wallet.balance_dollars) - amountToConvert;
+      wallet.balance_pesos =
+        Number(wallet.balance_pesos) + amountToConvert * 150;
+      await wallet.save();
+      return wallet;
+    } else {
+      throw new HttpError(400, "Saldo insuficiente en dólares");
+    }
   }
 
   public static async update(

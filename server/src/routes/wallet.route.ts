@@ -4,6 +4,7 @@ import {
   updateWalletValidator,
   updateWalletBalancePesosValidator,
   updateWalletBalanceDollarsValidator,
+  updateWalletBalanceDlls2ArsValidator,
 } from "../validators/wallet.validator";
 
 const router = Router();
@@ -17,9 +18,15 @@ router.put(
   WalletController.updateBalancePesos
 );
 router.put(
-  "/balance/dollars/:walletId",
+  "/balance/2dollars/:walletId",
   updateWalletBalanceDollarsValidator,
-  WalletController.updateBalanceDollars
+  WalletController.convertBalanceToDollars
+);
+
+router.put(
+  "/balance/2ars/:walletId",
+  updateWalletBalanceDlls2ArsValidator,
+  WalletController.convertDllsToArs
 );
 
 export { router as walletRouter };

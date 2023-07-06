@@ -16,9 +16,17 @@ export const updateWalletBalancePesosValidator = [
 ];
 
 export const updateWalletBalanceDollarsValidator = [
-  body("updateBalance")
+  body("amountToConvert")
     .isNumeric()
     .notEmpty()
-    .withMessage("Balance dollars is required"),
+    .withMessage("Amount to convert is required"),
+  validateRequestMiddleware,
+];
+
+export const updateWalletBalanceDlls2ArsValidator = [
+  body("amountToConvert")
+    .isNumeric()
+    .notEmpty()
+    .withMessage("Amount to convert is required"),
   validateRequestMiddleware,
 ];
