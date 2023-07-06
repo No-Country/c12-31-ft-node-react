@@ -12,7 +12,7 @@ const HomePageContainer = () => {
     return (
         <div className="bg-gray-200">
             <nav className="bg-transparent absolute z-50">
-                {/* <NavBar/> */}
+                <NavBar/>
             </nav>
             <header>
                 <div className="contImg1 h-screen relative">    
