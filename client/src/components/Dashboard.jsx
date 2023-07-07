@@ -1,14 +1,14 @@
 import React from 'react'
 import { NavBar } from './NavBar'
-import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEye, AiFillCreditCard } from "react-icons/ai";
 import { NavBarBottom } from './NavBarBottom/NavBarBottom';
 
 
 
 export const Dashboard = () => {
   return (
-    <div>
-        <NavBar />
+    <div className=''>
+        <NavBar/>
 
         <div className='flex w-full bg-gray-200'>
             <div className='p-8 w-2/4'>
@@ -22,6 +22,76 @@ export const Dashboard = () => {
                 <button className="btn btn-sm w-full px-2">Extraer dinero</button>
             </div>
         </div>
+
+        <div className='h-60 bg-gray-200 m-6'>
+          Mis Tarjetas
+        </div>
+
+        <div className='flex flex-col justify-center items-center'>
+          <div>
+            <div className='flex items-center justify-between px-10 pt-3'>
+              <div className='flex flex-col items-center w-1/4 px-10'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Pagos</h5>
+              </div>
+              <div className='flex flex-col items-center w-1/4'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Transferencias</h5>
+              </div>
+              <div className='flex flex-col items-center w-1/4'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>QR</h5>
+              </div>
+              <div className='flex flex-col items-center w-1/4'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Recargas</h5>
+              </div>
+            
+            
+            
+            </div>
+          </div>
+          <div>
+            <div className='flex items-center justify-between mx-10 mt-8'>
+              <div className='flex flex-col items-center w-1/4 px-10'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Inversiones</h5>
+              </div>
+              <div className='flex flex-col items-center w-1/4'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Bitcoin</h5>
+              </div>
+              <div className='flex flex-col items-center w-1/4'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Dolar</h5>
+              </div>
+              <div className='flex flex-col items-center w-1/4'>
+                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
+                  <AiFillCreditCard className='text-3xl'/>
+                </div>
+                  <h5>Movimientos</h5>
+              </div>
+            
+            
+            
+            </div>
+          </div>
+        </div>
+
 
         <NavBarBottom />
     </div>
