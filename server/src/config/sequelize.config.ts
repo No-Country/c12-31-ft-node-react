@@ -8,7 +8,7 @@ export const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     dialect: "postgres",
-    host: "localhost",
+    host: process.env.HOST,
     port: parseInt(process.env.DB_PORT, 10),
     models: [__dirname + "/../models/*.model.ts"],
     logging: logger.info.bind(logger),

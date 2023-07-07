@@ -1,6 +1,14 @@
-import { useState } from 'react'
+import { useState,useContext } from 'react'
+import { UserContext } from '../../context/useUserContext';
+import {useNavigate} from 'react-router-dom'
 
-export const LoginScreen = () => {
+
+
+function LoginScreen () {
+    const { isLoggedIn, login, logout } = useContext(UserContext);
+  
+    const navegate = useNavigate()
+    
 
       //STATES
       const [email, setEmail] = useState("");
@@ -22,7 +30,14 @@ export const LoginScreen = () => {
         }else{
             setError(false)
             console.log(email, contraseña, pais)
+            login()
+            console.log(isLoggedIn)
+            
+            
+           
+
         }
+
     }
 
     
@@ -100,3 +115,5 @@ export const LoginScreen = () => {
     </div>
   )
 }
+
+export default LoginScreen;
