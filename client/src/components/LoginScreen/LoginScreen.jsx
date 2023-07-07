@@ -10,7 +10,6 @@ function LoginScreen () {
     const navegate = useNavigate()
     
 
-
       //STATES
       const [email, setEmail] = useState("");
       const [contraseña, setContraseña] = useState("");
