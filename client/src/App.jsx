@@ -1,12 +1,22 @@
-import React from 'react'
-import { LoginScreen } from './components/LoginScreen/LoginScreen'
+
+import LoginScreen from './components/LoginScreen/LoginScreen'
+import Registro from './components/Registro/Registro' 
+import HomePageContainer from './components/container/HomePageContainer'
+import AppRoutes from './routes/AppRoutes'
+import { UserContextProvider } from './context/useUserContext'
+
 
 function App() {
+  
   return (
-    <div>
-      <LoginScreen />
-    </div>
-
+    <>
+      {/* <HomePageContainer/>
+      <LoginScreen/>
+      <Registro/>  */}
+      <UserContextProvider>
+      <AppRoutes />
+      </UserContextProvider>
+    </>
   )
 }
 
