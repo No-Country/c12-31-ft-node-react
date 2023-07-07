@@ -27,9 +27,9 @@ export const Dashboard = () => {
           Mis Tarjetas
         </div>
 
-        <div className='flex flex-col justify-center items-center'>
-          <div>
-            <div className='flex items-center justify-between px-10 pt-3'>
+        <div className='flex flex-col justify-center items-center min-h-full'>
+          <div className='w-screen'>
+            <div className='flex items-center justify-between px-3 pt-3'>
               <div className='flex flex-col items-center w-1/4 px-10'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <AiFillCreditCard className='text-3xl'/>
@@ -59,8 +59,8 @@ export const Dashboard = () => {
             
             </div>
           </div>
-          <div>
-            <div className='flex items-center justify-between mx-10 mt-8'>
+          <div className='w-screen mb-10'>
+            <div className='flex items-center justify-between mx-3 mt-8'>
               <div className='flex flex-col items-center w-1/4 px-10'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <AiFillCreditCard className='text-3xl'/>
