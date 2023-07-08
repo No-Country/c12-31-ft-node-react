@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { ProtectedRoute } from "./ProtectedRouter";
 import Registro from "../components/Registro/Registro";
 import LoginScreen from "../components/LoginScreen/LoginScreen";
@@ -13,13 +13,13 @@ function AppRoutes() {
 
   return (
     <Router>
-        {/* <NavBar /> */}
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<HomePageContainer />} />
-        <Route element={<ProtectedRoute isAllowed={!isLoggedIn}/>}>
-        <Route path="/register" element={<Registro />} />
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<ProtectedRoute isAllowed={!isLoggedIn} />}>
+          <Route path="/register" element={<Registro />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
 
       </Routes>

@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
-import express, { json } from "express";
-import { exceptionHandlerMiddleware } from "src/middleware/excepction-handler.middleware";
-import swaggerUi from "swagger-ui-express";
-import { httpLogger } from "./logger.config";
-import { swaggerDoc } from "./swagger.config";
-import { router } from "src/routes";
 import cors from "cors";
+import express, { json } from "express";
+import { exceptionHandlerMiddleware } from "middleware/excepction-handler.middleware";
+import "reflect-metadata";
+import { router } from "routes/index";
+import swaggerUi from "swagger-ui-express";
+import { swaggerDoc } from "./swagger.config";
 
 const app = express();
 
@@ -17,7 +16,7 @@ app.use(
 );
 
 // TODO: Customize logging format
-app.use(httpLogger);
+// app.use(httpLogger);
 app.use(json());
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));

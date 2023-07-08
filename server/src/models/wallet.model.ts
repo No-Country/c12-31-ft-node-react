@@ -1,51 +1,48 @@
-/* eslint-disable prettier/prettier */
 import { Exclude, Expose } from "class-transformer";
-import { DataTypes} from "sequelize";
-import { AllowNull, CreatedAt, Default, Model, UpdatedAt, AutoIncrement, Column, PrimaryKey, Table, HasMany, BelongsTo, ForeignKey } from "sequelize-typescript";
-import Transaction from "../models/transaction.model";
-import User from "./user.model";
-// NOTE: sequelize-typescript complains if column decorator is not at bottom of decorator stack
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Relation,
+  UpdateDateColumn,
+} from "typeorm";
+import Transaction from "./transaction.model";
 
 @Exclude()
-@Table
-class Wallet extends Model<Wallet> {
+@Entity()
+class Wallet {
   @Expose()
-  @PrimaryKey
-  @AutoIncrement
-  @Column(DataTypes.INTEGER)
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-  @ForeignKey(()=>User)
-  @Column(DataTypes.INTEGER)
-  userId:number;
+  // @ForeignKey(() => User)
+  @Column()
+  userId: string;
 
   @Expose()
-  @AllowNull(false)
-  @Column(DataTypes.STRING)
+  @Column()
   currency: string;
 
-//Provisional
   @Expose()
-  @Default(0)
-  @Column(DataTypes.DECIMAL)
-  balance_pesos:number;
-//Provisional
+  @Column({ type: "money" })
+  balance_pesos: number;
+
   @Expose()
-  @Default(0)
-  @Column(DataTypes.DECIMAL)
-  balance_dollars:number;
+  @Column({ type: "money" })
+  balance_dollars: number;
 
-  @BelongsTo(() => User,'id')
-  user: User;
+  // @BelongsTo(() => User, 'id')
+  // @Column({ length: 50 })
+  // user: User;
+  @OneToMany(() => Transaction, (transaction) => transaction.id)
+  transactions: Relation<Transaction>[];
 
-  @HasMany(() => Transaction)
-  transactions: Transaction[];
-  
-
-  @CreatedAt
+  @CreateDateColumn()
   creationDate: Date;
 
-  @UpdatedAt
+  @UpdateDateColumn()
   updatedOn: Date;
 }
 

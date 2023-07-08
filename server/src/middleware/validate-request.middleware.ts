@@ -1,7 +1,6 @@
 import { NextFunction, Response } from "express";
-import { validationResult } from "express-validator";
-import { RequestWithTypedBody } from "src/types/custom-request.type";
-import { matchedData } from "express-validator";
+import { matchedData, validationResult } from "express-validator";
+import { RequestWithTypedBody } from "types/custom-request.type";
 
 export async function validateRequestMiddleware<T>(
   req: RequestWithTypedBody<T>,

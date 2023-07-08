@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker/faker";
 import { CreateItemDto } from "src/dtos/create-item.dto";
 import { ItemDto } from "src/dtos/item.dto";
 import { itemConstraints } from "src/validators/item.validator";

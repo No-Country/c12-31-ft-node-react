@@ -10,7 +10,8 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
   server:
     env_file: .env
-    build:
-      dockerfile: server.Dockerfile
+    build: .
     depends_on:
       - database
+    ports:
+      - "4000:5432"

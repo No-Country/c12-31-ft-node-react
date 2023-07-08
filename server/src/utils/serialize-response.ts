@@ -1,5 +1,5 @@
-import { ApiSerializedResponse } from "src/types/api-serialized-response.type";
 import { instanceToPlain } from "class-transformer";
+import { ApiSerializedResponse } from "types/api-serialized-response.type";
 
 export function serializeResponse<T>(
   data: T,
