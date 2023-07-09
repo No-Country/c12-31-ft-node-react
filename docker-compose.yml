@@ -1,7 +1,8 @@
 services:
   database:
     image: postgres:15
-    restart: always
+    container_name: postgres
+    # restart: always
     ports:
       - "${DB_PORT}:5432"
     environment:
@@ -14,4 +15,7 @@ services:
     depends_on:
       - database
     ports:
-      - "4000:5432"
+      - "${APP_PORT}:${APP_PORT}"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432

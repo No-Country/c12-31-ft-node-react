@@ -7,7 +7,7 @@ import Transaction from "models/transaction.model";
 
 const { database } = config;
 
-export const dataSource = new DataSource({
+export const dbContext = new DataSource({
   type: "postgres",
   host: database.host,
   port: database.port,

@@ -9,9 +9,11 @@ const router = Router();
 
 router.get("/", UserController.findAll);
 router.get("/:id", UserController.findOne);
-router.post("/login", UserController.login);
 router.post("/", createUserValidator, UserController.create);
-router.put("/:id", updateUserValidator, UserController.update);
-// router.delete("/user/:id", UserController.remove);
+router.put(
+  "/resetpassword",
+  updateUserValidator,
+  UserController.changePassword
+);
 
 export { router as userRouter };

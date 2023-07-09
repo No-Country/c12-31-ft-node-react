@@ -1,8 +1,8 @@
-import { dataSource } from "config/sequelize.config";
+import { dbContext } from "config/database.config";
 import Wallet from "models/wallet.model";
 
 export class WalletService {
-  private static readonly walletRepository = dataSource.getRepository(Wallet);
+  private static readonly walletRepository = dbContext.getRepository(Wallet);
 
   public static async create(
     userId: string,

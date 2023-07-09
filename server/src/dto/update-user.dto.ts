@@ -1,3 +1,5 @@
 import { CreateUserDto } from "./create-user.dto";
 
-export type UpdateUserDto = Partial<CreateUserDto>;
+export type ChangePasswordDto = Partial<
+  Pick<CreateUserDto, "password" | "email">
+>;

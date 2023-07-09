@@ -9,7 +9,7 @@
     "lint": "lerna run lint",
     "test": "lerna run test",
     "prepare": "husky install",
-    "start": "ts-node --transpile-only --project server/tsconfig.build.json server/src/app.ts"
+    "start": "node ./server/dist/index.js"
   },
   "workspaces": [
     "client",

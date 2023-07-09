@@ -1,5 +1,5 @@
 export interface ApiSerializedResponse<T> {
   status: number;
-  error?: T;
+  error: T;
   data?: T;
 }

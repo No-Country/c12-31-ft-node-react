@@ -1,17 +1,19 @@
-import { dataSource } from "config/sequelize.config";
+import { dbContext } from "config/database.config";
 import { CreateUserDto } from "dto/create-user.dto";
-import { UpdateUserDto } from "dto/update-user.dto";
+import { ChangePasswordDto } from "dto/update-user.dto";
 import User from "models/user.model";
 import { HttpError } from "types/http-error.type";
 import { encrypt } from "utils/hash";
 
 export class UserService {
-  private static readonly userRepository = dataSource.getRepository(User);
+  private static readonly userRepository = dbContext.getRepository(User);
 
   public static async create(createUserDto: CreateUserDto): Promise<User> {
+    // TODO: create wallet
     const passwordHash = await encrypt(createUserDto.password);
     createUserDto.password = passwordHash;
     const user = await this.userRepository.save(createUserDto);
+
     return user;
   }
 
@@ -23,64 +25,32 @@ export class UserService {
     }
   }
 
-  public static async findOne(id: string, all?: boolean): Promise<User> {
-    //si all es true, devuelve todos los usuarios, si es false, devuelve solo los activos
-    if (all) {
-      const user = await this.userRepository.findOne({
-        where: {
-          id,
-        },
-        relations: {
-          wallet: true,
-        },
-      });
-
-      if (!user) {
-        throw new HttpError(404, `User with id ${id} not found`);
-      }
-
-      return user;
-    } else {
-      const user = await this.userRepository.findOne({
-        where: {
-          id,
-        },
-        relations: {
-          wallet: true,
-        },
-      });
-
-      if (!user) {
-        throw new HttpError(404, `User with id ${id} not found`);
-      }
-
-      return user;
-    }
-  }
-
-  public static async update(
-    id: string,
-    updateUserDto: UpdateUserDto
-  ): Promise<User> {
-    const user = await this.findOne(id);
-    await this.userRepository.update(id, updateUserDto);
-    return user;
-  }
-
-  public static async login(email: string, password: string): Promise<User> {
+  public static async findOne(id: string): Promise<User> {
     const user = await this.userRepository.findOne({
-      where: { email: email, active: true },
+      where: {
+        id,
+      },
+      relations: {
+        wallet: true,
+      },
     });
 
-    if (!user) {
-      throw new HttpError(404, "User not found");
-    }
-    // const passwordMatch = await compare(password, user.password);
-    //
-    // if (!passwordMatch) {
-    //   throw new HttpError(400, "Invalid password");
-    // }
+    if (!user) throw new HttpError(404, `User with id ${id} not found`);
 
     return user;
+  }
+
+  public static async changePassword(
+    email: string,
+    password: string
+  ): Promise<string> {
+    const user = await this.userRepository.findOneBy({ email });
+
+    if (!user)
+      throw new HttpError(404, `User with email ${email} does not exist`);
+
+    await this.userRepository.update(user.id, { password });
+
+    return "Password updated successfully";
   }
 }

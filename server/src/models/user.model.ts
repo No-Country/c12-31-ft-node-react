@@ -20,11 +20,11 @@ class User {
   id: string;
 
   @Expose()
-  @Column({ length: 100 })
+  @Column({ length: 100, update: false })
   name: string;
 
   @Expose()
-  @Column({ length: 100 })
+  @Column({ length: 100, update: false })
   lastname: string;
 
   @Expose()
@@ -32,11 +32,10 @@ class User {
   address: string;
 
   @Expose()
-  @Column({ unique: true })
+  @Column({ unique: true, update: false })
   email: string;
 
   // NOTE: Enum type only supported by postgresql database
-  @Expose()
   @Column({ type: "enum", enum: Role, default: Role.user })
   rol: Role;
 
@@ -47,11 +46,11 @@ class User {
   active: boolean;
 
   @Expose()
-  @OneToOne(() => Wallet)
+  @OneToOne(() => Wallet, { cascade: ["soft-remove"] })
   @JoinColumn()
   wallet: Relation<Wallet>;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ update: false })
   creationDate: Date;
 
   @UpdateDateColumn()
