@@ -13,7 +13,6 @@ export class UserController {
   ): Promise<void> {
     try {
       const user = await UserService.create(req.body);
-      // await WalletService.create(user.id, "ARS");
       res.status(201).json(serializeResponse(user));
     } catch (error) {
       next(error);
@@ -53,7 +52,7 @@ export class UserController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const user = await UserService.changePassword(body.email, body.password);
+      const user = await UserService.changePassword(body);
       res.json(serializeResponse(user));
     } catch (error) {
       next(error);

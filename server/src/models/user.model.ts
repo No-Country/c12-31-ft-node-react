@@ -46,7 +46,10 @@ class User {
   active: boolean;
 
   @Expose()
-  @OneToOne(() => Wallet, { cascade: ["soft-remove"] })
+  @OneToOne(() => Wallet, {
+    eager: true,
+    nullable: false,
+  })
   @JoinColumn()
   wallet: Relation<Wallet>;
 

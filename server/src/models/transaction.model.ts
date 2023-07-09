@@ -25,12 +25,14 @@ class Transaction {
   wallet: Relation<Wallet>;
 
   @Expose()
-  @Column("money")
+  @Column("decimal")
   amount: number;
 
+  @Expose()
   @Column("date")
   date: Date;
 
+  @Expose()
   @Column("uuid")
   senderId: string;
 

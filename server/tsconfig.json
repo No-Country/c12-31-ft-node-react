@@ -3,7 +3,7 @@
     "esModuleInterop": true,
     "moduleResolution": "nodenext",
     "module": "commonJs",
-    "target": "es6",
+    "target": "es2022",
     "declaration": true,
     "removeComments": true,
     "experimentalDecorators": true,

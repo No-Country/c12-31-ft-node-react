@@ -1,3 +1,4 @@
+import { Decimal } from "decimal.js";
 import { Exclude, Expose } from "class-transformer";
 import {
   Column,
@@ -17,25 +18,14 @@ class Wallet {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  // @ForeignKey(() => User)
-  @Column()
-  userId: string;
+  @Expose()
+  @Column({ type: "decimal", default: 0 })
+  balancePesos: Decimal;
 
   @Expose()
-  @Column()
-  currency: string;
+  @Column({ type: "decimal", default: 0 })
+  balanceDollars: Decimal;
 
-  @Expose()
-  @Column({ type: "money" })
-  balance_pesos: number;
-
-  @Expose()
-  @Column({ type: "money" })
-  balance_dollars: number;
-
-  // @BelongsTo(() => User, 'id')
-  // @Column({ length: 50 })
-  // user: User;
   @OneToMany(() => Transaction, (transaction) => transaction.id)
   transactions: Relation<Transaction>[];
 

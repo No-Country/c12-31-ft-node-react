@@ -1,5 +1,10 @@
 export interface ApiSerializedResponse<T> {
-  status: number;
-  error: T;
-  data?: T;
+  statusCode: number;
+  data: T;
+}
+
+export interface ApiErrorSerializedResponse {
+  statusCode: number;
+  error: string;
+  message: string;
 }
