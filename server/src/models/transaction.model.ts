@@ -1,50 +1,45 @@
-/* eslint-disable prettier/prettier */
 import { Exclude, Expose } from "class-transformer";
-import { DataTypes } from "sequelize";
 import {
-  AllowNull,
-  CreatedAt,
-  Default,
-  Model,
-  UpdatedAt,
-} from "sequelize-typescript";
-import { AutoIncrement, Column, PrimaryKey, Table, ForeignKey } from "sequelize-typescript";
-import Wallet from "./wallet.model"; 
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  Relation,
+  UpdateDateColumn,
+} from "typeorm";
+import Wallet from "./wallet.model";
+
 @Exclude()
-@Table
-class Transaction extends Model<Transaction> {
+@Entity()
+class Transaction {
   @Expose()
-  @PrimaryKey
-  @AutoIncrement
-  @Column(DataTypes.INTEGER)
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Expose()
-  @AllowNull(false)
-  @Column(DataTypes.INTEGER)
-  receiver: number;
+  @Column("uuid")
+  receiverId: string;
 
-  @ForeignKey(() => Wallet)
-  @Column
-  walletId: number; 
+  @ManyToOne(() => Wallet, (wallet) => wallet.transactions)
+  wallet: Relation<Wallet>;
 
   @Expose()
-  @Default(0)
-  @AllowNull(false)
-  @Column(DataTypes.DECIMAL)
+  @Column("decimal")
   amount: number;
 
-  @AllowNull(false)
-  @Column(DataTypes.DATE)
+  @Expose()
+  @Column("date")
   date: Date;
 
-  @Column(DataTypes.INTEGER)
-  sender: number;
+  @Expose()
+  @Column("uuid")
+  senderId: string;
 
-  @CreatedAt
+  @CreateDateColumn()
   creationDate: Date;
 
-  @UpdatedAt
+  @UpdateDateColumn()
   updatedOn: Date;
 }
 

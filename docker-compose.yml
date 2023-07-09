@@ -1,7 +1,8 @@
 services:
   database:
     image: postgres:15
-    restart: always
+    container_name: postgres
+    # restart: always
     ports:
       - "${DB_PORT}:5432"
     environment:
@@ -10,7 +11,11 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
   server:
     env_file: .env
-    build:
-      dockerfile: server.Dockerfile
+    build: .
     depends_on:
       - database
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432

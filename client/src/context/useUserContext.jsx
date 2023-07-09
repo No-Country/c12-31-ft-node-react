@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
 
 // Crear el contexto de usuario
 const UserContext = createContext();
