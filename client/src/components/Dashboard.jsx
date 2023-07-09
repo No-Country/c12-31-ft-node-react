@@ -27,9 +27,10 @@ export const Dashboard = () => {
           Mis Tarjetas
         </div>
 
-        <div className='flex flex-col justify-center items-center min-h-full'>
-          <div className='w-screen'>
-            <div className='flex items-center justify-between px-3 pt-3'>
+        <div className='flex flex-col justify-center items-center h-full'>
+          <h1 className='text-xl'>¿Que tenes ganas de hacer?</h1>
+          <div className='w-screen py-5'>
+            <div className='flex items-center justify-around px-3 pt-3'>
               <div className='flex flex-col items-center w-1/4 px-10'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <AiFillCreditCard className='text-3xl'/>
@@ -42,12 +43,7 @@ export const Dashboard = () => {
                 </div>
                   <h5>Transferencias</h5>
               </div>
-              <div className='flex flex-col items-center w-1/4'>
-                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
-                  <AiFillCreditCard className='text-3xl'/>
-                </div>
-                  <h5>QR</h5>
-              </div>
+
               <div className='flex flex-col items-center w-1/4'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <AiFillCreditCard className='text-3xl'/>
@@ -60,25 +56,14 @@ export const Dashboard = () => {
             </div>
           </div>
           <div className='w-screen mb-10'>
-            <div className='flex items-center justify-between mx-3 mt-8'>
+            <div className='flex items-center justify-around mx-3 mt-8'>
               <div className='flex flex-col items-center w-1/4 px-10'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <AiFillCreditCard className='text-3xl'/>
                 </div>
                   <h5>Inversiones</h5>
               </div>
-              <div className='flex flex-col items-center w-1/4'>
-                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
-                  <AiFillCreditCard className='text-3xl'/>
-                </div>
-                  <h5>Bitcoin</h5>
-              </div>
-              <div className='flex flex-col items-center w-1/4'>
-                <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
-                  <AiFillCreditCard className='text-3xl'/>
-                </div>
-                  <h5>Dolar</h5>
-              </div>
+
               <div className='flex flex-col items-center w-1/4'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <AiFillCreditCard className='text-3xl'/>

@@ -33,10 +33,6 @@ function LoginScreen () {
             console.log(email, contraseña, pais)
             login()
             console.log(isLoggedIn)
-            
-            
-           
-
         }
 
     }
