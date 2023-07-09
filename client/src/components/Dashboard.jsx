@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavBar } from './NavBar'
 import { AiOutlineEye, AiFillCreditCard } from "react-icons/ai";
 import { NavBarBottom } from './NavBarBottom/NavBarBottom';

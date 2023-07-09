@@ -55,6 +55,10 @@ export class UserService {
     return user;
   }
 
+  public static async findOneByEmail(email: string): Promise<User | null> {
+    return await this.userRepository.findOneBy({ email });
+  }
+
   public static async changePassword({
     email,
     password,

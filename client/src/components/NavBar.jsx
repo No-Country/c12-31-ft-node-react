@@ -1,4 +1,3 @@
-import React from 'react';
 import { BiUserCircle } from 'react-icons/bi'
 
 export const NavBar = () => {

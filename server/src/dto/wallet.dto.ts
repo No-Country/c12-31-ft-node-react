@@ -1,9 +1,7 @@
-import { Decimal } from "decimal.js";
-
 export class WalletDto {
   id: string;
 
-  balancePesos: Decimal;
+  balancePesos: string;
 
-  balanceDollars: Decimal;
+  balanceDollars: string;
 }

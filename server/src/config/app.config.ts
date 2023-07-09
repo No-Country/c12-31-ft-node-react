@@ -1,4 +1,5 @@
 import cors from "cors";
+import helmet from "helmet";
 import express, { json } from "express";
 import { exceptionHandlerMiddleware } from "middleware/excepction-handler.middleware";
 import path from "path";
@@ -11,6 +12,8 @@ import { httpLogger } from "./logger.config";
 
 const app = express();
 
+app.use(helmet());
+
 app.use(
   cors({
     // TODO: Configure cors
@@ -18,8 +21,10 @@ app.use(
   })
 );
 
-// TODO: Customize logging format
-app.use(httpLogger);
+if (config.nodeEnv !== "test") {
+  // TODO: Customize logging format
+  app.use(httpLogger);
+}
 app.use(json());
 
 if (config.nodeEnv === "production") {
