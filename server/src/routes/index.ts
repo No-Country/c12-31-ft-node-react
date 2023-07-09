@@ -1,9 +1,14 @@
+/* eslint-disable prettier/prettier */
 import { Router } from "express";
-import { itemRouter } from "./item.route";
+import { userRouter } from "./user.route";
+import { walletRouter } from "./wallet.route";
+import { authRouter } from "./auth.route";
 
 const router = Router();
 
 // NOTE: Puts al routers here
-router.use(itemRouter);
+router.use("/user", userRouter);
+router.use("/wallet", walletRouter);
+router.use("/auth", authRouter);
 
 export { router };

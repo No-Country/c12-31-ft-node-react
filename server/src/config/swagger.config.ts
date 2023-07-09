@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import swaggerJSDoc from "swagger-jsdoc";
 
 export const swaggerDoc = swaggerJSDoc({

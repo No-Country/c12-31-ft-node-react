@@ -4,12 +4,12 @@
   "description": "Express + React monorepo template",
   "private": true,
   "scripts": {
-    "dev": "concurrently 'npm run dev --workspace client' 'npm run dev --workspace server'",
-    "build": "concurrently 'npm run build --workspace client' 'npm run build --workspace server'",
-    "lint": "npm run lint --workspaces",
-    "test": "concurrently 'npm run test --workspace server'",
-    "test:server": "jest server/",
-    "prepare": "husky install"
+    "dev": "lerna run dev",
+    "build": "lerna run build",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
+    "prepare": "husky install",
+    "start": "node ./server/dist/index.js"
   },
   "workspaces": [
     "client",
@@ -19,11 +19,9 @@
   "author": "Gustavo Serrano",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.0",
-    "eslint": "^8.43.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "husky": "^8.0.3"
+    "eslint": "8.43.0",
+    "eslint-plugin-import": "2.27.5",
+    "husky": "8.0.3",
+    "lerna": "7.1.1"
   }
 }
