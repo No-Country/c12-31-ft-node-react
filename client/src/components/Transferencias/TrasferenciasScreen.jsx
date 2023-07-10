@@ -5,7 +5,7 @@ import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 
 export const TrasferenciasScreen = () => {
   return (
-    <div className='h-screen'>
+    <div className='h-screen flex flex-col'>
         <header className='flex justify-between px-10 py-5 items-center'>
             <div>
                 <h1 className='text-xl'>Trasferencias</h1>
@@ -84,7 +84,7 @@ export const TrasferenciasScreen = () => {
 
 
 
-
+        <div className='flex-grow'></div>
         <NavBarBottom />
     </div>
   )
