@@ -14,6 +14,8 @@ export const dbContext = new DataSource({
   database: database.name,
   username: database.username,
   password: database.password,
+  url: database.url,
   synchronize: true,
   entities: [User, Wallet, Transaction],
+  ssl: true,
 });
