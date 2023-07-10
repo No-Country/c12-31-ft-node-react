@@ -15,6 +15,7 @@ export const TrasferenciasScreen = () => {
             </div>
         </header>
 
+
         <div>
             <button className='btn mx-5 btn-sm mt-3'>Tu CVU</button>
         </div>
@@ -25,8 +26,8 @@ export const TrasferenciasScreen = () => {
             <button className='btn btn-wide rounded-full border-black bg-gray-100'>Transferencias recibidas</button>
         </div>
 
-        <h1 className='mx-10 mt-20'>Recientes</h1>
-        <div className='px-5'>
+        <h1 className='mx-8 mt-20 text-xl font-semibold'>Recientes</h1>
+        <div className='px-5 mt-5'>
             <div className='flex justify-between items-center'>
                 <div className='flex items-center'>
                     <div className='w-14 h-14 rounded-full bg-gray-200'></div>
@@ -81,7 +82,8 @@ export const TrasferenciasScreen = () => {
             </div>
         </div>
 
-        <div className='h-full'></div>
+
+
 
         <NavBarBottom />
     </div>

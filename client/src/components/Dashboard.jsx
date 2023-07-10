@@ -78,7 +78,7 @@ export const Dashboard = () => {
         </div>
 
 
-        <NavBarBottom />
+        <NavBarBottom  />
     </div>
   )
 }

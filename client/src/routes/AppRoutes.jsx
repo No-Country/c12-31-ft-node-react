@@ -8,6 +8,8 @@ import NavBar from "../components/layout/NavBar";
 import { UserContext } from "../context/useUserContext";
 import { Dashboard } from "../components/Dashboard";
 import { TrasferenciasScreen } from "../components/Transferencias/TrasferenciasScreen";
+import { TransferirDinero } from "../components/Transferencias/TransferirDinero";
+import { AQuien } from "../components/Transferencias/AQuien";
 
 function AppRoutes() {
   const { isLoggedIn, login, logout } = useContext(UserContext);
@@ -22,6 +24,8 @@ function AppRoutes() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/transferencias" element={<TrasferenciasScreen />} />
+        <Route path="/transferencias1" element={<TransferirDinero />} />
+        <Route path="/transferencias2" element={<AQuien />} />
         </Route>
 
       </Routes>
