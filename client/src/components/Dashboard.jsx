@@ -1,6 +1,7 @@
 import { NavBar } from './NavBar'
 import { AiOutlineEye, AiFillCreditCard } from "react-icons/ai";
 import { NavBarBottom } from './NavBarBottom/NavBarBottom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -30,10 +31,12 @@ export const Dashboard = () => {
         <div className='w-screen'>
           <div className='flex items-center justify-between px-3 pt-3'>
             <div className='flex flex-col items-center w-1/4 px-10'>
+            <Link to={"/ServicioPagar"}>
               <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                 <AiFillCreditCard className='text-3xl' />
               </div>
               <h5>Pagos</h5>
+            </Link>
             </div>
             <div className='flex flex-col items-center w-1/4'>
               <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>

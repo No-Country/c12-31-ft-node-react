@@ -6,6 +6,7 @@ import LoginScreen from "../components/LoginScreen/LoginScreen";
 import HomePageContainer from "../components/container/HomePageContainer";
 import { UserContext } from "../context/useUserContext";
 import { Dashboard } from "../components/Dashboard";
+import ServicioPagar from "../components/Pagos/ServicioPagar"
 
 function AppRoutes() {
   const { isLoggedIn, login, logout } = useContext(UserContext);
@@ -19,6 +20,7 @@ function AppRoutes() {
           <Route path="/register" element={<Registro />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/ServicioPagar" element={<ServicioPagar/>} />
         </Route>
 
       </Routes>
