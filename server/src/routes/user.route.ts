@@ -1,17 +1,15 @@
+import { UserController } from "controllers/user.controller";
 import { Router } from "express";
-import { UserController } from "../controllers/user.controller";
-import {
-  createUserValidator,
-  updateUserValidator,
-} from "src/validators/user.validator";
+import { idValidator, updateUserValidator } from "validators/user.validator";
 
 const router = Router();
 
 router.get("/", UserController.findAll);
-router.get("/:id", UserController.findOne);
-router.post("/login", UserController.login);
-router.post("/", createUserValidator, UserController.create);
-router.put("/:id", updateUserValidator, UserController.update);
-// router.delete("/user/:id", UserController.remove);
+router.get("/:id", idValidator, UserController.findOne);
+router.put(
+  "/resetpassword",
+  updateUserValidator,
+  UserController.changePassword
+);
 
 export { router as userRouter };

@@ -1,73 +1,62 @@
 import { Exclude, Expose } from "class-transformer";
-import { DataTypes } from "sequelize";
 import {
-  AllowNull,
-  CreatedAt,
-  Default,
-  Model,
-  UpdatedAt,
-  AutoIncrement,
   Column,
-  PrimaryKey,
-  Table,
-  HasOne,
-  Unique,
-} from "sequelize-typescript";
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  Relation,
+  UpdateDateColumn,
+} from "typeorm";
+import { Role } from "types/role.type";
 import Wallet from "./wallet.model";
-export enum Rol {
-  admin = "admin",
-  user = "user",
-}
+
 @Exclude()
-@Table
-class User extends Model<User> {
+@Entity()
+class User {
   @Expose()
-  @PrimaryKey
-  @AutoIncrement
-  @Column(DataTypes.INTEGER)
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Expose()
-  @AllowNull(false)
-  @Column(DataTypes.STRING)
+  @Column({ length: 100, update: false })
   name: string;
 
   @Expose()
-  @AllowNull(false)
-  @Column(DataTypes.STRING)
+  @Column({ length: 100, update: false })
   lastname: string;
 
   @Expose()
-  @AllowNull(false)
-  @Column(DataTypes.STRING)
+  @Column({ length: 100 })
   address: string;
 
   @Expose()
-  @AllowNull(false)
-  @Unique
-  @Column(DataTypes.STRING)
+  @Column({ unique: true, update: false })
   email: string;
 
-  @Expose()
-  @Column(DataTypes.ENUM({ values: [Rol.admin, Rol.user] }))
-  rol: Rol;
+  // NOTE: Enum type only supported by postgresql database
+  @Column({ type: "enum", enum: Role, default: Role.user })
+  rol: Role;
 
-  @AllowNull(false)
-  @Column(DataTypes.STRING)
+  @Column()
   password: string;
 
-  @Default(true)
-  @Column(DataTypes.BOOLEAN)
+  @Column({ default: true })
   active: boolean;
 
   @Expose()
-  @HasOne(() => Wallet)
-  wallet: Wallet;
+  @OneToOne(() => Wallet, {
+    eager: true,
+    nullable: false,
+  })
+  @JoinColumn()
+  wallet: Relation<Wallet>;
 
-  @CreatedAt
+  @CreateDateColumn({ update: false })
   creationDate: Date;
 
-  @UpdatedAt
+  @UpdateDateColumn()
   updatedOn: Date;
 }
 

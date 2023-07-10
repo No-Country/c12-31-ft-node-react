@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const NavBarBottom = () => {
   return (
     <div className="btm-nav sticky bottom-0">
