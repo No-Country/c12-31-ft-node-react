@@ -8,7 +8,7 @@ export const TrasferenciasScreen = () => {
     <div className='h-screen flex flex-col'>
         <header className='flex justify-between px-10 py-5 items-center'>
             <div>
-                <h1 className='text-xl'>Trasferencias</h1>
+                <h1 className='text-xl'>Transferencias</h1>
             </div>
             <div>
                 <BiHelpCircle className='text-3xl'/>
