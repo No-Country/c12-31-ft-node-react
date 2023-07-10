@@ -1,5 +1,4 @@
 import "dotenv/config";
-
 export const config = {
   database: {
     host: process.env.DB_HOST,
@@ -7,13 +6,9 @@ export const config = {
     name: process.env.DB_NAME,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
+    url: process.env.DB_URL,
   },
-  server: {
-    port: parseInt(process.env.APP_PORT ?? "3000"),
-  },
-  jwt: {
-    secret: process.env.JWT_SECRET!,
-    expires: process.env.JWT_EXPIRES,
-  },
+  server: { port: parseInt(process.env.APP_PORT ?? "3000") },
+  jwt: { secret: process.env.JWT_SECRET!, expires: process.env.JWT_EXPIRES },
   nodeEnv: process.env.NODE_ENV,
 };
