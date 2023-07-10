@@ -1,5 +1,6 @@
 import { BiUserCircle } from 'react-icons/bi'
-import { AiFillCloseSquare } from 'react-icons/ai'
+import { AiOutlinePoweroff } from 'react-icons/ai'
+import { BsThreeDots } from 'react-icons/bs'
 
 export const NavBar = () => {
   return (
@@ -10,7 +11,7 @@ export const NavBar = () => {
           <a className="btn btn-ghost normal-case text-xl">Hola Usuario</a>
         </div>
         <div className='items-center'>
-          <AiFillCloseSquare className='text-4xl' />
+          <AiOutlinePoweroff className='text-3xl' />
         </div>
       </div>
       

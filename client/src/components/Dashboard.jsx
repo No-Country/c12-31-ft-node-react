@@ -1,5 +1,5 @@
 import { NavBar } from './NavBar'
-import { AiOutlineEye, AiFillCreditCard } from "react-icons/ai";
+import { AiOutlineEye, AiFillCreditCard, AiOutlinePoweroff } from "react-icons/ai";
 import { NavBarBottom } from './NavBarBottom/NavBarBottom';
 
 
@@ -18,7 +18,7 @@ export const Dashboard = () => {
         <div className='w-20'></div>
         <div className='px-4 w-2/4 flex flex-col justify-center items-end'>
           <button className="btn btn-sm w-full px-2 mb-2">Ingresar dinero</button>
-          <button className="btn btn-sm w-full px-2">Extraer dinero</button>
+          {/* <button className="btn btn-sm w-full px-2">Extraer dinero</button> */}
         </div>
       </div>
 
