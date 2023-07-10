@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export const Dashboard = () => {
   return (
-    <div className=''>
+    <div className='min-h-screen flex flex-col'>
       <NavBar />
 
       <div className='flex w-full bg-gray-200'>
@@ -93,6 +93,7 @@ export const Dashboard = () => {
           </div>
         </div>
       </div>
+      <div className='flex-grow'></div>
 
 
       <NavBarBottom />
