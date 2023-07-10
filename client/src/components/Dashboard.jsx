@@ -35,7 +35,7 @@ export const Dashboard = () => {
 
           <div className='flex items-center justify-around px-3 pt-3'>
 
-            <div className='flex flex-col items-center w-1/4 px-10'>
+            <div className='flex flex-col items-center w-1/4'>
               <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                 <AiFillCreditCard className='text-3xl' />
               </div>
@@ -43,12 +43,12 @@ export const Dashboard = () => {
             </div>
 
               <div className='flex flex-col items-center w-1/4' >
-                <Link to='/transferencias'>
+                <Link to='/transferencias' className='flex flex-col items-center'>
                 <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                   <BiTransfer className='text-3xl' />
                 </div>
-                </Link>
                 <h5>Transferencias</h5>
+                </Link>
               </div>
     
 
