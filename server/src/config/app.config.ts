@@ -28,7 +28,10 @@ if (config.nodeEnv !== "test") {
 app.use(json());
 
 if (config.nodeEnv === "production") {
-  app.use(express.static(path.join(__dirname, "..", "..", "client", "dist")));
+  app.use(
+    // TODO: could be stored in ENV variable
+    express.static(path.join(__dirname, "..", "..", "..", "client", "dist"))
+  );
 }
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
