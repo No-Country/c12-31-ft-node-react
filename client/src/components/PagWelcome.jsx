@@ -1,4 +1,4 @@
-
+import img1 from '../assets/img/moneda-frente.png'
 const PagWelcome = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full h-screen">
@@ -7,7 +7,7 @@ const PagWelcome = () => {
         <p>Nombre del titular de la cuenta!</p>
       </div>
       <div className="flex justify-center items-center w-full mt-6">
-
+        <img className="object-none h-40 w-40 overflow-visible" src={img1} alt="" />
       </div>
       <div className="flex justify-center items-center w-full mt-6">
 
