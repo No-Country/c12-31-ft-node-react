@@ -2,8 +2,13 @@ import React from 'react';
 import { BiHelpCircle } from 'react-icons/bi'
 import { NavBar } from '../NavBar';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
+import { useNavigate } from 'react-router-dom';
 
 export const TrasferenciasScreen = () => {
+
+    const navigate = useNavigate()
+
+
   return (
     <div className='h-screen flex flex-col'>
         <header className='flex justify-between px-10 py-5 items-center'>
@@ -21,7 +26,7 @@ export const TrasferenciasScreen = () => {
         </div>
 
         <div className='w-full flex flex-col justify-center items-center my-10'>
-            <button className='btn btn-wide rounded-full bg-gray-200'>Nueva Transferencia</button>
+            <button onClick={() => navigate('/transferencias1')} className='btn btn-wide rounded-full bg-gray-200'>Nueva Transferencia</button>
             <button className='btn btn-wide rounded-full my-2 border-black bg-gray-100'>Transferencias realizadas</button>
             <button className='btn btn-wide rounded-full border-black bg-gray-100'>Transferencias recibidas</button>
         </div>

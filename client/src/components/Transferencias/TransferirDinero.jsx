@@ -1,12 +1,16 @@
 import React from 'react';
 import { BsArrowLeftShort } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom';
 
 export const TransferirDinero = () => {
+
+    const navigate = useNavigate()
+
   return (
     <div>
         <header>
             <div className='flex mx-10 items-center mt-5'>
-                <BsArrowLeftShort className='text-4xl'/>
+                <BsArrowLeftShort onClick={()=> navigate('/transferencias')} className='text-4xl'/>
                 <h1 className='text-l font-bold mx-5'>Transferir Dinero</h1>
             </div>
         </header>
