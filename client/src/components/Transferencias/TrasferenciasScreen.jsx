@@ -3,6 +3,25 @@ import { BiHelpCircle } from 'react-icons/bi'
 import { NavBar } from '../NavBar';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
+import { TransferenciasComponent } from './TransferenciasComponent';
+
+const data = [
+    {
+        user: 'Sofia Negri',
+        amount: '49.500',
+        date: 'ayer'
+    },
+    {
+        user: 'Miguel',
+        amount: '30.500',
+        date: 'ayer'
+    },
+    {
+        user: 'Juanma',
+        amount: '19.500',
+        date: 'ayer'
+    },
+];
 
 export const TrasferenciasScreen = () => {
 
@@ -32,62 +51,13 @@ export const TrasferenciasScreen = () => {
         </div>
 
         <h1 className='mx-8 mt-20 text-xl font-semibold'>Recientes</h1>
-        <div className='px-5 mt-5'>
-            <div className='flex justify-between items-center'>
-                <div className='flex items-center'>
-                    <div className='w-14 h-14 rounded-full bg-gray-200'></div>
-                    <div>
-                        <h1>Transferencia recibida</h1>
-                        <h1 className='text-gray-500'>de Sofia Negri</h1>
-                    </div>
-                </div>
-
-                <div className='flex flex-col justify-end'>
-                    <h1 className='font-bold'>+$49.500</h1>     
-                    <div className='flex justify-end'>
-                    <p className='text-gray-500'>ayer</p>  
-                    </div>
-                </div>
-            </div>
+        <div className='mt-5'>
+            {
+                data.map((item, index) => (
+                    <TransferenciasComponent key={index} user={item.user} amount={item.amount} date={item.date} />
+                ))
+            }
         </div>
-        <div className='px-5 py-3'>
-            <div className='flex justify-between items-center'>
-                <div className='flex items-center'>
-                    <div className='w-14 h-14 rounded-full bg-gray-200'></div>
-                    <div>
-                        <h1>Transferencia recibida</h1>
-                        <h1 className='text-gray-500'>de Sofia Negri</h1>
-                    </div>
-                </div>
-
-                <div className='flex flex-col justify-end'>
-                    <h1 className='font-bold'>+$49.500</h1>     
-                    <div className='flex justify-end'>
-                    <p className='text-gray-500'>ayer</p>  
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className='px-5'>
-            <div className='flex justify-between items-center'>
-                <div className='flex items-center'>
-                    <div className='w-14 h-14 rounded-full bg-gray-200'></div>
-                    <div>
-                        <h1>Transferencia recibida</h1>
-                        <h1 className='text-gray-500'>de Sofia Negri</h1>
-                    </div>
-                </div>
-
-                <div className='flex flex-col justify-end'>
-                    <h1 className='font-bold'>+$49.500</h1>     
-                    <div className='flex justify-end'>
-                    <p className='text-gray-500'>ayer</p>  
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
 
         <div className='flex-grow'></div>
         <NavBarBottom />

@@ -4,6 +4,35 @@ import { BsFilter } from 'react-icons/bs';
 import { TransferenciasComponent } from './TransferenciasComponent';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 
+
+const data = [
+    {
+        user: 'Sofia Negri',
+        amount: '49.500',
+        date: 'ayer'
+    },
+    {
+        user: 'Miguel',
+        amount: '30.500',
+        date: 'ayer'
+    },
+    {
+        user: 'Juanma',
+        amount: '19.500',
+        date: 'ayer'
+    },
+    {
+        user: 'Araldi',
+        amount: '50.500',
+        date: 'ayer'
+    },
+    {
+        user: 'Eche',
+        amount: '15.500',
+        date: 'ayer'
+    },
+];
+
 export const TransferenciasRecibidas = () => {
   return (
     <div className='min-h-screen flex flex-col'>
@@ -25,7 +54,11 @@ export const TransferenciasRecibidas = () => {
 
 
         <main>
-            <TransferenciasComponent />
+            {
+                data.map((item, index) => (
+                        <TransferenciasComponent key={index} user={item.user} amount={item.amount} date={item.date}/>    
+                ))
+            }
         </main>
 
         <div className='flex-grow'></div>
