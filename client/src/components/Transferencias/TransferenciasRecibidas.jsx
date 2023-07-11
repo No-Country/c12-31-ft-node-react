@@ -1,8 +1,9 @@
 import React from 'react'
 import { BiHelpCircle } from 'react-icons/bi';
-import { BsFilter } from 'react-icons/bs';
+import { BsArrowLeftShort, BsFilter } from 'react-icons/bs';
 import { TransferenciasComponent } from './TransferenciasComponent';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
+import { useNavigate } from 'react-router-dom';
 
 
 const data = [
@@ -34,10 +35,15 @@ const data = [
 ];
 
 export const TransferenciasRecibidas = () => {
+
+    const navigate = useNavigate()
+
+
   return (
     <div className='min-h-screen flex flex-col'>
         <header className='flex justify-between px-5 py-5 items-center'>
-            <div>
+            <div className='flex items-center'>
+                <BsArrowLeftShort onClick={()=> navigate('/transferencias')} className='text-4xl mx-3'/>
                 <h1 className='text-lg'>Transferencias recibidas</h1>
             </div>
             <div>
