@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { AiOutlineEyeInvisible } from "react-icons/ai"
-import { AiOutlineEye } from "react-icons/ai"
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai"
 
 
 function Registro() {
@@ -98,7 +97,7 @@ function Registro() {
                 className="absolute right-2 top-2 bg-transparent border-none"
                 onClick={handleToggleContraseña1}
               >
-                {contraseña ? <AiOutlineEyeInvisible className="text-gray-400" /> : <AiOutlineEye className="text-gray-400" />}
+                {mostrarContraseña1 ? <AiFillEye className="text-gray-500"/> : <AiFillEyeInvisible  className="text-gray-500"/>}
               </button>
             </div>
           </div>
@@ -119,7 +118,7 @@ function Registro() {
                 className="absolute right-2 top-2 bg-transparent border-none"
                 onClick={handleToggleContraseña2}
               >
-                {contraseña ? <AiOutlineEyeInvisible className="text-gray-400" /> : <AiOutlineEye className="text-gray-400" />}
+                {mostrarContraseña2 ? <AiFillEye className="text-gray-500"/> : <AiFillEyeInvisible  className="text-gray-500"/>}
 
               </button>
             </div>
