@@ -8,7 +8,7 @@ export class UserMother {
       lastname: faker.person.lastName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
-      address: faker.location.streetAddress(),
+      country: faker.location.country(),
     };
   }
 }

@@ -2,7 +2,7 @@ import { body, param } from "express-validator";
 import { validateRequestMiddleware } from "middleware/validate-request.middleware";
 
 export const createUserValidator = [
-  body(["name", "lastname", "address"])
+  body(["name", "lastname", "country"])
     .notEmpty()
     .withMessage("Must be a not empty string")
     .bail()

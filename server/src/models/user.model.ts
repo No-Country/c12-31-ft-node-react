@@ -29,7 +29,7 @@ class User {
 
   @Expose()
   @Column({ length: 100 })
-  address: string;
+  country: string;
 
   @Expose()
   @Column({ unique: true, update: false })
