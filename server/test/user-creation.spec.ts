@@ -99,7 +99,7 @@ describe("User login", () => {
             user: {
               name: createUserDto.name,
               lastname: createUserDto.lastname,
-              address: createUserDto.address,
+              country: createUserDto.country,
               email,
               id: expect.any(String),
               wallet: {
