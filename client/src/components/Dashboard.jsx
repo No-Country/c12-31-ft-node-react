@@ -36,10 +36,12 @@ export const Dashboard = () => {
           <div className='flex items-center justify-around px-3 pt-3'>
 
             <div className='flex flex-col items-center w-1/4'>
+              <Link to='/transferencias'>
               <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
                 <AiFillCreditCard className='text-3xl' />
               </div>
               <h5>Pagos</h5>
+            </Link>
             </div>
 
               <div className='flex flex-col items-center w-1/4' >

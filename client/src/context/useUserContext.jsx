@@ -6,6 +6,7 @@ const UserContext = createContext();
 // Proveedor del contexto
 const UserContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [nombreApellido, setNombreApellido] = useState("")
 
   const login = () => {
     setIsLoggedIn(true);
@@ -18,7 +19,9 @@ const UserContextProvider = ({ children }) => {
   const userContextValue = {
     isLoggedIn,
     login,
-    logout
+    logout,
+    nombreApellido,
+    setNombreApellido
   };
 
   return (
