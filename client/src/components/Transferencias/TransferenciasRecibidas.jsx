@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiHelpCircle } from 'react-icons/bi';
 import { BsArrowLeftShort, BsFilter } from 'react-icons/bs';
-import { TransferenciasComponent } from './TransferenciasComponent';
+import { TransferenciasRecibidasComponent } from './TransferenciasComponent';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
 
@@ -62,7 +62,7 @@ export const TransferenciasRecibidas = () => {
         <main>
             {
                 data.map((item, index) => (
-                        <TransferenciasComponent key={index} user={item.user} amount={item.amount} date={item.date}/>    
+                        <TransferenciasRecibidasComponent key={index} user={item.user} amount={`+$${item.amount}`} date={item.date}/>    
                 ))
             }
         </main>
