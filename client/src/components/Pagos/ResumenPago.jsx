@@ -34,9 +34,12 @@ export default function ResumenPago() {
             Modificar Datos
         </button>
 
+        <Link to={"/finPagos"}>
         <button className="bg-[#D9D9D9] p-3 w-72 rounded-lg font-semibold text-lg hover:bg-[#acacac] duration-200">
             Confirmar
         </button>
+        </Link>
+
       </div>
     </>
   )

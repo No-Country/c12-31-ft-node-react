@@ -58,7 +58,7 @@ function Empresa() {
         </div>
 
         <div className="flex justify-center mt-36">
-        <Link to={"/resumenPago"}>
+        <Link to={"/resumenPagos"}>
         <button className="btn btn-wide bg-[#D9D9D9]">Siguiente</button>
         </Link>
         </div>
