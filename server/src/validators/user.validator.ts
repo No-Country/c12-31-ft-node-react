@@ -2,12 +2,13 @@ import { body, param } from "express-validator";
 import { validateRequestMiddleware } from "middleware/validate-request.middleware";
 
 export const createUserValidator = [
-  body(["name", "lastname", "address"])
+  body(["name", "country"])
     .notEmpty()
     .withMessage("Must be a not empty string")
     .bail()
     .isString()
     .trim(),
+  body("lastname").isString().trim(),
   body("email").isEmail().withMessage("is required length do define"),
   body("password")
     .isString()

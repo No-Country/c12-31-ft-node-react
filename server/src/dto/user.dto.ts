@@ -4,7 +4,7 @@ export interface UserDto {
   id: string;
   name: string;
   lastname: string;
-  address: string;
+  country: string;
   email: string;
   wallet: WalletDto;
 }
