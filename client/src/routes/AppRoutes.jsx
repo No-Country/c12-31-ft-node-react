@@ -13,6 +13,9 @@ import ServicioPagar from "../components/Pagos/ServicioPagar"
 import ContactoNuevo from "../components/Transferencias/ContactoNuevo";
 import Empresa from "../components/Pagos/Empresa";
 import { TransferenciasRecibidas } from "../components/Transferencias/TransferenciasRecibidas";
+import PagWelcome from "../components/PagWelcome";
+import FinTranferencia from "../components/Transferencias/FinTranferencia";
+import FinPagos from "../components/Pagos/FinPagos";
 
 function AppRoutes() {
   const { isLoggedIn, login, logout } = useContext(UserContext);
@@ -29,6 +32,7 @@ function AppRoutes() {
           <Route path="/login" element={<LoginScreen />} />
 
           {/* INICIO  */}
+          <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
 
           {/* TRANSFERENCIAS  */}
@@ -37,10 +41,12 @@ function AppRoutes() {
           <Route path="/transferencias2" element={<AQuien />} />
           <Route path="/contactoNuevo" element={<ContactoNuevo />} />
           <Route path="/recibidas" element={<TransferenciasRecibidas />} />
+          <Route path="/finTransferencia" element={<FinTranferencia />} />
 
           {/* PAGOS  */}
           <Route path="/servicioPagar" element={<ServicioPagar />} />
           <Route path="/empresa" element={<Empresa />} />
+          <Route path="/finPagos" element={<FinPagos />} />
         </Route>
       </Routes>
     </Router>

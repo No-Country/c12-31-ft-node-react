@@ -1,6 +1,7 @@
 import AppRoutes from './routes/AppRoutes'
 import { UserContextProvider } from './context/useUserContext'
-import PagWelcome from './components/PagWelcome'
+/* import PagWelcome from './components/PagWelcome'
+import FinTransaccion from './components/FinTransaccion' */
 
 function App() {
 
@@ -9,10 +10,11 @@ function App() {
       {/* <HomePageContainer/>
       <LoginScreen/>
       <Registro/>  */}
-     {/*  <UserContextProvider>
+      <UserContextProvider>
         <AppRoutes />
-      </UserContextProvider> */}
-      <PagWelcome/>
+      </UserContextProvider> 
+{/*       <PagWelcome/> */}
+  {/*     <FinTransaccion/> */}
     </>
   )
 }

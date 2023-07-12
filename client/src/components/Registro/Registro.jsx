@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai"
 
 
@@ -143,10 +144,12 @@ function Registro() {
       </div>
 
       <div className="flex justify-center items-center">
+        <Link to={"/pagWelcome"}>
         <button
           className="text-lg bg-[#D9D9D9] p-4 rounded-2xl mt-10"
           onClick={handleSubmit}
         >Registrarse</button>
+        </Link>
       </div>
 
 
