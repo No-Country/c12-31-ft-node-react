@@ -32,19 +32,7 @@ function LoginScreen() {
       console.log(email, contraseña, pais)
       login()
       console.log(isLoggedIn)
-
-
-         //VALIDACION
-         if(email === "" || contraseña === "" ||  pais === ""  ){
-            setError(true)
-            setMensaje("Complete todos los campos")
-            return
-        }else{
-            setError(false)
-            console.log(email, contraseña, pais)
-            login()
-            console.log(isLoggedIn)
-        }
+      
 
     }
 
@@ -116,11 +104,13 @@ function LoginScreen() {
 
 
       <div className='flex justify-center mt-10 font-semibold'>
-        <p>No tienes usuario. <strong>Registrate aqui</strong></p>
+        <p>No tienes usuario?</p> 
+        <button onClick={() => navegate('/register')} className='font-bold mx-1' >Registrate aqui</button>
       </div>
 
-      <div className='flex justify-center mt-10 font-semibold'>
-        <small>Por consultas o ayudas escribenos en ...</small><hr />
+      <div className='flex flex-col justify-center mt-10 font-semibold items-center'>
+        <small className='text-sm'>Por consultas o ayuda escribenos en</small>
+        <small className='text-sm'>tubilleteravirtual@countrycoin.com</small>
       </div>
     </div>
   )
