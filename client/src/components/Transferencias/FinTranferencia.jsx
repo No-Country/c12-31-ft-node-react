@@ -56,10 +56,10 @@ const FinTranferencia = () => {
           </div>
         <div className='flex justify-evenly items-center w-[350px] mb-4'>
           <Link to={"/dashboard"}>
-            <button className='bg-[#D9D9D9] rounded-2xl font-bold px-4 py-2'>Volver al inicio</button>
+            <button className='bg-[#D9D9D9] hover:bg-[#909090] duration-200 rounded-2xl font-bold px-4 py-2'>Volver al inicio</button>
           </Link>
           <Link to={"/transferencias"}>
-            <button className='bg-[#D9D9D9] rounded-2xl font-bold px-4 py-2'>Otra transferencia</button>
+            <button className='bg-[#D9D9D9] hover:bg-[#909090] duration-200 rounded-2xl font-bold px-4 py-2'>Otra transferencia</button>
           </Link>
         </div>
       </div>
@@ -82,10 +82,10 @@ const FinTranferencia = () => {
       </div>
     <div className='flex justify-evenly items-center w-[350px] mb-4'>
       <Link to={"/dashboard"}>
-        <button className='bg-[#D9D9D9] rounded-2xl font-bold px-4 py-2'>Volver al inicio</button>
+        <button className='bg-[#D9D9D9] hover:bg-[#909090] duration-200 rounded-2xl font-bold px-4 py-2'>Volver al inicio</button>
       </Link>
       <Link to={"/transferencias"}>
-        <button className='bg-[#D9D9D9] rounded-2xl font-bold px-4 py-2'>Reintentar transferencia</button>
+        <button className='bg-[#D9D9D9] hover:bg-[#909090] duration-200 rounded-2xl font-bold px-4 py-2'>Reintentar transferencia</button>
       </Link>
     </div>
   </div>
