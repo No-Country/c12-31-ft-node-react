@@ -33,19 +33,6 @@ function LoginScreen() {
       login()
       console.log(isLoggedIn)
 
-
-         //VALIDACION
-         if(email === "" || contraseña === "" ||  pais === ""  ){
-            setError(true)
-            setMensaje("Complete todos los campos")
-            return
-        }else{
-            setError(false)
-            console.log(email, contraseña, pais)
-            login()
-            console.log(isLoggedIn)
-        }
-
     }
 
   }
