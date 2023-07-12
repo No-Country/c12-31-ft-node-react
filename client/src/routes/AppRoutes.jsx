@@ -13,6 +13,7 @@ import ServicioPagar from "../components/Pagos/ServicioPagar"
 import ContactoNuevo from "../components/Transferencias/ContactoNuevo";
 import Empresa from "../components/Pagos/Empresa";
 import { TransferenciasRecibidas } from "../components/Transferencias/TransferenciasRecibidas";
+import ResumenPago from "../components/Pagos/ResumenPago";
 
 function AppRoutes() {
   const { isLoggedIn, login, logout } = useContext(UserContext);
@@ -41,6 +42,8 @@ function AppRoutes() {
           {/* PAGOS  */}
           <Route path="/servicioPagar" element={<ServicioPagar />} />
           <Route path="/empresa" element={<Empresa />} />
+          <Route path="/resumenPago" element={<ResumenPago />} />
+
         </Route>
       </Routes>
     </Router>
