@@ -18,6 +18,7 @@ import PagWelcome from "../components/PagWelcome";
 import FinTranferencia from "../components/Transferencias/FinTranferencia";
 import FinPagos from "../components/Pagos/FinPagos";
 import ResumenPago from "../components/Pagos/ResumenPago";
+import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
 
 
 function AppRoutes() {
@@ -52,6 +53,12 @@ function AppRoutes() {
           <Route path="/empresa" element={<Empresa />} />
           <Route path="/resumenPagos" element={<ResumenPago />} />
           <Route path="/finPagos" element={<FinPagos />} />
+
+
+          {/* AJUSTES */}
+          <Route path="/ajustes" element={<AjustesScreen />} />
+
+
 
 
         </Route>

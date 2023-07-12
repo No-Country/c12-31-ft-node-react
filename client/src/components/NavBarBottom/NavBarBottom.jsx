@@ -28,7 +28,7 @@ export const NavBarBottom = () => {
             <p className='text-sm'>Notificaciones</p>
         </button>
 
-        <button>
+        <button onClick={() => navigate('/ajustes')}>
             <AiOutlineSetting className='text-2xl'/>
             <p className='text-sm'>Ajustes</p>
         </button>
