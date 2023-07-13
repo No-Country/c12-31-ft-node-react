@@ -22,14 +22,15 @@ export const Dashboard = () => {
   let tarjNumber1;
   let tarjNumber2;
   let tarjNumber3;
+  let tarjNumber4 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0')
 
   if(verNumeros){
     toogleButton = <div onClick={mostrarNumeros}>
       <TbEye className="w-8 h-8" />
     </div>
     tarjNumber1 = Math.ceil(Math.random() * (1000)+5000);
-    tarjNumber2 = Math.ceil(Math.random() * (10000));
-    tarjNumber3 = Math.ceil(Math.random() * (10000));
+    tarjNumber2 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
+    tarjNumber3 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
   }else{
     toogleButton =  <div onClick={mostrarNumeros}>
                       <TbEyeClosed className="w-8 h-8" />
@@ -41,7 +42,6 @@ export const Dashboard = () => {
 
   const name = "Perez Juan";
   const expDate = new Date();
-  const tarjNumber4 = Math.ceil(Math.random() * (10000));
   
   
   return (
