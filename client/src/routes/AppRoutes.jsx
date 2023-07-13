@@ -18,6 +18,8 @@ import PagWelcome from "../components/PagWelcome";
 import FinTranferencia from "../components/Transferencias/FinTranferencia";
 import FinPagos from "../components/Pagos/FinPagos";
 import ResumenPago from "../components/Pagos/ResumenPago";
+import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
+import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
 
 
 function AppRoutes() {
@@ -38,6 +40,7 @@ function AppRoutes() {
           <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
 
+
           {/* TRANSFERENCIAS  */}
           <Route path="/transferencias" element={<TrasferenciasScreen />} />
           <Route path="/transferencias1" element={<TransferirDinero />} />
@@ -53,6 +56,12 @@ function AppRoutes() {
           <Route path="/resumenPagos" element={<ResumenPago />} />
           <Route path="/finPagos" element={<FinPagos />} />
 
+
+          {/* AJUSTES */}
+          <Route path="/ajustes" element={<AjustesScreen />} />
+
+          {/* INGRESAR DINERO  */}
+          <Route path="/ingresarDinero" element={<IngresarDinero />} />
 
         </Route>
       </Routes>
