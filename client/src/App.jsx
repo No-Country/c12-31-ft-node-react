@@ -1,7 +1,8 @@
-import AppRoutes from './routes/AppRoutes'
-import { UserContextProvider } from './context/useUserContext'
+import AppRoutes from "./routes/AppRoutes";
+import { UserContextProvider } from "./context/useUserContext";
 
 function App() {
+  //test
 
   return (
     <>
@@ -12,7 +13,7 @@ function App() {
         <AppRoutes />
       </UserContextProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
