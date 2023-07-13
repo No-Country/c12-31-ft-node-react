@@ -19,6 +19,7 @@ import FinTranferencia from "../components/Transferencias/FinTranferencia";
 import FinPagos from "../components/Pagos/FinPagos";
 import ResumenPago from "../components/Pagos/ResumenPago";
 import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
+import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
 
 
 function AppRoutes() {
@@ -58,8 +59,8 @@ function AppRoutes() {
           {/* AJUSTES */}
           <Route path="/ajustes" element={<AjustesScreen />} />
 
-
-
+          {/* INGRESAR DINERO  */}
+          <Route path="/ingresarDinero" element={<IngresarDinero />} />
 
         </Route>
       </Routes>

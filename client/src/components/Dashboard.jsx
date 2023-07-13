@@ -21,7 +21,9 @@ export const Dashboard = () => {
         </div>
         <div className='w-20'></div>
         <div className='px-4 w-2/4 flex flex-col justify-center items-end'>
-          <button className="btn btn-sm w-full px-2 mb-2">Ingresar dinero</button>
+          <Link to={"/ingresarDinero"}>
+          <button className="btn btn-sm w-full px-2 mb-2">Ingresar dinero</button>     
+          </Link>
           {/* <button className="btn btn-sm w-full px-2">Extraer dinero</button> */}
         </div>
       </div>
