@@ -40,7 +40,14 @@ export const NavBarBottom = () => {
             <p className='text-sm'>Inicio</p>
         </button>
 
-        <button >
+        <button 
+          className={selectedButton === 'mis finanzas' ? 'active' : ''}
+          onClick={() => {
+            setSelectedButton('mis finanzas');
+            selectedButtonRef.current = 'mis finanzas';
+            localStorage.setItem('selectedButton', 'mis finanzas');
+            
+          }}>
             <BsGraphDown className='text-2xl'/>
             <p className='text-sm'>Mis finanzas</p>
         </button>
