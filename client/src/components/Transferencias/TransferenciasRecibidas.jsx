@@ -56,7 +56,7 @@ export const TransferenciasRecibidas = () => {
             <BsFilter className='text-4xl '/>
         </div>
 
-        <h1 className='mt-10 mx-5 text-lg'>5 resultados</h1>
+        <h1 className='mt-10 mx-5 text-lg'>{data.length} resultados</h1>
 
 
         <main>
