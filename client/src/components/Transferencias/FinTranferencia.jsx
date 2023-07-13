@@ -13,7 +13,7 @@ import img2 from  '../../assets/img/triste.png';
 
 
 const FinTranferencia = () => {
-  const [tranferencia, setTranferencia] = useState(false);
+  const [tranferencia, setTranferencia] = useState(true);
 
   const tranferenciaCompleta = () => {
     setTranferencia(!tranferencia);

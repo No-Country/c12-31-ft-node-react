@@ -40,6 +40,7 @@ function AppRoutes() {
           <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
 
+
           {/* TRANSFERENCIAS  */}
           <Route path="/transferencias" element={<TrasferenciasScreen />} />
           <Route path="/transferencias1" element={<TransferirDinero />} />
