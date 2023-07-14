@@ -20,4 +20,13 @@ export class WalletController {
       next(error);
     }
   }
+
+  static async findOne(req: Request, res: Response, next: NextFunction) {
+    try {
+      const wallet = await WalletService.findOne(req.params.id);
+      res.json(serializeResponse(wallet));
+    } catch (error) {
+      next(error);
+    }
+  }
 }

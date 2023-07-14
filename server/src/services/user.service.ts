@@ -50,7 +50,7 @@ export class UserService {
   public static async findOne(id: string): Promise<User> {
     const user = await this.userRepository.findOneBy({ id });
 
-    if (!user) throw Boom.notFound(`User with id ${id} not found`);
+    if (!user) throw Boom.notFound(`User with id ${id} does not exist`);
 
     return user;
   }

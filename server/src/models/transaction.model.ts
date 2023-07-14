@@ -22,7 +22,7 @@ class Transaction {
   receiverId: string;
 
   @ManyToOne(() => Wallet, (wallet) => wallet.transactions)
-  wallet: Relation<Wallet>;
+  wallet: Wallet;
 
   @Expose()
   @Column("decimal")
