@@ -9,7 +9,7 @@ import { Dashboard } from "../components/Dashboard";
 import { TrasferenciasScreen } from "../components/Transferencias/TrasferenciasScreen";
 import { TransferirDinero } from "../components/Transferencias/TransferirDinero";
 import { AQuien } from "../components/Transferencias/AQuien";
-import ServicioPagar from "../components/Pagos/ServicioPagar"
+import ServicioPagar from "../components/Pagos/ServicioPagar";
 import ContactoNuevo from "../components/Transferencias/ContactoNuevo";
 import Empresa from "../components/Pagos/Empresa";
 import { TransferenciasRecibidas } from "../components/Transferencias/TransferenciasRecibidas";
@@ -23,19 +23,19 @@ import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
 
 
 function AppRoutes() {
-  const { isLoggedIn, login, logout } = useContext(UserContext);
+  const { user, login, logout } = useContext(UserContext);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePageContainer />} />
         {/* <NavBar /> */}
-        <Route element={<ProtectedRoute isAllowed={!isLoggedIn} />}>
-
-          {/* LOGUEO  */}
+        {/* LOGUEO  */}
+        <Route element={<ProtectedRoute isAllowed={!user} />}>
           <Route path="/register" element={<Registro />} />
           <Route path="/login" element={<LoginScreen />} />
-
+        </Route>
+        <Route element={<ProtectedRoute isAllowed={user} />}>
           {/* INICIO  */}
           <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -64,6 +64,7 @@ function AppRoutes() {
           <Route path="/ingresarDinero" element={<IngresarDinero />} />
 
         </Route>
+        <Route path="*" element={<h1>404 pagina no encontrada</h1>} />
       </Routes>
     </Router>
   );
