@@ -4,7 +4,6 @@ import { UserContextProvider } from './context/useUserContext'
 import FinTransaccion from './components/FinTransaccion' */
 
 function App() {
-  //test
 
   return (
     <>
@@ -17,7 +16,7 @@ function App() {
 {/*       <PagWelcome/> */}
   {/*     <FinTransaccion/> */}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
