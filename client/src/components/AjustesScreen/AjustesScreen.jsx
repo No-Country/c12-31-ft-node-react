@@ -6,7 +6,7 @@ import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 export const AjustesScreen = () => {
   return (
     <div className='flex flex-col h-screen'>
-        <header className='flex w-full items-center mt-10 mx-10 '>
+        <header className='flex items-center mt-10 mx-10 '>
             <AiOutlineSearch className='text-3xl'/>
             <h1 className='text-2xl mx-5'>Ajustes</h1>
         </header>
