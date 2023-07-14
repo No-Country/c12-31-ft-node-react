@@ -3,7 +3,7 @@ import { BiHelpCircle } from 'react-icons/bi'
 import { NavBar } from '../NavBar';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
-import { TransferenciasComponent } from './TransferenciasComponent';
+import { TransferenciasRecibidasComponent } from './TransferenciasComponent';
 
 const data = [
     {
@@ -47,7 +47,7 @@ export const TrasferenciasScreen = () => {
 
         <div className='w-full flex flex-col justify-center items-center my-10'>
             <button onClick={() => navigate('/transferencias1')} className='btn btn-wide rounded-full bg-gray-200'>Nueva Transferencia</button>
-            <button className='btn btn-wide rounded-full my-2 border-black bg-gray-100'>Transferencias realizadas</button>
+            <button onClick={() => navigate('/realizadas')} className='btn btn-wide rounded-full my-2 border-black bg-gray-100'>Transferencias realizadas</button>
             <button onClick={() => navigate('/recibidas')} className='btn btn-wide rounded-full border-black bg-gray-100'>Transferencias recibidas</button>
         </div>
 
@@ -55,7 +55,7 @@ export const TrasferenciasScreen = () => {
         <div className='mt-5'>
             {
                 data.map((item, index) => (
-                    <TransferenciasComponent key={index} user={item.user} amount={item.amount} date={item.date} />
+                    <TransferenciasRecibidasComponent key={index} user={item.user} amount={`+$${item.amount}`} date={item.date} />
                 ))
             }
         </div>

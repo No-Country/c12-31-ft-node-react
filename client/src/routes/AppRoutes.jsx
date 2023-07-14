@@ -13,6 +13,14 @@ import ServicioPagar from "../components/Pagos/ServicioPagar";
 import ContactoNuevo from "../components/Transferencias/ContactoNuevo";
 import Empresa from "../components/Pagos/Empresa";
 import { TransferenciasRecibidas } from "../components/Transferencias/TransferenciasRecibidas";
+import { TransferenciasRealizadas } from "../components/Transferencias/TransferenciasRealizadas";
+import PagWelcome from "../components/PagWelcome";
+import FinTranferencia from "../components/Transferencias/FinTranferencia";
+import FinPagos from "../components/Pagos/FinPagos";
+import ResumenPago from "../components/Pagos/ResumenPago";
+import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
+import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
+
 
 function AppRoutes() {
   const { user, login, logout } = useContext(UserContext);
@@ -29,7 +37,9 @@ function AppRoutes() {
         </Route>
         <Route element={<ProtectedRoute isAllowed={user} />}>
           {/* INICIO  */}
+          <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
+
 
           {/* TRANSFERENCIAS  */}
           <Route path="/transferencias" element={<TrasferenciasScreen />} />
@@ -37,10 +47,22 @@ function AppRoutes() {
           <Route path="/transferencias2" element={<AQuien />} />
           <Route path="/contactoNuevo" element={<ContactoNuevo />} />
           <Route path="/recibidas" element={<TransferenciasRecibidas />} />
+          <Route path="/realizadas" element={<TransferenciasRealizadas />} />
+          <Route path="/finTransferencia" element={<FinTranferencia />} />
 
           {/* PAGOS  */}
           <Route path="/servicioPagar" element={<ServicioPagar />} />
           <Route path="/empresa" element={<Empresa />} />
+          <Route path="/resumenPagos" element={<ResumenPago />} />
+          <Route path="/finPagos" element={<FinPagos />} />
+
+
+          {/* AJUSTES */}
+          <Route path="/ajustes" element={<AjustesScreen />} />
+
+          {/* INGRESAR DINERO  */}
+          <Route path="/ingresarDinero" element={<IngresarDinero />} />
+
         </Route>
         <Route path="*" element={<h1>404 pagina no encontrada</h1>} />
       </Routes>

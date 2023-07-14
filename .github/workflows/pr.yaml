@@ -18,7 +18,7 @@ jobs:
           cache: "yarn"
 
       - name: Build app
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Build app
         run: yarn build

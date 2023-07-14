@@ -1,9 +1,11 @@
+
 import { useState, useContext } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { register } from "../../services/api";
 import { UserContext } from "../../context/useUserContext";
 import { useNavigate } from "react-router-dom";
 import { setTokenInCookies } from "../../utils/cookiesFn";
+
 
 function Registro() {
   const { login } = useContext(UserContext);
@@ -215,12 +217,15 @@ function Registro() {
       </div>
 
       <div className="flex justify-center items-center">
+        
         <button
           className="text-lg bg-[#D9D9D9] p-4 rounded-2xl mt-10"
           onClick={handleSubmit}
+
         >
           Registrarse
         </button>
+
       </div>
 
       <p className="text-center m-8 text-lg">
