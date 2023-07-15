@@ -35,7 +35,7 @@ function AppRoutes() {
           <Route path="/register" element={<Registro />} />
           <Route path="/login" element={<LoginScreen />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={user} />}>
+        {/* <Route element={<ProtectedRoute isAllowed={user} />}> */}
           {/* INICIO  */}
           <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -63,7 +63,7 @@ function AppRoutes() {
           {/* INGRESAR DINERO  */}
           <Route path="/ingresarDinero" element={<IngresarDinero />} />
 
-        </Route>
+        {/* </Route> */}
         <Route path="*" element={<h1>404 pagina no encontrada</h1>} />
       </Routes>
     </Router>

@@ -26,9 +26,9 @@ export const NavBarBottom = () => {
     }, []);
 
   return (
-    <div className="btm-nav sticky bottom-0 items-center">
+    <div className="btm-nav sticky bottom-0 items-center bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09]">
         <button
-              className={selectedButton === 'inicio' ? 'active' : ''}
+              className={selectedButton === 'inicio' ? 'active bg-transparent' : ''}
               onClick={() => {
                 setSelectedButton('inicio');
                 selectedButtonRef.current = 'inicio';
@@ -41,7 +41,7 @@ export const NavBarBottom = () => {
         </button>
 
         <button 
-          className={selectedButton === 'mis finanzas' ? 'active' : ''}
+          className={selectedButton === 'mis finanzas' ? 'active bg-transparent' : ''}
           onClick={() => {
             setSelectedButton('mis finanzas');
             selectedButtonRef.current = 'mis finanzas';
@@ -66,7 +66,7 @@ export const NavBarBottom = () => {
         </div>
 
         <button 
-          className={selectedButton === 'ajustes' ? 'active' : ''}
+          className={selectedButton === 'ajustes' ? 'active bg-transparent' : ''}
           onClick={() => {
             setSelectedButton('ajustes');
             selectedButtonRef.current = 'ajustes';

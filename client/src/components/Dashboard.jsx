@@ -59,7 +59,7 @@ export const Dashboard = () => {
         <div className='p-8 w-2/4'>
           <h1 className='text-xl'>Saldo actual</h1>
           <div className='flex items-center'>
-            <h1 className='text-3xl font-bold'>${user.user.wallet.balanceDollars}</h1>
+            {/* <h1 className='text-3xl font-bold'>${user.user.wallet.balanceDollars}</h1> */}
             <AiOutlineEye className='text-4xl ml-2' />
           </div>
         </div>
@@ -131,16 +131,16 @@ export const Dashboard = () => {
             <div className='flex flex-col items-center w-1/4'>
               <Link to='/servicioPagar'>
               <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
-                <AiOutlineCreditCard className='text-3xl' />
+                <AiOutlineCreditCard className='text-3xl text-[#FD7A09]' />
               </div>
-              <h5>Pagos</h5>
+              <h5 className='text-center'>Pagos</h5>
             </Link>
             </div>
 
             <div className="flex flex-col items-center w-1/4">
               <Link to="/transferencias" className="flex flex-col items-center">
                 <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                  <BiTransfer className="text-3xl" />
+                  <BiTransfer className="text-3xl text-[#FD7A09]" />
                 </div>
                 <h5>Transferencias</h5>
               </Link>
@@ -148,7 +148,7 @@ export const Dashboard = () => {
 
             <div className="flex flex-col items-center w-1/4">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                <BsPhone className="text-3xl" />
+                <BsPhone className="text-3xl text-[#FD7A09]" />
               </div>
               <h5>Recargas</h5>
             </div>
@@ -158,14 +158,14 @@ export const Dashboard = () => {
           <div className="flex items-center justify-around mx-3 mt-8">
             <div className="flex flex-col items-center w-1/4 px-10">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                <LiaPiggyBankSolid className="text-3xl" />
+                <LiaPiggyBankSolid className="text-3xl text-[#FD7A09]" />
               </div>
               <h5>Inversiones</h5>
             </div>
 
             <div className="flex flex-col items-center w-1/4">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                <AiOutlinePlus className="text-3xl" />
+                <AiOutlinePlus className="text-3xl text-[#FD7A09]" />
               </div>
               <h5>Movimientos</h5>
             </div>
