@@ -6,11 +6,8 @@ import img5 from "../../assets/img/pago_cel.png";
 import img6 from "../../assets/img/logosimple.svg";
 import img7 from "../../assets/img/fondo_verde.svg";
 import img1 from "../../assets/img/iconos_dinero.png";
-/* ";
+import img4 from "../../assets/img/crecimientoinversion.png";  
 
-
-import img4 from "../../assets/img/ingreso_tarjeta.png"; */
-/*  */
 import {FiArrowDown} from "react-icons/fi";
 import { Link } from "react-router-dom";
 
@@ -134,12 +131,12 @@ const HomePageContainer = () => {
           </div>
         
 
-        <div className="flex flex-col justify-center items-center  mt-10 mb-10">
-          <div className="flex justify-center items-center mb-40  -right-20 -bottom-40" >
-            <img className="object-none h-40 w-40 overflow-visible " src="" alt="" />
+        <div className="flex flex-col justify-center items-center relative mt-10 mb-10 overflow-hidden">
+          <div className="flex justify-center items-center mb-10 relative left-20  " >
+            <img className="object-contain h-80 w-80   " src={img4} alt="" />
           </div>
-          <div className="flex flex-col justify-center items-start z-10 overflow-visible  left-0 top-0">
-            <p className="text-[#090909] font-bold text-lg ml-2 overflow-visible items-start">¿Qué esperás para comenzar?</p>
+          <div className="flex flex-col justify-center items-start z-10  left-0 top-0">
+            <p className="text-[#090909] text-center text-2xl ml-2 w-[250px] items-start">¿Qué esperás para comenzar?</p>
           </div>
           
         </div>
