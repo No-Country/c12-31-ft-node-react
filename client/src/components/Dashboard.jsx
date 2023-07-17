@@ -126,7 +126,7 @@ export const Dashboard = () => {
       <div className='flex flex-col justify-center items-center min-h-full'>
         <div className='w-screen'>
 
-          <div className='flex items-center justify-around px-3 pt-3'>
+          <div className='flex items-center justify-around px-3 pt-3 text-[#FD7A09]'>
 
             <div className='flex flex-col items-center w-1/4'>
               <Link to='/servicioPagar'>
@@ -137,7 +137,7 @@ export const Dashboard = () => {
             </Link>
             </div>
 
-            <div className="flex flex-col items-center w-1/4">
+            <div className="flex flex-col items-center w-1/4 ">
               <Link to="/transferencias" className="flex flex-col items-center">
                 <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
                   <BiTransfer className="text-3xl text-[#FD7A09]" />
@@ -154,7 +154,7 @@ export const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="w-screen mb-10">
+        <div className="w-screen mb-10 text-[#FD7A09]">
           <div className="flex items-center justify-around mx-3 mt-8">
             <div className="flex flex-col items-center w-1/4 px-10">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
