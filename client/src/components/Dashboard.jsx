@@ -52,7 +52,7 @@ export const Dashboard = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <NavBar />
+      <NavBar className=''/>
 
       <div className='flex w-full pt-5 px-4 pb-8'>
 
