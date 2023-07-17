@@ -5,7 +5,6 @@ import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { Link, useNavigate } from 'react-router-dom';
 import { TransferenciasRecibidasComponent } from './TransferenciasComponent';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import axios from 'axios'
 
 
 const data = [
@@ -27,10 +26,11 @@ const data = [
 
     },
 ];
-
-export const TrasferenciasScreen = async() => {
+export const TrasferenciasScreen = () => {
     
     const navigate = useNavigate()
+    
+    
     
     let initials = data.map(item => {
         const nameParts = item.user.split(' ');
@@ -40,10 +40,6 @@ export const TrasferenciasScreen = async() => {
         return initials;
       });
 
-     
-
-
-
   return (
     <div className='h-screen flex flex-col'>
         <header className='flex justify-between px-10 py-5 items-center bg-gradient-to-b from-green-400 via-green-200 to-green-600'>
@@ -51,7 +47,7 @@ export const TrasferenciasScreen = async() => {
             <Link to={"/dashboard"}>
                 <AiOutlineArrowLeft className="w-7 h-7" />
             </Link>
-                <h1 className='text-2xl ml-3'>Transferencias</h1>
+                <h1 className='text-2xl ml-4'>Transferencias</h1>
             </div>
             <div>
                 <BiHelpCircle className='text-3xl'/>
@@ -73,7 +69,7 @@ export const TrasferenciasScreen = async() => {
         <div className='mt-5'>
             {
                 data.map((item, index) => (
-                    <TransferenciasRecibidasComponent key={index} user={item.user} amount={`+$${item.amount}`} initials={initials[index]} type send recibe date={item.date} />
+                    <TransferenciasRecibidasComponent key={index} user={item.user} amount={`+$${item.amount}`} initials={initials[index]} date={item.date} />
                 ))
             }
         </div>
