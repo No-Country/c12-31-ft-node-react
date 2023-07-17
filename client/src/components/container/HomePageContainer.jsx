@@ -51,7 +51,7 @@ const HomePageContainer = () => {
           </div>
         </div>
       </header>
-      <body>
+      <div>
         <div className="bg-secondary flex justify-center items-center w-screen h-auto p-4">
           <p className="text-[#090909] font-base text-center text-3xl">Mirá todo lo que  podés hacer en un mismo lugar...</p>
         </div>
@@ -150,7 +150,7 @@ const HomePageContainer = () => {
           </div>
         </div>
 
-      </body>
+      </div>
       <div>
         <Footer />
       </div>

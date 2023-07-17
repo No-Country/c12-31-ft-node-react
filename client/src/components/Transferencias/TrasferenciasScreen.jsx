@@ -5,6 +5,7 @@ import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { Link, useNavigate } from 'react-router-dom';
 import { TransferenciasRecibidasComponent } from './TransferenciasComponent';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import axios from 'axios'
 
 
 const data = [
@@ -26,10 +27,10 @@ const data = [
 
     },
 ];
-export const TrasferenciasScreen = () => {
+
+export const TrasferenciasScreen = async() => {
     
     const navigate = useNavigate()
-    
     
     let initials = data.map(item => {
         const nameParts = item.user.split(' ');
@@ -38,6 +39,10 @@ export const TrasferenciasScreen = () => {
         const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
         return initials;
       });
+
+     
+
+
 
   return (
     <div className='h-screen flex flex-col'>
@@ -68,7 +73,7 @@ export const TrasferenciasScreen = () => {
         <div className='mt-5'>
             {
                 data.map((item, index) => (
-                    <TransferenciasRecibidasComponent key={index} user={item.user} amount={`+$${item.amount}`} initials={initials[index]} date={item.date} />
+                    <TransferenciasRecibidasComponent key={index} user={item.user} amount={`+$${item.amount}`} initials={initials[index]} type send recibe date={item.date} />
                 ))
             }
         </div>
