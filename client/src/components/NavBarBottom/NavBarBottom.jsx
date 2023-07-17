@@ -1,18 +1,96 @@
+import { AiOutlineSetting, AiOutlineHome } from 'react-icons/ai'
+import { BsGraphDown } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
+import {HiOutlineCreditCard} from 'react-icons/hi'
+import {PiProhibitBold} from 'react-icons/pi'
+import {TbWorld} from 'react-icons/tb'
+import {CgArrowsExchangeAlt} from 'react-icons/cg'
+
+import React, { useState, useEffect, useRef } from 'react';
+
+import { Link } from 'react-router-dom'
+
+
+
+
 export const NavBarBottom = () => {
+
+    const [selectedButton, setSelectedButton] = useState(null);
+    const selectedButtonRef = useRef(null);
+
+    const navigate = useNavigate()
+
+
+    useEffect(() => {
+      const selectedButton = localStorage.getItem('selectedButton');
+      if (selectedButton) {
+        setSelectedButton(selectedButton);
+        selectedButtonRef.current = selectedButton;
+      }
+    }, []);
+
   return (
-    <div className="btm-nav sticky bottom-0">
-      <button className="active">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-      </button>
-      <button >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-      </button>
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-      </button>
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-      </button>
+    <div className="btm-nav sticky bottom-0 items-center bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09]">
+        <button
+              className={selectedButton === 'inicio' ? 'active bg-transparent' : ''}
+              onClick={() => {
+                setSelectedButton('inicio');
+                selectedButtonRef.current = 'inicio';
+                localStorage.setItem('selectedButton', 'inicio');
+                navigate('/dashboard');
+              }}
+            >
+            <AiOutlineHome className='text-2xl'/>
+            <p className='text-sm'>Inicio</p>
+        </button>
+
+        <button 
+          className={selectedButton === 'mis finanzas' ? 'active bg-transparent' : ''}
+          onClick={() => {
+            setSelectedButton('mis finanzas');
+            selectedButtonRef.current = 'mis finanzas';
+            localStorage.setItem('selectedButton', 'mis finanzas');
+            
+          }}>
+            <BsGraphDown className='text-2xl'/>
+            <p className='text-sm'>Mis finanzas</p>
+        </button>
+
+
+        <div className="dropdown dropdown-top flex justify-center items-center">
+        <button tabIndex={0} className='flex flex-col justify-center items-center'>
+            <HiOutlineCreditCard className='text-2xl'/>
+            <p className='text-sm'>Debito</p>
+        </button>
+          <ul tabIndex={0} className="dropdown-content z-[1]  p-2 shadow bg-[#D9D9D9] rounded-t-xl w-screen -translate-x-[12.5%]">
+            
+              <li className='flex justify-right items-center gap-2 m-2'>
+                <Link  to={"/denunciarTarjeta"} className='flex justify-right items-center gap-2' >
+                  <PiProhibitBold className='text-3xl'/><p className='text-xl text-bold'>Denunciar tarjeta</p>
+                </Link>
+              </li>
+
+            <li className='flex justify-right items-center gap-2 m-2'>
+              <Link  to={"/limiteDiario"} className='flex justify-right items-center gap-2' >
+              <CgArrowsExchangeAlt className='text-3xl'/><p className='text-xl text-bold'>Cambiar el limite diario</p>
+              </Link>
+            </li>
+            <li className='flex justify-right items-center gap-2 m-2'><TbWorld className='text-3xl'/><p className='text-xl text-bold'>Dar aviso de viaje</p></li>
+          </ul>
+        </div>
+
+        <button 
+          className={selectedButton === 'ajustes' ? 'active bg-transparent' : ''}
+          onClick={() => {
+            setSelectedButton('ajustes');
+            selectedButtonRef.current = 'ajustes';
+            localStorage.setItem('selectedButton', 'ajustes');
+            navigate('/ajustes');
+          }}>
+            <AiOutlineSetting className='text-2xl'/>
+            <p className='text-sm'>Ajustes</p>
+        </button>
+
     </div>
   )
 }
