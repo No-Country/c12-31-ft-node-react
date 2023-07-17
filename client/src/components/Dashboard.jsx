@@ -60,7 +60,7 @@ export const Dashboard = () => {
           <h1 className='text-xl mb-8'>Saldo actual</h1>
           <div className='flex justify-between'>
             <h1 className='text-3xl font-bold'>$28.500</h1>
-            <AiOutlineEye className='text-4xl' />
+            <TbEye className='text-4xl' />
           </div>
         </div>
         {/* <div className='w-10'></div> */}
