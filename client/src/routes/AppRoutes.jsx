@@ -20,6 +20,8 @@ import FinPagos from "../components/Pagos/FinPagos";
 import ResumenPago from "../components/Pagos/ResumenPago";
 import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
 import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
+import DenunciarTarjeta from "../components/tarjetaDebito/DenunciarTarjeta";
+import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
 
 
 function AppRoutes() {
@@ -35,7 +37,7 @@ function AppRoutes() {
           <Route path="/register" element={<Registro />} />
           <Route path="/login" element={<LoginScreen />} />
         </Route>
-        <Route element={<ProtectedRoute isAllowed={user} />}>
+        {/* <Route element={<ProtectedRoute isAllowed={user} />}> */}
           {/* INICIO  */}
           <Route path="/pagWelcome" element={<PagWelcome/>} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -60,10 +62,15 @@ function AppRoutes() {
           {/* AJUSTES */}
           <Route path="/ajustes" element={<AjustesScreen />} />
 
+          {/* DENUNCIAR TARJETA */}
+          <Route path="/denunciarTarjeta" element={<DenunciarTarjeta/>} />
+          <Route path="/limiteDiario" element={<LimiteDiario/>} />
+
+
           {/* INGRESAR DINERO  */}
           <Route path="/ingresarDinero" element={<IngresarDinero />} />
 
-        </Route>
+        {/* </Route> */}
         <Route path="*" element={<h1>404 pagina no encontrada</h1>} />
       </Routes>
     </Router>

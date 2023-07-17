@@ -1,5 +1,7 @@
-import { NavBar } from "./NavBar";
-import { AiOutlineEye, AiFillCreditCard, AiOutlinePlus } from "react-icons/ai";
+
+import { NavBar } from './NavBar'
+import { AiOutlineEye, AiOutlineCreditCard, AiOutlinePlus } from "react-icons/ai";
+
 import { BiTransfer } from "react-icons/bi";
 import { LiaPiggyBankSolid } from "react-icons/lia";
 import { BsPhone } from "react-icons/bs";
@@ -52,20 +54,22 @@ export const Dashboard = () => {
     <div className="min-h-screen flex flex-col">
       <NavBar />
 
-      <div className='flex w-full bg-gray-200'>
-        <div className='p-8 w-2/4'>
-          <h1 className='text-xl'>Saldo actual</h1>
-          <div className='flex items-center'>
-            <h1 className='text-3xl font-bold'>${user.user.wallet.balanceDollars}</h1>
-            <AiOutlineEye className='text-4xl ml-2' />
+      <div className='flex w-full pt-5 px-4 pb-8'>
+
+        <div className=' w-2/4 '>
+          <h1 className='text-xl mb-8'>Saldo actual</h1>
+          <div className='flex justify-between'>
+            <h1 className='text-3xl font-bold'>$28.500</h1>
+            <AiOutlineEye className='text-4xl' />
           </div>
         </div>
         {/* <div className='w-10'></div> */}
-        <div className='px-4 w-2/4 flex flex-col justify-center items-end'>
+        <div className=' w-2/4 flex flex-col items-end'>
+        <button className="btn btn-sm mb-8 text-[#3ED62B]">TU CVU</button>     
           <Link to={"/ingresarDinero"}>
-          <button className="btn btn-sm w-full px-2 mb-2">Ingresar dinero</button>     
+          <button className="btn btn-sm w-full text-[#3ED62B]">Ingresar dinero</button>     
           </Link>
-          {/* <button className="btn btn-sm w-full px-2">Extraer dinero</button> */}
+          
         </div>
       </div>
 
@@ -123,21 +127,21 @@ export const Dashboard = () => {
       <div className='flex flex-col justify-center items-center min-h-full'>
         <div className='w-screen'>
 
-          <div className='flex items-center justify-around px-3 pt-3'>
+          <div className='flex items-center justify-around px-3 pt-3 text-[#FD7A09]'>
 
             <div className='flex flex-col items-center w-1/4'>
               <Link to='/servicioPagar'>
               <div className='bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center'>
-                <AiFillCreditCard className='text-3xl' />
+                <AiOutlineCreditCard className='text-3xl text-[#FD7A09]' />
               </div>
-              <h5>Pagos</h5>
+              <h5 className='text-center'>Pagos</h5>
             </Link>
             </div>
 
-            <div className="flex flex-col items-center w-1/4">
+            <div className="flex flex-col items-center w-1/4 ">
               <Link to="/transferencias" className="flex flex-col items-center">
                 <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                  <BiTransfer className="text-3xl" />
+                  <BiTransfer className="text-3xl text-[#FD7A09]" />
                 </div>
                 <h5>Transferencias</h5>
               </Link>
@@ -145,24 +149,24 @@ export const Dashboard = () => {
 
             <div className="flex flex-col items-center w-1/4">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                <BsPhone className="text-3xl" />
+                <BsPhone className="text-3xl text-[#FD7A09]" />
               </div>
               <h5>Recargas</h5>
             </div>
           </div>
         </div>
-        <div className="w-screen mb-10">
+        <div className="w-screen mb-10 text-[#FD7A09]">
           <div className="flex items-center justify-around mx-3 mt-8">
             <div className="flex flex-col items-center w-1/4 px-10">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                <LiaPiggyBankSolid className="text-3xl" />
+                <LiaPiggyBankSolid className="text-3xl text-[#FD7A09]" />
               </div>
               <h5>Inversiones</h5>
             </div>
 
             <div className="flex flex-col items-center w-1/4">
               <div className="bg-gray-300 rounded-full h-14 w-14 flex items-center justify-center">
-                <AiOutlinePlus className="text-3xl" />
+                <AiOutlinePlus className="text-3xl text-[#FD7A09]" />
               </div>
               <h5>Movimientos</h5>
             </div>

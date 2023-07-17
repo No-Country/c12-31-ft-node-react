@@ -87,7 +87,7 @@ function LoginScreen() {
       <div className="flex justify-center mt-5">
         <button
           onClick={handleSubmit}
-          className="bg-zinc-300 px-6 py-2 rounded-full font-semibold"
+          className="px-6 py-2 font-semibold text-[#FD7A09]"
         >
           Iniciar Sesión
         </button>
@@ -99,9 +99,9 @@ function LoginScreen() {
         </button>
       </div>
 
-      <div className='flex justify-center mt-10 font-semibold'>
-        <p>No tienes usuario?</p> 
-        <button onClick={() => navegate('/register')} className='font-bold mx-1' >Registrate aqui</button>
+      <div className='flex flex-col justify-center mt-10 font-semibold'>
+        <p className="text-center mb-3">¿No tienes usuario?</p> 
+        <button onClick={() => navegate('/register')} className='font-bold mx-1 text-[#FD7A09]'>Registrate aqui</button>
       </div>
       <div className='flex flex-col justify-center mt-10 font-semibold items-center'>
         <small className='text-sm'>Por consultas o ayuda escribenos en</small>
