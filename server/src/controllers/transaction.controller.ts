@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 import { serializeResponse } from "utils/serialize-response";
 import { TransactionService } from "services/transaction.service";
 import { TransactionDto } from "../dto/create-transaction.dto";

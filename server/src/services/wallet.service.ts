@@ -2,7 +2,6 @@ import { dbContext } from "config/database.config";
 import Wallet from "models/wallet.model";
 import Boom from "@hapi/boom";
 import Decimal from "decimal.js";
-import { fa } from "@faker-js/faker";
 export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
@@ -32,8 +31,8 @@ export class WalletService {
     const amountDecimal = new Decimal(amount);
     const newBalanceReciver = balancePesos.plus(amountDecimal);
     const newBalanceSender = balancePesos.sub(amountDecimal);
-    console.log(newBalanceReciver);
-    console.log(newBalanceSender);
+    /* console.log(newBalanceReciver);
+    console.log(newBalanceSender); */
     const queryRunner = dbContext.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
@@ -50,7 +49,7 @@ export class WalletService {
       );
       await queryRunner.commitTransaction();
     } catch (error) {
-      console.log(error);
+      /* console.log(error); */
       await queryRunner.rollbackTransaction();
       throw Boom.internal("Failed to deposit, please try again");
     } finally {

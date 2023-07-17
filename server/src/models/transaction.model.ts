@@ -29,10 +29,6 @@ class Transaction {
   amount: number;
 
   @Expose()
-  @Column("date")
-  date: Date;
-
-  @Expose()
   @Column("uuid")
   senderId: string;
 

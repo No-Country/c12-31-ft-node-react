@@ -1,5 +1,5 @@
 export interface TransactionDto {
-  reciverId: string;
-  amount: string;
+  receiverId: string;
+  amount: number;
   senderId: string;
 }
