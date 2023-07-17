@@ -20,6 +20,8 @@ import FinPagos from "../components/Pagos/FinPagos";
 import ResumenPago from "../components/Pagos/ResumenPago";
 import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
 import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
+import DenunciarTarjeta from "../components/tarjetaDebito/DenunciarTarjeta";
+import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
 
 
 function AppRoutes() {
@@ -59,6 +61,11 @@ function AppRoutes() {
 
           {/* AJUSTES */}
           <Route path="/ajustes" element={<AjustesScreen />} />
+
+          {/* DENUNCIAR TARJETA */}
+          <Route path="/denunciarTarjeta" element={<DenunciarTarjeta/>} />
+          <Route path="/limiteDiario" element={<LimiteDiario/>} />
+
 
           {/* INGRESAR DINERO  */}
           <Route path="/ingresarDinero" element={<IngresarDinero />} />

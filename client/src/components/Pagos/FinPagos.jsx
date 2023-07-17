@@ -8,7 +8,7 @@ import img1 from  '../../assets/img/sonrisa.png';
 import img2 from  '../../assets/img/triste.png';
 
 const FinPagos = () => {
-  const [pago, setPago] = useState(false);
+  const [pago, setPago] = useState(true);
 
   const pagoCompleta = () => {
     setPago(!pago);

@@ -54,21 +54,22 @@ export const Dashboard = () => {
     <div className="min-h-screen flex flex-col">
       <NavBar />
 
-      <div className='flex w-full bg-gray-200'>
+      <div className='flex w-full pt-5 px-4 pb-8'>
 
-        <div className='p-8 w-2/4'>
-          <h1 className='text-xl'>Saldo actual</h1>
-          <div className='flex items-center'>
-            {/* <h1 className='text-3xl font-bold'>${user.user.wallet.balanceDollars}</h1> */}
-            <AiOutlineEye className='text-4xl ml-2' />
+        <div className=' w-2/4 '>
+          <h1 className='text-xl mb-8'>Saldo actual</h1>
+          <div className='flex justify-between'>
+            <h1 className='text-3xl font-bold'>$28.500</h1>
+            <AiOutlineEye className='text-4xl' />
           </div>
         </div>
         {/* <div className='w-10'></div> */}
-        <div className='px-4 w-2/4 flex flex-col justify-center items-end'>
+        <div className=' w-2/4 flex flex-col items-end'>
+        <button className="btn btn-sm mb-8 text-[#3ED62B]">TU CVU</button>     
           <Link to={"/ingresarDinero"}>
-          <button className="btn btn-sm w-full px-2 mb-2">Ingresar dinero</button>     
+          <button className="btn btn-sm w-full text-[#3ED62B]">Ingresar dinero</button>     
           </Link>
-          {/* <button className="btn btn-sm w-full px-2">Extraer dinero</button> */}
+          
         </div>
       </div>
 
