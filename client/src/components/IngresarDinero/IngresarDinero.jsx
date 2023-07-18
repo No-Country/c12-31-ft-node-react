@@ -58,12 +58,12 @@ export default function IngresarDinero() {
             </div>
         </div>
 
-        <div className='flex justify-between p-3 mt-10 mb-10 items-center '>
-          <button className='font-semibold text-lg text-[#FD7A09]  duration-100 hover:text-[#e28330] '>
+        <div className='flex justify-between p-1 mt-10 mb-10 items-center '>
+          <button className='font-semibold text-base text-[#FD7A09]  duration-100 hover:text-[#e28330] '>
             Cambiar alias
           </button>
 
-          <button className='flex justify-center items-center gap-2 border-[#FD7A09] border-2 p-2 rounded-3xl font-semibold text-lg text-[#FD7A09]  shadow-xl  hover:shadow-gray-400 duration-300'>
+          <button className='flex justify-center items-center gap-1 border-[#FD7A09] border-2 p-2 rounded-3xl font-semibold text-base text-[#FD7A09]  shadow-xl  hover:shadow-gray-400 duration-300'>
             <BsShare/>
             Compartir datos
           </button>

@@ -23,12 +23,12 @@ const FinPagos = () => {
         <div className="flex flex-col justify-center items-center text-center ">
           <h1 className="text-3xl font-bold">¡Tu pago se realizó con exito!</h1>
         </div>
-        <div className='flex justify-center items-center bg-[#D9D9D9] w-[300px] h-[300px] rounded-full '>
+        <div className='flex justify-center items-center bg-green-400 w-[300px] h-[300px] rounded-full '>
           <div className='flex  justify-center items-center w-[250px] h-[250px] rounded-full'>
             <img className='object-cover 'src={img1} alt="" />
           </div>
           </div>
-          <div className='flex flex-col justify-between items-center w-[350px] h-[150px] bg-[#D9D9D9] rounded-xl'>
+          <div className='flex flex-col justify-between items-center w-[350px] h-[150px] bg-green-400 rounded-xl'>
             <div className='flex justify-between items-center h-1/2 w-full mt-4 gap-[20px]'>
               <div className='flex justify-center items-center pl-6'>
                 <p className='text-xl'> {date.getDate()}/{date.getMonth()+1}/{date.getFullYear()} {date.getHours()}:{date.getUTCMinutes()}</p>
@@ -51,10 +51,10 @@ const FinPagos = () => {
           </div>
         <div className='flex justify-evenly items-center w-[350px] mb-4'>
           <Link to={"/dashboard"}>
-            <button className='bg-[#D9D9D9] hover:bg-[#909090] duration-200 rounded-2xl font-bold px-4 py-2'>Volver al inicio</button>
+            <button className='bg-[#FD7A09] hover:bg-[#dd7112] duration-200 rounded-2xl font-bold px-4 py-2'>Volver al inicio</button>
           </Link>
           <Link to={"/servicioPagar"}>
-            <button className='bg-[#D9D9D9] hover:bg-[#909090] duration-200 rounded-2xl font-bold px-4 py-2'>Otro pago</button>
+            <button className='bg-green-400 hover:bg-green-600 duration-200 rounded-2xl font-bold px-4 py-2'>Otro pago</button>
           </Link>
         </div>
       </div>
