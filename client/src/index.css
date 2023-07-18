@@ -2,3 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* SWIPER DE PAGOS */
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .BtnPagosFondo{
+    background: linear-gradient(to right, rgba(151, 218, 1, 1), rgba(170, 232, 162, 1), rgba(62, 214, 43, 1));
+  }
