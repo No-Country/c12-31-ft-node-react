@@ -38,7 +38,7 @@ export const TrasferenciasScreen = () => {
   return (
     <div className='h-screen flex flex-col'>
 
-      <div className='mx-5 my-3 sticky top-0 z-10'>
+      <div className='mx-5 my-3 sticky top-0 z-10 shadow-xl'>
         <header className='flex justify-between px-10 py-5 items-center navbar bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] rounded-lg'>
             <div className='flex'>
             <Link to={"/dashboard"}>

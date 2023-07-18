@@ -21,7 +21,7 @@ export const TransferirDinero = () => {
         </div>
 
         <div className='w-full px-10'>
-            <button className='btn btn-wide w-full justify-start text-xs border-green-400 border-1 bg-gray-200'>Con celular (lista de contactos)</button>
+            <button className='btn btn-wide w-full justify-start text-xs border-green-400 border-1 bg-gray-200' onClick={() => navigate('/celular')}>Con celular (lista de contactos)</button>
             <button className='btn btn-wide w-full justify-start text-xs my-2 border-green-400 border-1 bg-gray-200'>Con CBU, CVU o Alias</button>
         </div>
 
