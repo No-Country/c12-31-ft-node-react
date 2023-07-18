@@ -10,7 +10,7 @@ export const TransferenciaCelular = () => {
     <div>
         <header>
             <div className='flex mx-10 items-center mt-10'>
-                <BsArrowLeftShort onClick={()=> navigate('/transferencias')} className='text-4xl'/>
+                <BsArrowLeftShort onClick={()=> navigate('/transferencias1')} className='text-4xl'/>
                 <h1 className='text-xl mx-5'>Completá los datos</h1>
             </div>
         </header>
@@ -29,7 +29,7 @@ export const TransferenciaCelular = () => {
         </div>
 
         <div className='flex justify-center mt-40'>
-            <button className='btn bg-[#FD7A09] rounded-full'>Nuevo contacto</button>
+            <button className='btn bg-[#FD7A09] rounded-full' onClick={() => navigate('/contactoNuevo')}>Nuevo contacto</button>
         </div>
     </div>
   )

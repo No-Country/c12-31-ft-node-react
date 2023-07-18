@@ -1,13 +1,16 @@
 import { BsArrowLeftShort } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom'
 
 function ContactoNuevo() {
+
+  const navigate = useNavigate()
 
   return (
     <>
 
-    <div className='flex mx-10 items-center mt-5'>
-        <BsArrowLeftShort className='text-4xl'/>
-        <h1 className='text-xl  mx-5'>Contacto nuevo </h1>
+    <div className='flex mx-10 items-center mt-10'>
+        <BsArrowLeftShort className='text-4xl' onClick={() => navigate('/celular')}/>
+        <h1 className='text-xl  mx-5'>Agendar destinatario</h1>
     </div>
 
     <div className='p-10 mt-20'>
