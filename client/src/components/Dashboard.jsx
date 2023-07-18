@@ -88,7 +88,7 @@ export const Dashboard = () => {
 
       <div className="flex flex-col justify-center items-center w-full gap-[50px]">
       <div>
-      <div className='flex justify-end items-center m-5'>
+      <div className='flex justify-end items-center mx-5 my-2'>
         {toogleButton}
       </div>
       <div className=" bg-[#D9D9D9] rounded-xl h-[280px] w-[380px] flex flex-col justify-center items-center">
