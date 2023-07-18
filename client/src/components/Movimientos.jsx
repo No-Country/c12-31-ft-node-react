@@ -25,7 +25,7 @@ export const Movimientos = () => {
   return (
 
       <div className='min-h-screen flex flex-col'>
-          <header className='flex justify-between px-5 py-5 items-center'>
+          <header className='flex justify-between px-5 py-5 items-center sticky top-0 bg-white'>
               <div className='flex items-center'>
                   <BsArrowLeftShort onClick={()=> navigate('/dashboard')} className='text-4xl mx-3'/>
                   <h1 className='text-lg'>Movimientos</h1>
