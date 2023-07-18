@@ -12,7 +12,7 @@ export const NavBar = () => {
     clearTokenFromCookies();
   };
   return (
-    <div className="navbar bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] sticky top-0">
+    <div className="navbar bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] sticky top-0 z-10">
       <div className="flex justify-between w-full px-5 ">
         <div className="flex items-center">
           <BiUserCircle className="text-4xl" />

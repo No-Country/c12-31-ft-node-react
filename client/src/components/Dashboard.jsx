@@ -1,18 +1,19 @@
 
 import { NavBar } from './NavBar'
-import { AiOutlineEye, AiOutlineCreditCard, AiOutlinePlus } from "react-icons/ai";
-
+import {AiOutlineCreditCard, AiOutlinePlus } from "react-icons/ai";
 import { BiTransfer } from "react-icons/bi";
 import { LiaPiggyBankSolid } from "react-icons/lia";
 import { BsPhone } from "react-icons/bs";
 import { UserContext } from "../context/useUserContext";
 import { useContext } from "react";
-
 import { NavBarBottom } from './NavBarBottom/NavBarBottom';
 import { Link } from 'react-router-dom';
 import { TbEyeClosed, TbEye } from "react-icons/tb";
 import "../components/tarjetaDebito/style.css";
 import { useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
+import {TransferenciasComponent} from './Transferencias/TransferenciasComponent'
+import JSON from './data.json'
 
 export const Dashboard = () => {
   const [verNumeros, setVerNumeros] = useState(true); 
@@ -49,6 +50,19 @@ export const Dashboard = () => {
   const name = "Perez Juan";
   const expDate = new Date();
   
+
+  const data = JSON;
+
+  const dataSplice = [...data];
+  const dataShow = dataSplice.splice(0,3);
+
+  let initials = data.map(item => {
+    const nameParts = item.user.split(' ');
+    const firstName = nameParts[0];
+    const lastName = nameParts.length > 1 ? nameParts[1] : '';
+    const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
+    return initials;
+  });
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -122,6 +136,23 @@ export const Dashboard = () => {
         </div>
       </div>
       </div>
+      
+      <div className=" bg-[#D9D9D9] rounded-xl h-[320px] w-[380px] flex flex-col justify-between items-center">
+        <div className='flex justify-between items-start px-3 pt-3 w-full'>
+          <p className='text-xl '>Ultimos Movimientos</p>
+          <Link to={'/movimientos'}>
+          <p className='flex items-center justify-center text-xl'>Ver <FiPlus className='h-7 w-7'/></p>
+          </Link>
+        </div>
+        <div className='w-full'>
+        {
+                dataShow.map((item, index) => (
+                  (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>      
+          ))
+            }
+        </div>
+      </div>
+      
       </div>
 
       <div className='flex flex-col justify-center items-center min-h-full'>

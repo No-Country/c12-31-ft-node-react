@@ -8,8 +8,7 @@ const NavBar = () => {
   const { isLoggedIn, login, logout } = useContext(UserContext);
   return (
       <div className="navbar w-full flex justify-around  fixed top-0 z-50" style={{background: 'rgba( 255, 255, 255, 0.4 )',
-        backdropFilter: 'blur( 15.5px )',
-        webkitBackdropFilter: 'blur( 15.5px )'}}>
+        backdropFilter: 'blur( 15.5px )'}}>
         <div onClick={() => navegate('/register')} className=" m-2 bg-transparent border-none text-primary font-medium" >Registrate</div>
         <div onClick={() => navegate('/login')} className="  m-2 bg-transparent border-none text-primary font-,medium">Iniciar sesión</div>
       </div>
