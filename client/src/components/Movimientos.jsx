@@ -1,21 +1,16 @@
 import { BiHelpCircle } from 'react-icons/bi';
 import { BsArrowLeftShort, BsFilter } from 'react-icons/bs';
-import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
+import { NavBarBottom } from '../components/NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
-import JSON from '../dataMovimientos.json'
-import { TransferenciasComponent } from './TransferenciasComponent';
+import JSON from './dataMovimientos.json'
+import { TransferenciasComponent } from './Transferencias/TransferenciasComponent';
 
 
-export const TransferenciasRealizadas = () => {
-  const data = [];
-  const movimientos = JSON;
-  movimientos.filter (i => { 
-    if(i.type === 'Transferencia'){
-      data.push(i)
-    }
-  })
+export const Movimientos = () => {
+  const data = JSON;
 
-  let initials = movimientos.map(item => {
+
+  let initials = data.map(item => {
     const nameParts = item.user.split(' ');
     const firstName = nameParts[0];
     const lastName = nameParts.length > 1 ? nameParts[1] : '';
@@ -32,8 +27,8 @@ export const TransferenciasRealizadas = () => {
       <div className='min-h-screen flex flex-col'>
           <header className='flex justify-between px-5 py-5 items-center'>
               <div className='flex items-center'>
-                  <BsArrowLeftShort onClick={()=> navigate('/transferencias')} className='text-4xl mx-3'/>
-                  <h1 className='text-lg'>Transferencias realizadas</h1>
+                  <BsArrowLeftShort onClick={()=> navigate('/dashboard')} className='text-4xl mx-3'/>
+                  <h1 className='text-lg'>Movimientos</h1>
               </div>
               <div>
                   <BiHelpCircle className='text-3xl'/>
@@ -65,4 +60,3 @@ export const TransferenciasRealizadas = () => {
     
   )
 }
-

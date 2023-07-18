@@ -25,7 +25,7 @@ const HomePageContainer = () => {
         <div className="contImg1 relative ">
           <div className="overflow-hidden relative w-screen mt-[70px]">
           
-            <div className=" relative flex justify-center items-center h-[600px] w-[600px] bg-primary rounded-full left-[100px]">
+            <div className=" relative flex justify-center items-center h-[600px] w-[600px] bg-[#FD7A09] rounded-full left-[100px]">
               <svg className=" fill-white h-full p-6 absolute"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.81 63.92">
                 <defs></defs><g id="Capa_2" data-name="Capa 2">
                   <g id="Capa_1-2" data-name="Capa 1">
@@ -44,7 +44,7 @@ const HomePageContainer = () => {
               <p className="text-[#090909] text-center font-normal text-2xl ">No somos una billetera más...</p>
               <p className="text-[#090909] font-normal text-center text-base mt-6 pl-14">Somos tu mejor amigo en finanzas</p>
               <div className="flex justify-center">
-                <button className=" flex justify-center items-center  text-primary font-bold m-6 ">
+                <button className=" flex justify-center items-center  text-[#FD7A09] font-bold m-6 ">
                   <FiArrowDown className="text-3xl font-bold m-4"/>Descubrinos<FiArrowDown className="text-3xl font-bold m-4"/></button>
               </div>
             </div>
@@ -145,7 +145,7 @@ const HomePageContainer = () => {
           <h2 className="text-[#090909] text-lg ">¿Aún no tenes una cuenta?</h2>
           <div className="flex justify-center">
             <Link to="/register">
-            <button className="btn btn-wide btn-outline rounded-full text-primary hover:bg-primary hover:text-white m-4 ">Registrate GRATIS</button>
+            <button className="btn btn-wide btn-outline rounded-full text-[#FD7A09] hover:bg-[#FD7A09] hover:text-white m-4 ">Registrate GRATIS</button>
             </Link>
           </div>
         </div>
