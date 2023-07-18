@@ -12,7 +12,7 @@ import { AQuien } from "../components/Transferencias/AQuien";
 import ServicioPagar from "../components/Pagos/ServicioPagar";
 import ContactoNuevo from "../components/Transferencias/ContactoNuevo";
 import Empresa from "../components/Pagos/Empresa";
-import { TransferenciasRecibidas } from "../components/Transferencias/TransferenciasRecibidas";
+
 import { TransferenciasRealizadas } from "../components/Transferencias/TransferenciasRealizadas";
 import PagWelcome from "../components/PagWelcome";
 import FinTranferencia from "../components/Transferencias/FinTranferencia";
@@ -25,6 +25,7 @@ import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
 import PaginaError from "../components/Error/PaginaError";
 import TarjetaCoin from "../components/Tarjetas/TarjetaCoin";
 
+import { Movimientos } from "../components/Movimientos";
 
 
 function AppRoutes() {
@@ -51,7 +52,6 @@ function AppRoutes() {
           <Route path="/transferencias1" element={<TransferirDinero />} />
           <Route path="/transferencias2" element={<AQuien />} />
           <Route path="/contactoNuevo" element={<ContactoNuevo />} />
-          <Route path="/recibidas" element={<TransferenciasRecibidas />} />
           <Route path="/realizadas" element={<TransferenciasRealizadas />} />
           <Route path="/finTransferencia" element={<FinTranferencia />} />
 
@@ -61,6 +61,8 @@ function AppRoutes() {
           <Route path="/resumenPagos" element={<ResumenPago />} />
           <Route path="/finPagos" element={<FinPagos />} />
 
+          {/* MOVIMIENTOS */}
+          <Route path="/movimientos" element={<Movimientos />} />
 
           {/* AJUSTES */}
           <Route path="/ajustes" element={<AjustesScreen />} />

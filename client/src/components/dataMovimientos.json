@@ -1,0 +1,106 @@
+ [
+  {
+    "user": "Juan",
+    "amount": 1500,
+    "date": "12/07/2023",
+    "type": "Transferencia",
+    "send": false,
+    "recibe": true
+  },
+  {
+    "user":"Pedro",
+    "amount": -500,
+    "date":"10/07/2023",
+    "type":"Transferencia",
+    "send":true,
+    "recibe": false
+  },
+  {
+    "user": "Maria",
+    "amount": -100,
+    "date": "17/07/2023",
+    "type": "Transferencia",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Marta",
+    "amount": 3000,
+    "date": "25/07/2023",
+    "type": "Transferencia",
+    "send": false,
+    "recibe": true
+  },
+  {
+    "user": "Lucas",
+    "amount": -2000,
+    "date": "29/07/2023",
+    "type": "Transferencia",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan",
+    "amount": 1000,
+    "date": "31/07/2023",
+    "type": "Transferencia",
+    "send": false,
+    "recibe": true
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -1500,
+    "date": "12/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -500,
+    "date": "15/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -600,
+    "date": "16/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -700,
+    "date": "17/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -800,
+    "date": "18/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -900,
+    "date": "19/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  },
+  {
+    "user": "Juan Perez",
+    "amount": -1000,
+    "date": "20/07/2023",
+    "type": "Pago",
+    "send": true,
+    "recibe": false
+  }
+]

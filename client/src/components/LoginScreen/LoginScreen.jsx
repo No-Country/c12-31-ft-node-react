@@ -40,7 +40,7 @@ function LoginScreen() {
 
   return (
     <div className="p-10 mt-10 flex-col bg-zinc-50 max-h-screen">
-      <h1 className="text-xl font-semibold mb-3">Iniciar sesión</h1>
+      <h1 className="text-2xl mb-10 text-center">Estas por iniciar sesión en CountryCoin</h1>
       <form action="" className="bg-zinc-300 rounded-3xl px-7 py-5">
         <div className="h-6">
           {error && (
@@ -94,14 +94,16 @@ function LoginScreen() {
       </div>
 
       <div className="flex justify-center mt-10">
-        <button className="bg-zinc-300 w-full rounded-lg py-2 font-semibold">
+        <button className="bg-zinc-300 w-full rounded-lg py-2 font-semibold text-[#3ED62B] border-2 border-[#3ED62B]">
           Iniciar sesiòn con Google
         </button>
       </div>
 
       <div className='flex flex-col justify-center mt-10 font-semibold'>
-        <p className="text-center mb-3">¿No tienes usuario?</p> 
-        <button onClick={() => navegate('/register')} className='font-bold mx-1 text-[#FD7A09]'>Registrate aqui</button>
+        <p className="text-center mb-3">¿No tienes cuenta?</p> 
+        <div className="flex items-center justify-center">
+          <button onClick={() => navegate('/register')} className='btn  text-center text-[#FD7A09] border-[#FD7A09] rounded-full bg-zinc-700 w-40 bg-orange-500 bg-opacity-30'>Registrate</button>
+        </div>
       </div>
       <div className='flex flex-col justify-center mt-10 font-semibold items-center'>
         <small className='text-sm'>Por consultas o ayuda escribenos en</small>

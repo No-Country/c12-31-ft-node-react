@@ -8,7 +8,7 @@ function ServicioPagar() {
 
   return (
     <>
-      <div className="flex justify-around items-center m-5 bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] p-4 rounded-lg shadow-gray-300 shadow-lg">
+      <div className="flex sticky top-5 justify-around items-center m-5 bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] p-4 rounded-lg shadow-gray-300 shadow-lg">
 
         <Link to={"/dashboard"}>
         <AiOutlineArrowLeft className="w-7 h-7" />
@@ -58,7 +58,7 @@ function ServicioPagar() {
 
         
         {/* HISTORIAL  */}
-        <p className="mt-20">Historial</p>
+        <p className="mt-10">Historial</p>
         <div className="flex flex-col mt-5">
           {data.map((data) => (
             <div key={data.id} className="border-b-2 border-green-200 flex justify-between items-center m-2">
