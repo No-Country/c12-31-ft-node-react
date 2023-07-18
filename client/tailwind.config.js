@@ -10,22 +10,23 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: [
-      // {
-      //   noCountryThem: {
-      //     primary: "#FD7A09",
-      //     secondary: "#3ED62B",
-      //     accent: "#97DA01",
-      //     neutral: "#090909",
-      //     base: "#f3f4f6",
-      //     info: "#3abff8",
-      //     success: "#36d399",
-      //     warning: "#fbbd23",
-      //     error: "#dc2626",
-      //   },
-      // },
+    // themes: [
+    //   // {
+    //   //   noCountryThem: {
+    //   //     primary: "#FD7A09",
+    //   //     secondary: "#3ED62B",
+    //   //     accent: "#97DA01",
+    //   //     neutral: "#090909",
+    //   //     base: "#f3f4f6",
+    //   //     info: "#3abff8",
+    //   //     success: "#36d399",
+    //   //     warning: "#fbbd23",
+    //   //     error: "#dc2626",
+    //   //   },
+    //   // },
 
-    ], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
+    // ], 
+    // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme:false, // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
