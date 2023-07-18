@@ -23,6 +23,7 @@ import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
 import DenunciarTarjeta from "../components/tarjetaDebito/DenunciarTarjeta";
 import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
 import { Movimientos } from "../components/Movimientos";
+import { TransferenciaCelular } from "../components/Transferencias/TransferenciaCelular";
 
 
 function AppRoutes() {
@@ -51,6 +52,7 @@ function AppRoutes() {
           <Route path="/contactoNuevo" element={<ContactoNuevo />} />
           <Route path="/realizadas" element={<TransferenciasRealizadas />} />
           <Route path="/finTransferencia" element={<FinTranferencia />} />
+          <Route path="/celular" element={<TransferenciaCelular />} />
 
           {/* PAGOS  */}
           <Route path="/servicioPagar" element={<ServicioPagar />} />
