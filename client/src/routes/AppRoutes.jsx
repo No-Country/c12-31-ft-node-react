@@ -22,6 +22,9 @@ import { AjustesScreen } from "../components/AjustesScreen/AjustesScreen";
 import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
 import DenunciarTarjeta from "../components/tarjetaDebito/DenunciarTarjeta";
 import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
+import PaginaError from "../components/Error/PaginaError";
+import TarjetaCoin from "../components/Tarjetas/TarjetaCoin";
+
 
 
 function AppRoutes() {
@@ -66,12 +69,14 @@ function AppRoutes() {
           <Route path="/denunciarTarjeta" element={<DenunciarTarjeta/>} />
           <Route path="/limiteDiario" element={<LimiteDiario/>} />
 
+          <Route path="/tarjetaCoin" element={<TarjetaCoin/>} />
+
 
           {/* INGRESAR DINERO  */}
           <Route path="/ingresarDinero" element={<IngresarDinero />} />
 
         {/* </Route> */}
-        <Route path="*" element={<h1>404 pagina no encontrada</h1>} />
+        <Route path="*" element={<PaginaError/>} />
       </Routes>
     </Router>
   );
