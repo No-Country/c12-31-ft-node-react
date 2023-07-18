@@ -24,12 +24,12 @@ class User {
   name: string;
 
   @Expose()
-  @Column({ length: 100, update: false })
+  @Column({ length: 100, update: false, default: "" })
   lastname: string;
 
   @Expose()
   @Column({ length: 100 })
-  address: string;
+  country: string;
 
   @Expose()
   @Column({ unique: true, update: false })

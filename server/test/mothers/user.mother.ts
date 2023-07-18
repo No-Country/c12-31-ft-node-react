@@ -5,10 +5,10 @@ export class UserMother {
   static generateCreateUserDto(): CreateUserDto {
     return {
       name: faker.person.firstName(),
-      lastname: faker.person.lastName(),
+      lastname: Math.random() > 0.5 ? faker.person.lastName() : "",
       email: faker.internet.email(),
       password: faker.internet.password(),
-      address: faker.location.streetAddress(),
+      country: faker.location.country(),
     };
   }
 }
