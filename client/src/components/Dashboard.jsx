@@ -52,9 +52,15 @@ export const Dashboard = () => {
           </Link>
           
         </div>
+        
       </div>
 
-      <div className="flex flex-col justify-center items-center w-full gap-[50px]">
+      
+
+      <h1 className='text-2xl ml-5'>Mis tarjetas</h1>
+      <div className="flex flex-col justify-center items-center w-full gap-[30px]">
+
+
       <div>
         {/* SLIDER TARJETAS  */}
         <div className=" bg-[#ffffff] rounded-xl h-[280px] w-[380px]  ">

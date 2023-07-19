@@ -3,6 +3,7 @@ import { TbEyeClosed, TbEye } from "react-icons/tb";
 import { useState,  } from 'react';
 import { useContext } from "react";
 import { UserContext } from "../../context/useUserContext";
+import Visa from "../../assets/img/VISA-Logo.png"
 
 
 export default function TarjetaCoin() {
@@ -86,8 +87,7 @@ const expDate = new Date();
                   </div>
                   <div className="card-holder">{name}</div>
                   <div className="master">
-                    <div className="circle master-red"></div>
-                    <div className="circle master-yellow"></div>
+                    <img src={Visa} alt="visa" className="w-12 h-auto"/>
                   </div>
                 </div>
                 <div className="back">
