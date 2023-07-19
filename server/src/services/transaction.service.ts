@@ -24,6 +24,7 @@ export class TransactionService {
     }
 
     const transaction = this.transactionRepository.create(TransactionDto);
+    transaction.wallet = walletSender;
     await this.transactionRepository.save(transaction);
     return transaction;
   }
