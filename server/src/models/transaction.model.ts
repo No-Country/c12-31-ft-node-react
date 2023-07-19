@@ -3,6 +3,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
   Relation,
@@ -22,6 +23,7 @@ class Transaction {
   receiverId: string;
 
   @ManyToOne(() => Wallet, (wallet) => wallet.transactions)
+  @JoinColumn({ name: "receiverId" })
   wallet: Wallet;
 
   @Expose()

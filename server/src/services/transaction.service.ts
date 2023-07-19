@@ -27,4 +27,7 @@ export class TransactionService {
     await this.transactionRepository.save(transaction);
     return transaction;
   }
+  public static async findAll(): Promise<Transaction[]> {
+    return await this.transactionRepository.find();
+  }
 }

@@ -20,28 +20,22 @@ export class WalletService {
     senderId: string,
     receiverId?: string
   ): Promise<void> {
-    const walletSender = await this.walletRepository.findOneBy({
-      id: senderId,
-    });
-
-    if (!walletSender) {
-      throw Boom.notFound("Sender's wallet not found");
-    }
-
-    const balanceSender = new Decimal(walletSender.balancePesos);
-    const amountDecimal = new Decimal(amount);
-
     if (receiverId) {
+      const walletSender = await this.walletRepository.findOneBy({
+        id: senderId,
+      });
       const walletReceiver = await this.walletRepository.findOneBy({
         id: receiverId,
       });
+      if (!walletSender || !walletReceiver)
+        throw Boom.notFound("Wallet not found");
 
-      if (!walletReceiver) {
-        throw Boom.notFound("Receiver's wallet not found");
-      }
-
+      const balanceSender = new Decimal(walletSender.balancePesos);
       const balanceReceiver = new Decimal(walletReceiver.balancePesos);
+      const amountDecimal = new Decimal(amount);
+
       const newBalanceReceiver = balanceReceiver.plus(amountDecimal);
+
       const newBalanceSender = balanceSender.minus(amountDecimal);
 
       await TransactionService.createTransaction({
@@ -74,26 +68,22 @@ export class WalletService {
         await queryRunner.release();
       }
     } else {
-      // If receiverId is not provided, only update the sender's wallet
-      const newBalanceSender = balanceSender.plus(amountDecimal);
-
-      await TransactionService.createTransaction({
-        senderId,
-        receiverId: senderId,
-        amount: amountDecimal.toNumber(),
+      const wallet = await this.walletRepository.findOneBy({
+        id: senderId,
       });
-
+      if (!wallet) throw Boom.notFound("Wallet not found");
+      const balance = new Decimal(wallet.balancePesos);
+      const amountDecimal = new Decimal(amount);
+      const newBalance = balance.plus(amountDecimal);
       const queryRunner = dbContext.createQueryRunner();
       await queryRunner.connect();
       await queryRunner.startTransaction();
-
       try {
         await queryRunner.manager.update(
           Wallet,
-          { id: walletSender.id },
-          { balancePesos: newBalanceSender.toString() }
+          { id: wallet.id },
+          { balancePesos: newBalance.toString() }
         );
-
         await queryRunner.commitTransaction();
       } catch (error) {
         await queryRunner.rollbackTransaction();
@@ -102,5 +92,13 @@ export class WalletService {
         await queryRunner.release();
       }
     }
+  }
+
+  public static async findOne(id: string): Promise<Wallet> {
+    const wallet = await this.walletRepository.findOneBy({ id });
+
+    if (!wallet) throw Boom.notFound(`Wallet with id ${id} not found`);
+
+    return wallet;
   }
 }

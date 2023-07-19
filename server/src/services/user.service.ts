@@ -41,7 +41,9 @@ export class UserService {
 
   public static async findAll(status?: boolean): Promise<User[]> {
     if (status === null) {
-      return await this.userRepository.find();
+      return await this.userRepository.find({
+        relations: ["wallet", "wallet.transactions"],
+      });
     } else {
       return await this.userRepository.findBy({ active: status });
     }
@@ -50,7 +52,7 @@ export class UserService {
   public static async findOne(id: string): Promise<User> {
     const user = await this.userRepository.findOneBy({ id });
 
-    if (!user) throw Boom.notFound(`User with id ${id} not found`);
+    if (!user) throw Boom.notFound(`User with id ${id} does not exist`);
 
     return user;
   }

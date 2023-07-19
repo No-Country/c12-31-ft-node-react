@@ -19,4 +19,17 @@ export class WalletController {
       next(error);
     }
   }
+
+  static async findOne(
+    { params }: RequestWithTypedBody<CreateTransaction>,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const wallet = await WalletService.getWalletById(params.id);
+      res.status(200).json(wallet);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
