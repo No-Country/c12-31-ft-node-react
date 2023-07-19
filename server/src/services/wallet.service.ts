@@ -2,6 +2,7 @@ import { dbContext } from "config/database.config";
 import Wallet from "models/wallet.model";
 import Boom from "@hapi/boom";
 import Decimal from "decimal.js";
+import { TransactionService } from "./transaction.service";
 export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
@@ -16,14 +17,14 @@ export class WalletService {
   }
   public static async depositPesos(
     senderId: string,
-    reciverId: string,
-    amount: Decimal
+    receiverId: string,
+    amount: number
   ): Promise<void> {
     const walletSender = await this.walletRepository.findOneBy({
       id: senderId,
     });
     const walletReciver = await this.walletRepository.findOneBy({
-      id: reciverId,
+      id: receiverId,
     });
     if (!walletSender || !walletReciver)
       throw Boom.notFound("Wallet not found");
@@ -31,8 +32,11 @@ export class WalletService {
     const amountDecimal = new Decimal(amount);
     const newBalanceReciver = balancePesos.plus(amountDecimal);
     const newBalanceSender = balancePesos.sub(amountDecimal);
-    /* console.log(newBalanceReciver);
-    console.log(newBalanceSender); */
+    await TransactionService.createTransaction({
+      senderId,
+      receiverId,
+      amount: amountDecimal.toNumber(),
+    });
     const queryRunner = dbContext.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
@@ -49,7 +53,6 @@ export class WalletService {
       );
       await queryRunner.commitTransaction();
     } catch (error) {
-      /* console.log(error); */
       await queryRunner.rollbackTransaction();
       throw Boom.internal("Failed to deposit, please try again");
     } finally {

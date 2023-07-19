@@ -12,18 +12,13 @@ export class TransactionService {
     const walletSender = await WalletService.getWalletById(
       TransactionDto.senderId
     );
-    if (new Decimal(walletSender.balancePesos).lessThanOrEqualTo(0))
+    if (
+      new Decimal(walletSender.balancePesos).lessThanOrEqualTo(0) ||
+      new Decimal(walletSender.balancePesos).lessThan(TransactionDto.amount)
+    )
       throw Boom.badRequest("Insufficient funds");
     const transaction = this.transactionRepository.create(TransactionDto);
-    /*  console.log(transaction); */
-    const amount = new Decimal(transaction.amount);
-    await WalletService.depositPesos(
-      transaction.senderId,
-      transaction.receiverId,
-      amount
-    );
     await this.transactionRepository.save(transaction);
-    /*  console.log(transaction); */
     return transaction;
   }
 }
