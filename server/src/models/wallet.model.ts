@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
   Relation,
@@ -26,7 +27,11 @@ class Wallet {
   @Column({ type: "decimal", default: 0 })
   balanceDollars: Decimal;
 
-  @OneToMany(() => Transaction, (transaction) => transaction.id)
+  @Expose()
+  @OneToMany(() => Transaction, (transaction) => transaction.wallet, {
+    eager: true,
+  })
+  @JoinColumn()
   transactions: Relation<Transaction>[];
 
   @CreateDateColumn()

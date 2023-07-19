@@ -10,9 +10,9 @@ export class WalletController {
   ): Promise<void> {
     try {
       await WalletService.depositPesos(
+        body.amount,
         body.senderId,
-        body.receiverId,
-        body.amount
+        body.receiverId
       );
       res.status(200).json({ message: "Deposit successful" });
     } catch (error) {
