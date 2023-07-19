@@ -4,6 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import SliderEmpresa from "./SliderEmpresa";
 
 
+
 function Empresa() {
   return (
     <>
@@ -48,6 +49,7 @@ function Empresa() {
 
 
       </div>
+      
 
     </>
   );
