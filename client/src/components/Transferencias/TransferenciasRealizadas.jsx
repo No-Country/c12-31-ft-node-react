@@ -33,7 +33,7 @@ export const TransferenciasRealizadas = () => {
           <header className='flex justify-between px-5 py-5 items-center'>
               <div className='flex items-center'>
                   <BsArrowLeftShort onClick={()=> navigate('/transferencias')} className='text-4xl mx-3'/>
-                  <h1 className='text-lg'>Transferencias realizadas</h1>
+                  <h1 className='text-lg'>Resumen</h1>
               </div>
               <div>
                   <BiHelpCircle className='text-3xl'/>
