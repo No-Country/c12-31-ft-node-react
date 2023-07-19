@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import carCountry from "../../assets/img/CARD_COUNTRY_PAGOS.png"
 import carRoja from "../../assets/img/CARD_ROJA_PAGOS.png"
 import master from "../../assets/img/MASTER_PAGOS.png"
-import agregar from "../../assets/img/AGREGAR_PAGOS.png"
 
 export default function SliderEmpresa() {
   return (

@@ -23,8 +23,6 @@ import IngresarDinero from "../components/IngresarDinero/IngresarDinero";
 import DenunciarTarjeta from "../components/tarjetaDebito/DenunciarTarjeta";
 import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
 import PaginaError from "../components/Error/PaginaError";
-import TarjetaCoin from "../components/Tarjetas/TarjetaCoin";
-
 import { Movimientos } from "../components/Movimientos";
 import { TransferenciaCelular } from "../components/Transferencias/TransferenciaCelular";
 
@@ -73,7 +71,6 @@ function AppRoutes() {
           <Route path="/denunciarTarjeta" element={<DenunciarTarjeta/>} />
           <Route path="/limiteDiario" element={<LimiteDiario/>} />
 
-          <Route path="/tarjetaCoin" element={<TarjetaCoin/>} />
 
 
           {/* INGRESAR DINERO  */}
