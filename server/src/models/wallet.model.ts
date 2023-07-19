@@ -28,7 +28,10 @@ class Wallet {
   balanceDollars: Decimal;
 
   @Expose()
-  @OneToMany(() => Transaction, (transaction) => transaction.wallet)
+  @OneToMany(() => Transaction, (transaction) => transaction.wallet, {
+    eager: true,
+  })
+  @JoinColumn()
   transactions: Transaction[];
 
   @CreateDateColumn()
