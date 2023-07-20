@@ -8,8 +8,6 @@ export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
   public static async create(): Promise<Wallet> {
-
-
     const cardNumber = `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(
       1000 + Math.random() * 9000
     )}-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(
