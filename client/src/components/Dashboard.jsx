@@ -8,7 +8,6 @@ import { useContext } from "react";
 import { NavBarBottom } from './NavBarBottom/NavBarBottom';
 import { Link } from 'react-router-dom';
 import "../components/tarjetaDebito/style.css";
-import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import {TransferenciasComponent} from './Transferencias/TransferenciasComponent'
 import JSON from './dataMovimientos.json'
