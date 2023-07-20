@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
 
 
 /* SWIPER DE PAGOS */
@@ -21,4 +27,11 @@
 
   .BtnPagosFondo{
     background: linear-gradient(to right, rgba(151, 218, 1, 1), rgba(170, 232, 162, 1), rgba(62, 214, 43, 1));
+  }
+
+
+  /* FONDO DE REGISTRO  */
+  .gradient-orange {
+    background-image: linear-gradient(45deg, rgba(253, 122, 9, 0.8), rgba(255, 237, 72, 0.7));
+    /* Otras propiedades de estilo para el elemento */
   }
