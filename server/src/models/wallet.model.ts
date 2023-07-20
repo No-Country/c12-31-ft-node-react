@@ -28,11 +28,18 @@ class Wallet {
   balanceDollars: Decimal;
 
   @Expose()
-  @OneToMany(() => Transaction, (transaction) => transaction.wallet, {
+  @OneToMany(() => Transaction, (transaction) => transaction.senderWallet, {
     eager: true,
   })
-  @JoinColumn()
-  transactions: Transaction[];
+  @JoinColumn({ name: "senderId" }) // Foreign key column for sender
+  senderTransactions: Transaction[];
+
+  @Expose()
+  @OneToMany(() => Transaction, (transaction) => transaction.receiverWallet, {
+    eager: true,
+  })
+  @JoinColumn({ name: "receiverId" }) // Foreign key column for receiver
+  receiverTransactions: Transaction[];
 
   @CreateDateColumn()
   creationDate: Date;

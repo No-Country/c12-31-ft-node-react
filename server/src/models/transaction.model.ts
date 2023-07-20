@@ -6,7 +6,6 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-  Relation,
   UpdateDateColumn,
 } from "typeorm";
 import Wallet from "./wallet.model";
@@ -22,17 +21,23 @@ class Transaction {
   @Column("uuid")
   receiverId: string;
 
-  @ManyToOne(() => Wallet, (wallet) => wallet.transactions)
-  wallet: Wallet;
+  @Expose()
+  @Column("uuid")
+  senderId: string;
+
+  @ManyToOne(() => Wallet, (wallet) => wallet.senderTransactions)
+  @JoinColumn({ name: "senderId" })
+  senderWallet: Wallet;
+
+  @ManyToOne(() => Wallet, (wallet) => wallet.receiverTransactions)
+  @JoinColumn({ name: "receiverId" })
+  receiverWallet: Wallet;
 
   @Expose()
   @Column("decimal")
   amount: number;
 
   @Expose()
-  @Column("uuid")
-  senderId: string;
-
   @CreateDateColumn()
   creationDate: Date;
 
