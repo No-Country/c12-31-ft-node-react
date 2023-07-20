@@ -41,7 +41,7 @@ function LoginScreen() {
   return (
     <div className="p-10 mt-10 flex-col bg-zinc-50 max-h-screen">
       <h1 className="text-2xl mb-10 text-center">Estas por iniciar sesión en CountryCoin</h1>
-      <form action="" className="bg-zinc-300 rounded-3xl px-7 py-5">
+      <form action="" className="bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] h-[56%] rounded-3xl px-7 py-5">
         <div className="h-6">
           {error && (
             <p className="text-red-500 text-center text-lg">{mensaje}</p>
@@ -87,14 +87,14 @@ function LoginScreen() {
       <div className="flex justify-center mt-5">
         <button
           onClick={handleSubmit}
-          className="px-6 py-2 font-semibold text-[#FD7A09]"
+          className="px-6 py-2 font-semibold bg-[#FD7A09] rounded-full"
         >
           Iniciar Sesión
         </button>
       </div>
 
       <div className="flex justify-center mt-10">
-        <button className="bg-zinc-300 w-full rounded-lg py-2 font-semibold text-[#3ED62B] border-2 border-[#3ED62B]">
+        <button className="bg-zinc-200 w-full rounded-lg py-2 font-semibold text-[#FD7A09] border-2 border-[#FD7A09]">
           Iniciar sesiòn con Google
         </button>
       </div>
@@ -102,7 +102,7 @@ function LoginScreen() {
       <div className='flex flex-col justify-center mt-10 font-semibold'>
         <p className="text-center mb-3">¿No tienes cuenta?</p> 
         <div className="flex items-center justify-center">
-          <button onClick={() => navegate('/register')} className='btn  text-center text-[#FD7A09] border-[#FD7A09] rounded-full bg-zinc-700 w-40 bg-orange-500 bg-opacity-30'>Registrate</button>
+          <button onClick={() => navegate('/register')} className='btn  text-center text-[#FD7A09] border-zinc-500 w-40'>Registrate</button>
         </div>
       </div>
       <div className='flex flex-col justify-center mt-10 font-semibold items-center'>
