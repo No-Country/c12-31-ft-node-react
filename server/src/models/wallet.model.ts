@@ -21,6 +21,18 @@ class Wallet {
   id: string;
 
   @Expose()
+  @Column({ default: "" })
+  cardNumber: string;
+
+  @Expose()
+  @Column({ default: "" })
+  cvv: string;
+
+  @Expose()
+  @Column({ default: "" })
+  expirationDate: string;
+
+  @Expose()
   @Column({ type: "decimal", default: 0 })
   balancePesos: Decimal;
 

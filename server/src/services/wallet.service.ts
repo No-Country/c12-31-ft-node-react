@@ -8,7 +8,27 @@ export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
   public static async create(): Promise<Wallet> {
-    const wallet = this.walletRepository.create();
+
+
+    const cardNumber = `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(
+      1000 + Math.random() * 9000
+    )}-${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(
+      1000 + Math.random() * 9000
+    )}`;
+
+    const cvv = Math.floor(100 + Math.random() * 900).toString();
+
+    const expirationDate = `${Math.floor(1 + Math.random() * 12)}/${Math.floor(
+      2021 + Math.random() * 5
+    )}`;
+
+    const wallet = await this.walletRepository.create({
+      cardNumber,
+      cvv,
+      expirationDate,
+    });
+
+    await this.walletRepository.save(wallet);
     return wallet;
   }
   public static async getWalletById(id: string): Promise<Wallet> {

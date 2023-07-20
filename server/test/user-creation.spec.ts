@@ -30,6 +30,9 @@ describe("User registrartion", () => {
               ...userData,
               id: expect.any(String),
               wallet: {
+                cardNumber: expect.any(String),
+                cvv: expect.any(String),
+                expirationDate: expect.any(String),
                 id: expect.any(String),
                 balanceDollars: "0",
                 balancePesos: "0",
@@ -103,9 +106,13 @@ describe("User login", () => {
               email,
               id: expect.any(String),
               wallet: {
+                cardNumber: expect.any(String),
+                cvv: expect.any(String),
+                expirationDate: expect.any(String),
                 balancePesos: "0",
                 balanceDollars: "0",
                 id: expect.any(String),
+
               },
             },
             access_token: expect.any(String),
