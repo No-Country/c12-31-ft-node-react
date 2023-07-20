@@ -14,95 +14,58 @@ export class TransactionService {
     transactionDto: TransactionDto
   ): Promise<Transaction> {
     const { senderId, receiverId, amount } = transactionDto;
-    if (!receiverId) {
-      const senderWallet = await WalletService.getWalletById(senderId);
-      const transaction = this.transactionRepository.create({
-        ...transactionDto,
-        senderWallet: senderWallet,
-        receiverWallet: senderWallet,
-        senderId: senderWallet.id,
-      });
 
-      const queryRunner = dbContext.createQueryRunner();
-      await queryRunner.connect();
-      await queryRunner.startTransaction();
+    const senderWallet = await WalletService.getWalletById(senderId);
+    const receiverWallet = await WalletService.getWalletById(receiverId);
 
-      try {
-        await queryRunner.manager.save(transaction);
-
-        const senderBalance = new Decimal(senderWallet.balancePesos);
-        const amountDecimal = new Decimal(amount);
-
-        const newSenderBalance = senderBalance.plus(amountDecimal);
-
-        await queryRunner.manager.update(
-          Wallet,
-          { id: senderWallet.id },
-          { balancePesos: newSenderBalance.toString() }
-        );
-
-        await queryRunner.commitTransaction();
-      } catch (error) {
-        await queryRunner.rollbackTransaction();
-        throw Boom.internal("Failed to create transaction, please try again");
-      } finally {
-        await queryRunner.release();
-      }
-
-      return transaction;
-    } else {
-      const senderWallet = await WalletService.getWalletById(senderId);
-      const receiverWallet = await WalletService.getWalletById(receiverId);
-
-      if (
-        new Decimal(senderWallet.balancePesos).lessThanOrEqualTo(0) ||
-        new Decimal(senderWallet.balancePesos).lessThan(amount)
-      ) {
-        throw Boom.badRequest("Insufficient funds");
-      }
-
-      const transaction = this.transactionRepository.create({
-        ...transactionDto,
-        senderWallet: senderWallet,
-        receiverWallet: receiverWallet,
-        senderId: senderWallet.id,
-      });
-
-      const queryRunner = dbContext.createQueryRunner();
-      await queryRunner.connect();
-      await queryRunner.startTransaction();
-
-      try {
-        await queryRunner.manager.save(transaction);
-        const senderBalance = new Decimal(senderWallet.balancePesos);
-        const receiverBalance = new Decimal(receiverWallet.balancePesos);
-        const amountDecimal = new Decimal(amount);
-
-        const newSenderBalance = senderBalance.minus(amountDecimal);
-        const newReceiverBalance = receiverBalance.plus(amountDecimal);
-
-        await queryRunner.manager.update(
-          Wallet,
-          { id: senderWallet.id },
-          { balancePesos: newSenderBalance.toString() }
-        );
-
-        await queryRunner.manager.update(
-          Wallet,
-          { id: receiverWallet.id },
-          { balancePesos: newReceiverBalance.toString() }
-        );
-
-        await queryRunner.commitTransaction();
-      } catch (error) {
-        await queryRunner.rollbackTransaction();
-        throw Boom.internal("Failed to create transaction, please try again");
-      } finally {
-        await queryRunner.release();
-      }
-
-      return transaction;
+    if (
+      new Decimal(senderWallet.balancePesos).lessThanOrEqualTo(0) ||
+      new Decimal(senderWallet.balancePesos).lessThan(amount)
+    ) {
+      throw Boom.badRequest("Insufficient funds");
     }
+
+    const transaction = this.transactionRepository.create({
+      ...transactionDto,
+      senderWallet: senderWallet,
+      receiverWallet: receiverWallet,
+      senderId: senderWallet.id,
+    });
+
+    const queryRunner = dbContext.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+
+    try {
+      await queryRunner.manager.save(transaction);
+      const senderBalance = new Decimal(senderWallet.balancePesos);
+      const receiverBalance = new Decimal(receiverWallet.balancePesos);
+      const amountDecimal = new Decimal(amount);
+
+      const newSenderBalance = senderBalance.minus(amountDecimal);
+      const newReceiverBalance = receiverBalance.plus(amountDecimal);
+
+      await queryRunner.manager.update(
+        Wallet,
+        { id: senderWallet.id },
+        { balancePesos: newSenderBalance.toString() }
+      );
+
+      await queryRunner.manager.update(
+        Wallet,
+        { id: receiverWallet.id },
+        { balancePesos: newReceiverBalance.toString() }
+      );
+
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      throw Boom.internal("Failed to create transaction, please try again");
+    } finally {
+      await queryRunner.release();
+    }
+
+    return transaction;
   }
 
   public static async findAll(): Promise<Transaction[]> {

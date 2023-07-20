@@ -3,6 +3,7 @@ import Wallet from "models/wallet.model";
 import Boom from "@hapi/boom";
 import Decimal from "decimal.js";
 import { TransactionService } from "./transaction.service";
+import { DepositService } from "./deposit.service";
 export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
@@ -75,6 +76,12 @@ export class WalletService {
       const balance = new Decimal(wallet.balancePesos);
       const amountDecimal = new Decimal(amount);
       const newBalance = balance.plus(amountDecimal);
+
+      await DepositService.createDeposit({
+        walletId: senderId,
+        amount: amountDecimal.toNumber(),
+      });
+
       const queryRunner = dbContext.createQueryRunner();
       await queryRunner.connect();
       await queryRunner.startTransaction();

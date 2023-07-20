@@ -11,6 +11,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import Transaction from "./transaction.model";
+import { Deposit } from "./deposit.model";
 
 @Exclude()
 @Entity()
@@ -31,15 +32,22 @@ class Wallet {
   @OneToMany(() => Transaction, (transaction) => transaction.senderWallet, {
     eager: true,
   })
-  @JoinColumn({ name: "senderId" }) // Foreign key column for sender
+  @JoinColumn({ name: "senderId" })
   senderTransactions: Transaction[];
 
   @Expose()
   @OneToMany(() => Transaction, (transaction) => transaction.receiverWallet, {
     eager: true,
   })
-  @JoinColumn({ name: "receiverId" }) // Foreign key column for receiver
+  @JoinColumn({ name: "receiverId" })
   receiverTransactions: Transaction[];
+
+  @Expose()
+  @OneToMany(() => Deposit, (deposit) => deposit.wallet, {
+    eager: true,
+  })
+  @JoinColumn({ name: "walletId" })
+  deposits: Deposit[];
 
   @CreateDateColumn()
   creationDate: Date;
