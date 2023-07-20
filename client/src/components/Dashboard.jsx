@@ -40,7 +40,7 @@ export const Dashboard = () => {
         <div className=' w-2/4 '>
           <h1 className='text-xl mb-8'>Saldo actual</h1>
           <div className='flex justify-between'>
-            <h1 className='text-3xl font-bold'>$28.500</h1>
+            <h1 className='text-3xl font-bold'>$28.000</h1>
           </div>
         </div>
         {/* <div className='w-10'></div> */}

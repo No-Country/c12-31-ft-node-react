@@ -41,7 +41,7 @@ function LoginScreen() {
   return (
     <div className="p-10 mt-10 flex-col bg-zinc-50 max-h-screen">
       <h1 className="text-2xl mb-10 text-center">Estas por iniciar sesión en CountryCoin</h1>
-      <form action="" className="bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09] h-[56%] rounded-3xl px-7 py-5">
+      <form action="" className="gradient-orange rounded-3xl px-7 py-5">
         <div className="h-6">
           {error && (
             <p className="text-red-500 text-center text-lg">{mensaje}</p>

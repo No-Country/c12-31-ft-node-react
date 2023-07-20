@@ -67,7 +67,7 @@ function Registro() {
         if (respuesta.statusCode === 201) {
           login(respuesta.data);
           setTokenInCookies(respuesta.data.access_token);
-          navegate("/dashboard");
+          navegate("/pagWelcome");
         }
 
         //ENVIO DE DATOS

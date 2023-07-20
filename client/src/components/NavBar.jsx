@@ -38,8 +38,10 @@ export const NavBar = () => {
                 className="text-4xl"
               />
             
-
-              <a className="btn btn-ghost normal-case text-xl">Hola usuario</a>
+            {
+              user &&
+              <a className="btn btn-ghost normal-case text-xl">Hola {user.user.name}</a>
+            }
             </div>
             <div className="items-center">
 
