@@ -4,4 +4,10 @@ export class WalletDto {
   balancePesos: string;
 
   balanceDollars: string;
+
+  cardNumber: string;
+
+  cvv: string;
+
+  expirationDate: string;
 }
