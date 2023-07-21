@@ -18,7 +18,7 @@ export const NavBar = () => {
             <div className="flex items-center">
               <BiUserCircle className="text-4xl" />
               <a className="btn btn-ghost normal-case text-xl">
-                Hola usuario
+                Hola {user.user.name}
               </a>
             </div>
             <div className="items-center">

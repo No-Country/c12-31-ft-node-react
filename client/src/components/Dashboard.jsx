@@ -17,7 +17,7 @@ import JSON from './dataMovimientos.json'
 export const Dashboard = () => {
   const [verNumeros, setVerNumeros] = useState(true); 
   const { user } = useContext(UserContext);
-  
+  console.log(user)
 
   const mostrarNumeros = ()=>{
     setVerNumeros(!verNumeros)
@@ -72,7 +72,7 @@ export const Dashboard = () => {
         <div className=' w-2/4 '>
           <h1 className='text-xl mb-8'>Saldo actual</h1>
           <div className='flex justify-between'>
-            <h1 className='text-3xl font-bold'>$28.500</h1>
+            <h1 className='text-3xl font-bold'>${user.user.wallet.balanceDollars}</h1>
             <TbEye className='text-4xl' />
           </div>
         </div>
