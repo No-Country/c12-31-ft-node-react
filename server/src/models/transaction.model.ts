@@ -24,6 +24,13 @@ class Transaction {
   @Expose()
   @Column("uuid")
   senderId: string;
+  @Expose()
+  @Column({ default: "" })
+  receiverName: string;
+
+  @Expose()
+  @Column({ default: "" })
+  senderName: string;
 
   @ManyToOne(() => Wallet, (wallet) => wallet.senderTransactions)
   @JoinColumn({ name: "senderId" })
