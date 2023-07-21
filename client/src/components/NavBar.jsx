@@ -33,6 +33,7 @@ export const NavBar = () => {
           <div className="flex justify-between w-full px-5 ">
             <div className="flex items-center">
 
+
             
             <BiUserCircle
                 className="text-4xl"
@@ -42,6 +43,7 @@ export const NavBar = () => {
               user &&
               <a className="btn btn-ghost normal-case text-xl">Hola {user.user.name}</a>
             }
+
             </div>
             <div className="items-center">
 

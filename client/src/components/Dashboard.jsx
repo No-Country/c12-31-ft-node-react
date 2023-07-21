@@ -17,7 +17,7 @@ import SliderTarjetas from './Tarjetas/SliderTarjetas';
 
 export const Dashboard = () => {
   const { user } = useContext(UserContext);
-  
+
   const data = JSON;
 
   const dataSplice = [...data];
@@ -40,7 +40,11 @@ export const Dashboard = () => {
         <div className=' w-2/4 '>
           <h1 className='text-xl mb-8'>Saldo actual</h1>
           <div className='flex justify-between'>
+
             <h1 className='text-3xl font-bold'>$28.000</h1>
+
+            {/* <h1 className='text-3xl font-bold'>${user.user.wallet.balanceDollars}</h1> */}
+
           </div>
         </div>
         {/* <div className='w-10'></div> */}
@@ -54,12 +58,8 @@ export const Dashboard = () => {
         
       </div>
 
-      
-
       <h1 className='text-2xl ml-5'>Mis tarjetas</h1>
       <div className="flex flex-col justify-center items-center w-full gap-[30px]">
-
-
       <div>
         {/* SLIDER TARJETAS  */}
         <div className=" bg-[#ffffff] rounded-xl h-[280px] w-[380px]  ">

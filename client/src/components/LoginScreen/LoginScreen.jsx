@@ -28,7 +28,7 @@ function LoginScreen() {
     } else {
 
       setError(false);
-      const userLogged = await loginUser({ email, password: contraseña });
+      const userLogged = await loginUser({ name:email, password: contraseña });
       if (userLogged.statusCode === 200) {
         login(userLogged.data);
         setTokenInCookies(userLogged.data.access_token);

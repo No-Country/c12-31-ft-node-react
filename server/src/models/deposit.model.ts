@@ -1,3 +1,5 @@
+//modelo para deposito de dinero
+
 import { Exclude, Expose } from "class-transformer";
 import {
   Column,
@@ -12,26 +14,18 @@ import Wallet from "./wallet.model";
 
 @Exclude()
 @Entity()
-class Transaction {
+class Deposit {
   @Expose()
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Expose()
   @Column("uuid")
-  receiverId: string;
+  walletId: string;
 
-  @Expose()
-  @Column("uuid")
-  senderId: string;
-
-  @ManyToOne(() => Wallet, (wallet) => wallet.senderTransactions)
-  @JoinColumn({ name: "senderId" })
-  senderWallet: Wallet;
-
-  @ManyToOne(() => Wallet, (wallet) => wallet.receiverTransactions)
-  @JoinColumn({ name: "receiverId" })
-  receiverWallet: Wallet;
+  @ManyToOne(() => Wallet, (wallet) => wallet.deposits)
+  @JoinColumn({ name: "walletId" })
+  wallet: Wallet;
 
   @Expose()
   @Column("decimal")
@@ -45,4 +39,4 @@ class Transaction {
   updatedOn: Date;
 }
 
-export default Transaction;
+export { Deposit };

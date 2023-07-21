@@ -4,12 +4,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
   Relation,
   UpdateDateColumn,
 } from "typeorm";
 import Transaction from "./transaction.model";
+import { Deposit } from "./deposit.model";
 
 @Exclude()
 @Entity()
@@ -19,6 +21,18 @@ class Wallet {
   id: string;
 
   @Expose()
+  @Column({ default: "" })
+  cardNumber: string;
+
+  @Expose()
+  @Column({ default: "" })
+  cvv: string;
+
+  @Expose()
+  @Column({ default: "" })
+  expirationDate: string;
+
+  @Expose()
   @Column({ type: "decimal", default: 0 })
   balancePesos: Decimal;
 
@@ -26,8 +40,26 @@ class Wallet {
   @Column({ type: "decimal", default: 0 })
   balanceDollars: Decimal;
 
-  @OneToMany(() => Transaction, (transaction) => transaction.id)
-  transactions: Relation<Transaction>[];
+  @Expose()
+  @OneToMany(() => Transaction, (transaction) => transaction.senderWallet, {
+    eager: true,
+  })
+  @JoinColumn({ name: "senderId" })
+  senderTransactions: Transaction[];
+
+  @Expose()
+  @OneToMany(() => Transaction, (transaction) => transaction.receiverWallet, {
+    eager: true,
+  })
+  @JoinColumn({ name: "receiverId" })
+  receiverTransactions: Transaction[];
+
+  @Expose()
+  @OneToMany(() => Deposit, (deposit) => deposit.wallet, {
+    eager: true,
+  })
+  @JoinColumn({ name: "walletId" })
+  deposits: Deposit[];
 
   @CreateDateColumn()
   creationDate: Date;
