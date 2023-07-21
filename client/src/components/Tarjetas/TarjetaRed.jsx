@@ -1,49 +1,56 @@
-import "./tarjetaCoin.css";
+import "./tarjetaRed.css"
 import { TbEyeClosed, TbEye } from "react-icons/tb";
-import { useState,  } from 'react';
+import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../context/useUserContext";
-import Visa from "../../assets/img/VISA-Logo.png"
 
+function TarjetaRed() {
+  const [verNumeros, setVerNumeros] = useState(true);
+  const { user } = useContext(UserContext);
 
-export default function TarjetaCoin() {
+  const mostrarNumeros = () => {
+    setVerNumeros(!verNumeros);
+  };
 
-    const [verNumeros, setVerNumeros] = useState(true); 
-    const { user } = useContext(UserContext);
+  let toogleButton;
 
+  let tarjNumber1;
+  let tarjNumber2;
+  let tarjNumber3;
+  let tarjNumber4 = Math.ceil(Math.random() * 10000)
+    .toString()
+    .padStart(4, "0");
 
-const mostrarNumeros = ()=>{
-  setVerNumeros(!verNumeros)
-}
+  if (verNumeros) {
+    toogleButton = (
+      <div onClick={mostrarNumeros}>
+        <TbEye className="w-8 h-8" />
+      </div>
+    );
+    tarjNumber1 = Math.ceil(Math.random() * 1000 + 5000);
+    tarjNumber2 = Math.ceil(Math.random() * 10000)
+      .toString()
+      .padStart(4, "0");
+    tarjNumber3 = Math.ceil(Math.random() * 10000)
+      .toString()
+      .padStart(4, "0");
+  } else {
+    toogleButton = (
+      <div onClick={mostrarNumeros}>
+        <TbEyeClosed className="w-8 h-8" />
+      </div>
+    );
+    tarjNumber1 = "****";
+    tarjNumber2 = "****";
+    tarjNumber3 = "****";
+  }
 
-let toogleButton;
-
-let tarjNumber1;
-let tarjNumber2;
-let tarjNumber3;
-let tarjNumber4 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0')
-
-if(verNumeros){
-  toogleButton = <div onClick={mostrarNumeros}>
-    <TbEye className="w-8 h-8" />
-  </div>
-  tarjNumber1 = Math.ceil(Math.random() * (1000)+5000);
-  tarjNumber2 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
-  tarjNumber3 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
-}else{
-  toogleButton =  <div onClick={mostrarNumeros}>
-                    <TbEyeClosed className="w-8 h-8" />
-                  </div>
-  tarjNumber1 = '****';
-  tarjNumber2 = '****';
-  tarjNumber3 = '****';
-}
-
-const name = "Perez Juan";
-const expDate = new Date();
+  const name = "Miguel Martinez";
+  const expDate = new Date();
 
   return (
     <>
+
 
 
       <div className="flex flex-col justify-center items-center w-full gap-[50px]">
@@ -54,8 +61,8 @@ const expDate = new Date();
           <div className=" bg-[#ffffff] rounded-xl h-[280px] w-[380px] flex flex-col justify-center items-center">
             <div className="card">
               <div className="flip">
-                <div className="front">
-                  <div className="chip">
+                <div className="frontM">
+                  <div className="chipM">
                     <div className="chip-line"></div>
                     <div className="chip-line"></div>
                     <div className="chip-line"></div>
@@ -73,7 +80,7 @@ const expDate = new Date();
                     <path d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z"></path>
                     <path d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z"></path>
                   </svg>
-                  <div className="card-number">
+                  <div className="card-numberM">
                     <div className="section">{tarjNumber1}</div>
                     <div className="section">{tarjNumber2}</div>
                     <div className="section">{tarjNumber3}</div>
@@ -87,10 +94,11 @@ const expDate = new Date();
                   </div>
                   <div className="card-holder">{name}</div>
                   <div className="master">
-                    <img src={Visa} alt="visa" className="w-12 h-auto"/>
+                    <div className="circle master-red"></div>
+                    <div className="circle master-yellow"></div>
                   </div>
                 </div>
-                <div className="back">
+                <div className="backM">
                   <div className="strip-black"></div>
                   <div className="ccv">
                     <label>ccv</label>
@@ -116,3 +124,5 @@ const expDate = new Date();
     </>
   );
 }
+
+export default TarjetaRed;

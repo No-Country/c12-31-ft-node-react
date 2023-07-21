@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsArrowLeftShort } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
+import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 
 export const TransferirDinero = () => {
 
@@ -57,6 +58,7 @@ export const TransferirDinero = () => {
         <div className='w-full flex justify-center my-20'>
             <button className='btn btn-wide rounded-full text-[#FD7A09] border-none text-lg'>Siguiente</button>
         </div>
+        <NavBarBottom />
     </div>
   )
 }
