@@ -13,7 +13,8 @@ export class TransactionService {
   public static async createTransaction(
     transactionDto: TransactionDto
   ): Promise<Transaction> {
-    const { senderId, receiverId, amount } = transactionDto;
+    const { senderId, receiverId, amount, receiverName, senderName } =
+      transactionDto;
 
     const senderWallet = await WalletService.getWalletById(senderId);
     const receiverWallet = await WalletService.getWalletById(receiverId);
@@ -30,6 +31,8 @@ export class TransactionService {
       senderWallet: senderWallet,
       receiverWallet: receiverWallet,
       senderId: senderWallet.id,
+      receiverName,
+      senderName,
     });
 
     const queryRunner = dbContext.createQueryRunner();

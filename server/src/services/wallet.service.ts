@@ -4,6 +4,7 @@ import Boom from "@hapi/boom";
 import Decimal from "decimal.js";
 import { TransactionService } from "./transaction.service";
 import { DepositService } from "./deposit.service";
+import { UserService } from "./user.service";
 export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
@@ -40,17 +41,13 @@ export class WalletService {
     receiverId?: string
   ): Promise<void> {
     if (receiverId) {
-      const walletSender = await this.walletRepository.findOneBy({
-        id: senderId,
-      });
-      const walletReceiver = await this.walletRepository.findOneBy({
-        id: receiverId,
-      });
+      const walletSender = await UserService.findOne(senderId);
+      const walletReceiver = await UserService.findOne(receiverId);
       if (!walletSender || !walletReceiver)
         throw Boom.notFound("Wallet not found");
 
-      const balanceSender = new Decimal(walletSender.balancePesos);
-      const balanceReceiver = new Decimal(walletReceiver.balancePesos);
+      const balanceSender = new Decimal(walletSender.wallet.balancePesos);
+      const balanceReceiver = new Decimal(walletReceiver.wallet.balancePesos);
       const amountDecimal = new Decimal(amount);
 
       const newBalanceReceiver = balanceReceiver.plus(amountDecimal);
@@ -58,9 +55,11 @@ export class WalletService {
       const newBalanceSender = balanceSender.minus(amountDecimal);
 
       await TransactionService.createTransaction({
-        senderId,
-        receiverId,
+        senderId: walletSender.wallet.id,
+        receiverId: walletReceiver.wallet.id,
         amount: amountDecimal.toNumber(),
+        receiverName: walletReceiver.name + " " + walletReceiver.lastname,
+        senderName: walletSender.name + " " + walletSender.lastname,
       });
 
       const queryRunner = dbContext.createQueryRunner();
@@ -70,12 +69,12 @@ export class WalletService {
       try {
         await queryRunner.manager.update(
           Wallet,
-          { id: walletReceiver.id },
+          { id: walletReceiver.wallet.id },
           { balancePesos: newBalanceReceiver.toString() }
         );
         await queryRunner.manager.update(
           Wallet,
-          { id: walletSender.id },
+          { id: walletSender.wallet.id },
           { balancePesos: newBalanceSender.toString() }
         );
 
