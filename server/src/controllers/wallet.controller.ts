@@ -4,22 +4,21 @@ import { RequestWithTypedBody } from "types/custom-request.type";
 import { CreateTransaction } from "dto/transaction.dto";
 export class WalletController {
   static async depositPesos(
-    { body }: RequestWithTypedBody<CreateTransaction>,
+    req: RequestWithTypedBody<CreateTransaction>,
     res: Response,
     next: NextFunction
   ): Promise<void> {
     try {
       await WalletService.depositPesos(
-        body.amount,
-        body.senderId,
-        body.receiverId
+        req.body.amount,
+        req.body.senderId,
+        req.body.receiverId
       );
       res.status(200).json({ message: "Deposit successful" });
     } catch (error) {
       next(error);
     }
   }
-
   static async findOne(
     { params }: RequestWithTypedBody<CreateTransaction>,
     res: Response,
