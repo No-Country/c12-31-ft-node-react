@@ -112,7 +112,6 @@ describe("User login", () => {
                 balancePesos: "0",
                 balanceDollars: "0",
                 id: expect.any(String),
-
               },
             },
             access_token: expect.any(String),
