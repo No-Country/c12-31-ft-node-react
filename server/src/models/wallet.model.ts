@@ -6,12 +6,14 @@ import {
   Entity,
   JoinColumn,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   Relation,
   UpdateDateColumn,
 } from "typeorm";
 import Transaction from "./transaction.model";
 import { Deposit } from "./deposit.model";
+import User from "./user.model";
 
 @Exclude()
 @Entity()

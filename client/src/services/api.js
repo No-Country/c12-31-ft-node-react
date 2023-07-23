@@ -34,3 +34,8 @@ export const loginUser = async (data) => {
             }})
     return response.data
 }
+
+export const allTransation = async () => {
+    const response = await api.get('wallet/transaction')
+    return response.data
+}
