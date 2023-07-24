@@ -32,11 +32,11 @@ class Wallet {
   expirationDate: string;
 
   @Expose()
-  @Column({ type: "decimal", default: 0 })
+  @Column({ type: "decimal", default: "2500" })
   balancePesos: Decimal;
 
   @Expose()
-  @Column({ type: "decimal", default: 0 })
+  @Column({ type: "decimal", default: "5" })
   balanceDollars: Decimal;
 
   @Expose()
