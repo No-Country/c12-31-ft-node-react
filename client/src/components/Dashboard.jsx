@@ -30,7 +30,8 @@ export const Dashboard = () => {
   }
   const { user } = useContext(UserContext);
   const [transferencias, setTransferencias] = useState(null)
-  console.log(user)
+  console.log(transferencias)
+
   
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +39,7 @@ export const Dashboard = () => {
       // console.log(data.data)
       
       const trasAccionFilted = data.data.filter(item => item.senderId == user.user.wallet.id);
-      console.log(trasAccionFilted)
+      // console.log(trasAccionFilted)
       setTransferencias(trasAccionFilted)
     
       console.log(user.user.wallet.receiverTransactions)
@@ -104,7 +105,7 @@ export const Dashboard = () => {
         </div>
         <div className='w-full'>
         {
-                transferencias && transferencias.map((item, index) => (
+                transferencias && transferencias.slice(0,3).map((item, index) => (
                   // (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>
                   (item.amount > 0) ?<TransferenciasComponent initials={item.receiverName[0]} key={index} user={item.receiverName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Transferencia"} final= 'Recibida'/> : <TransferenciasComponent initials={item.receiverName[0]} key={index} user={item.receiverName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Pago"} final= 'Enviada'/>            
           ))
