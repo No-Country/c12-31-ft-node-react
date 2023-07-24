@@ -12,7 +12,7 @@ export async function VerifyToken(
   try {
     const decoded = verify(token, config.jwt.secret);
     const { id } = decoded as { id: string };
-    req.body.id = id;
+    req.body.senderId = id;
     next();
   } catch (error) {
     return next(Boom.badRequest("Invalid token"));
