@@ -30,7 +30,7 @@ export const Dashboard = () => {
   }
   const { user } = useContext(UserContext);
   const [transferencias, setTransferencias] = useState(null)
-  console.log(transferencias)
+
 
   
   useEffect(() => {

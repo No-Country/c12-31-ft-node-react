@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsArrowLeftShort } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
+import { UserContext } from '../../context/useUserContext';
 
 export const TransferirDinero = () => {
 
     const navigate = useNavigate()
+
+    const { user } = useContext(UserContext)
+    console.log(user)
 
   return (
     <div>
@@ -18,12 +22,13 @@ export const TransferirDinero = () => {
 
         <div className='flex justify-between px-8 py-10'>
             <h1 className='font-bold'>Disponilbe para transferir</h1>
-            <h1 className='font-bold bg-gray-300 p-1 rounded-lg border-green-400 border-1'>$12.58</h1>
+            <h1 className='font-bold bg-gray-300 p-1 rounded-lg border-green-400 border-1'>${user.user.wallet.balancePesos
+}</h1>
         </div>
 
         <div className='w-full px-10'>
             <button className='btn btn-wide w-full justify-start text-xs border-green-400 border-1 bg-gray-200' onClick={() => navigate('/celular')}>Con celular (lista de contactos)</button>
-            <button className='btn btn-wide w-full justify-start text-xs my-2 border-green-400 border-1 bg-gray-200'>Con CBU, CVU o Alias</button>
+            <button className='btn btn-wide w-full justify-start text-xs my-2 border-green-400 border-1 bg-gray-200' onClick={() => navigate('/contactoNuevo')}>Con CBU, CVU o Alias</button>
         </div>
 
         <div>
