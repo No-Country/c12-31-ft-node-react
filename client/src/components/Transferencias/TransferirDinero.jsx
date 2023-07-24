@@ -9,7 +9,7 @@ export const TransferirDinero = () => {
     const navigate = useNavigate()
 
     const { user } = useContext(UserContext)
-    console.log(user)
+    
 
   return (
     <div>
