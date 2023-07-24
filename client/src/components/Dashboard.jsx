@@ -95,9 +95,9 @@ export const Dashboard = () => {
         </div>
       </div>
       
-      <div className=" bg-[#ffffff] rounded-xl h-[320px] w-[380px] flex flex-col justify-between items-center m-5">
+      <div className=" bg-[#ffffff] rounded-xl h-auto w-[380px] flex flex-col justify-between items-center m-5">
         <div className='flex justify-between items-start px-3 pt-3 w-full'>
-          <p className='text-xl '>Ultimos Movimientos</p>
+          <p className='text-xl mb-5'>Ultimos Movimientos</p>
           <Link to={'/movimientos'}>
           <p className='flex items-center justify-center text-xl'>Ver <FiPlus className='h-7 w-7'/></p>
           </Link>
