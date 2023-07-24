@@ -1,32 +1,14 @@
 import { body } from "express-validator";
 import { validateRequestMiddleware } from "middleware/validate-request.middleware";
 
-export const updateWalletValidator = [
-  body("balancePesos").isNumeric().optional(),
-  body("balanceDollars").isNumeric().optional(),
+export const getWalletByIdValidator = [
+  body("id").isUUID().withMessage("Invalid id"),
   validateRequestMiddleware,
 ];
 
-export const updateWalletBalancePesosValidator = [
-  body("updateBalance")
-    .isNumeric()
-    .notEmpty()
-    .withMessage("Balance pesos is required"),
-  validateRequestMiddleware,
-];
-
-export const updateWalletBalanceDollarsValidator = [
-  body("amountToConvert")
-    .isNumeric()
-    .notEmpty()
-    .withMessage("Amount to convert is required"),
-  validateRequestMiddleware,
-];
-
-export const updateWalletBalanceDlls2ArsValidator = [
-  body("amountToConvert")
-    .isNumeric()
-    .notEmpty()
-    .withMessage("Amount to convert is required"),
+export const depositPesosValidator = [
+  body("amount").isNumeric().withMessage("Invalid amount"),
+  body("senderId").isUUID().withMessage("Invalid senderId"),
+  body("receiverId").optional().isUUID().withMessage("Invalid receiverId"),
   validateRequestMiddleware,
 ];
