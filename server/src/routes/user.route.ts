@@ -4,7 +4,6 @@ import { idValidator, updateUserValidator } from "validators/user.validator";
 
 const router = Router();
 
-router.get("/", UserController.findAll);
 router.get("/:id", idValidator, UserController.findOne);
 router.put(
   "/resetpassword",
