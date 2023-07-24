@@ -42,7 +42,7 @@ export const Dashboard = () => {
       // console.log(trasAccionFilted)
       setTransferencias(trasAccionFilted)
     
-      console.log(user.user.wallet.receiverTransactions)
+      // console.log(user.user.wallet.receiverTransactions)
     }
     fetchData();
   },[])
