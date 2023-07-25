@@ -8,6 +8,8 @@ export default function ResumenPago() {
 
   const { selectedEmpresa, inputNcuenta, importePago, user } = useContext(UserContext)
 
+
+
   return (
     <>
         <div className="flex justify-around items-center m-5">
@@ -47,7 +49,7 @@ export default function ResumenPago() {
 
 
         <Link to={"/finPagos"}>
-        <button className="bg-[#f7a55da9] hover:bg-[#FD7A09] shadow-lg shadow-gray-300 p-3 w-72 rounded-lg font-semibold text-lg  duration-200">
+        <button onClick={handleSubmit} className="bg-[#f7a55da9] hover:bg-[#FD7A09] shadow-lg shadow-gray-300 p-3 w-72 rounded-lg font-semibold text-lg  duration-200">
             Confirmar
         </button>
         </Link>
