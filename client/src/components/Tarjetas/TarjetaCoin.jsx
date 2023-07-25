@@ -13,13 +13,12 @@ export default function TarjetaCoin() {
 
     function splitStringToArray(inputString, delimiter) {
       const arrayResult = inputString.split(delimiter);
-      return arrayResult;
+      return arrayResult;  
     }
 
-    const [num1,num2,num3,num4] = splitStringToArray(user.user.wallet.cardNumber, '-')
+    const [num1,num2,num3,num4] = splitStringToArray(user.user.wallet.cardNumber, "-")
     
-    
-
+    console.log(user.user.wallet.expirationDate);
     
 const mostrarNumeros = ()=>{
   setVerNumeros(!verNumeros)
@@ -36,9 +35,6 @@ if(verNumeros){
   toogleButton = <div onClick={mostrarNumeros}>
     <TbEye className="w-8 h-8" />
   </div>
-  // tarjNumber1 = Math.ceil(Math.random() * (1000)+5000);
-  // tarjNumber2 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
-  // tarjNumber3 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
   tarjNumber1 = num1
   tarjNumber2 = num2
   tarjNumber3 = num3
