@@ -1,13 +1,16 @@
 import fondo1 from '../assets/img/fondoBlanco_LogoVerde.svg'
 import TarjetaCoin from "../components/Tarjetas/TarjetaCoin";
 import { Link } from "react-router-dom";
+import { UserContext } from '../context/useUserContext';
+import { useContext } from 'react';
 
 
 const PagWelcome = () => {
+  const { user } = useContext(UserContext);
   return (
     <>
       <p className="text-center  text-xl mt-16 uppercase">
-        Carlos de las canarias
+        {user.user.name} {user.user.lastname} 
       </p>
 
       <h1 className="text-center  text-2xl mt-8 text-[#FD7A09] font-semibold">

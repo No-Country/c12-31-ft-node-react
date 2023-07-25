@@ -3,8 +3,15 @@ import { BiCopy, BiPencil } from "react-icons/bi";
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { Link } from 'react-router-dom';
 import { BsShare } from "react-icons/bs";
+import { useContext } from 'react';
+import { UserContext } from '../../context/useUserContext';
 
 export default function IngresarDinero() {
+
+  const { user } = useContext(UserContext) 
+  
+
+
   return (
     <>
 
@@ -40,7 +47,7 @@ export default function IngresarDinero() {
             <p className='font-bold text-lg'>CVU</p>
 
             <div className='flex gap-10'>
-                <p className='m-1 font-semibold'>00002134567899999999</p>
+                <p className='mx-5 font-semibold'>{user.user.id}</p>
                 <a href="#my_modal_8" ><BiCopy className='w-8 h-8 m-1'/></a>
             </div>
         </div>
