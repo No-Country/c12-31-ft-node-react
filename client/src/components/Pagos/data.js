@@ -9,28 +9,32 @@ const data = [
         empresa:"Movistar",
         monto:"-$3.500",
         fecha:"Ayer",
-        img: movistar
+        img: movistar,
+        ruta: "/empresa"
     },
     {
         id:2,
         empresa:"Flow",
         monto:"-$7.500",
         fecha:"Ayer",
-        img: flow
+        img: flow,
+        ruta: "/empresa"
     },
     {
         id:3,
         empresa:"Aysa",
         monto:"-$2.500",
         fecha:"Ayer",
-        img: aysa
+        img: aysa,
+        ruta: "/empresa"
     },
     {
         id:4,
         empresa:"Netflix",
         monto:"-$1.500",
         fecha:"Ayer",
-        img: netflix
+        img: netflix,
+        ruta: "/empresa"
     }
 ]
 
