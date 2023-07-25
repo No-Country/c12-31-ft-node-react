@@ -2,21 +2,15 @@ import { BiHelpCircle } from 'react-icons/bi';
 import { BsArrowLeftShort, BsFilter } from 'react-icons/bs';
 import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
-import JSON from '../dataMovimientos.json'
 import { TransferenciasComponent } from './TransferenciasComponent';
 import { allTransation } from '../../services/api';
 import { useEffect, useState } from 'react';
 
 
+
 export const TransferenciasRealizadas = () => {
   const [transactionData, setTransactionData] = useState([]);
-  // const data = [];
-  // const movimientos = JSON;
-  // movimientos.filter (i => { 
-  //   if(i.type === 'Transferencia'){
-  //     data.push(i)
-  //   }
-  // })
+
 
   let initials = transactionData.map(item => {
     const nameParts = item.receiverName.split(' ');
@@ -45,6 +39,8 @@ export const TransferenciasRealizadas = () => {
     };
     fetchData();
   }, []);
+
+
 
 
 
