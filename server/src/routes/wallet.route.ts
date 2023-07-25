@@ -4,6 +4,7 @@ import { VerifyToken } from "middleware/verifyToken.middleware";
 import {
   depositPesosValidator,
   getWalletByIdValidator,
+  payServiceValidator,
 } from "validators/wallet.validator";
 
 const router = Router();
@@ -19,5 +20,11 @@ router.get(
   getWalletByIdValidator,
   VerifyToken,
   WalletController.findOne
+);
+router.post(
+  "/transaction/pay",
+  payServiceValidator,
+  VerifyToken,
+  WalletController.payService
 );
 export { router as walletRouter };

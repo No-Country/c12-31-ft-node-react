@@ -5,6 +5,7 @@ import Decimal from "decimal.js";
 import { TransactionService } from "./transaction.service";
 import { DepositService } from "./deposit.service";
 import { UserService } from "./user.service";
+import { PayService } from "./pay.service";
 export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
@@ -124,5 +125,40 @@ export class WalletService {
     if (!wallet) throw Boom.notFound(`Wallet with id ${id} not found`);
 
     return wallet;
+  }
+
+  public static async payService(
+    amount: number,
+    walletId: string,
+    serviceProvider: string
+  ): Promise<void> {
+    const wallet = await this.walletRepository.findOneBy({ id: walletId });
+    if (!wallet) throw Boom.notFound("Wallet not found");
+    const balance = new Decimal(wallet.balancePesos);
+    const amountDecimal = new Decimal(amount);
+    const newBalance = balance.minus(amountDecimal);
+
+    await PayService.createPay({
+      walletId: walletId,
+      amount: amountDecimal.toNumber(),
+      serviceProvider: serviceProvider,
+    });
+
+    const queryRunner = dbContext.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+    try {
+      await queryRunner.manager.update(
+        Wallet,
+        { id: wallet.id },
+        { balancePesos: newBalance.toString() }
+      );
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      throw Boom.internal("Failed to pay, please try again");
+    } finally {
+      await queryRunner.release();
+    }
   }
 }
