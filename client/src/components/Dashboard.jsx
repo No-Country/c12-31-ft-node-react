@@ -47,6 +47,8 @@ export const Dashboard = () => {
     fetchData();
   },[])
 
+
+
   const data = JSON;
 
   const dataSplice = [...data];
@@ -59,6 +61,8 @@ export const Dashboard = () => {
     const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
     return initials;
   });
+
+
   
   return (
     <div className="min-h-screen flex flex-col">
