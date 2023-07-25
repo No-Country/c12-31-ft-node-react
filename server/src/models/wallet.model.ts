@@ -6,14 +6,11 @@ import {
   Entity,
   JoinColumn,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
-  Relation,
   UpdateDateColumn,
 } from "typeorm";
 import Transaction from "./transaction.model";
 import { Deposit } from "./deposit.model";
-import User from "./user.model";
 
 @Exclude()
 @Entity()
@@ -35,11 +32,11 @@ class Wallet {
   expirationDate: string;
 
   @Expose()
-  @Column({ type: "decimal", default: 0 })
+  @Column({ type: "decimal", default: "2500" })
   balancePesos: Decimal;
 
   @Expose()
-  @Column({ type: "decimal", default: 0 })
+  @Column({ type: "decimal", default: "5" })
   balanceDollars: Decimal;
 
   @Expose()

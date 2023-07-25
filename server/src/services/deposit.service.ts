@@ -2,7 +2,6 @@ import { dbContext } from "config/database.config";
 import { Deposit } from "models/deposit.model";
 import { depositDto } from "../dto/deposit.dto";
 import { WalletService } from "./wallet.service";
-import Boom from "@hapi/boom";
 import Decimal from "decimal.js";
 import Wallet from "models/wallet.model";
 
