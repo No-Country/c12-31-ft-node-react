@@ -29,7 +29,9 @@ export const Dashboard = () => {
     return `${diaFormateado}/${mesFormateado}/${anio}`;
   }
   const { user } = useContext(UserContext);
-  const [transferencias, setTransferencias] = useState(null)
+  const [transferencias, setTransferencias] = useState(null);
+
+
 
 
   
