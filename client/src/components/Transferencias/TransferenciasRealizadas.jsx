@@ -4,28 +4,50 @@ import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
 import JSON from '../dataMovimientos.json'
 import { TransferenciasComponent } from './TransferenciasComponent';
+import { allTransation } from '../../services/api';
+import { useEffect, useState } from 'react';
 
 
 export const TransferenciasRealizadas = () => {
-  const data = [];
-  const movimientos = JSON;
-  movimientos.filter (i => { 
-    if(i.type === 'Transferencia'){
-      data.push(i)
-    }
-  })
+  const [transactionData, setTransactionData] = useState([]);
+  // const data = [];
+  // const movimientos = JSON;
+  // movimientos.filter (i => { 
+  //   if(i.type === 'Transferencia'){
+  //     data.push(i)
+  //   }
+  // })
 
-  let initials = movimientos.map(item => {
-    const nameParts = item.user.split(' ');
+  let initials = transactionData.map(item => {
+    const nameParts = item.receiverName.split(' ');
     const firstName = nameParts[0];
     const lastName = nameParts.length > 1 ? nameParts[1] : '';
     const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
     return initials;
   });
 
+  const navigate = useNavigate()
+
+  const dataTransaction = async () => {
+    try {
+      const data = await allTransation();
+      return data.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return []; 
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const transactionData = await dataTransaction();
+      setTransactionData(transactionData);
+    };
+    fetchData();
+  }, []);
 
 
-    const navigate = useNavigate()
+
 
   return (
 
@@ -45,13 +67,13 @@ export const TransferenciasRealizadas = () => {
               <BsFilter className='text-4xl '/>
           </div>
   
-          <h1 className='mt-10 mx-5 text-lg'>{data.length} resultados</h1>
+          <h1 className='mt-10 mx-5 text-lg'>{transactionData.length} resultados</h1>
   
   
           <main>
               {
-                  data.map((item, index) => (
-                    (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
+                  transactionData.map((item, index) => (
+                    (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
                   ))
               }
           </main>
