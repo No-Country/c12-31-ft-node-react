@@ -27,10 +27,25 @@ const UserContextProvider = ({ children }) => {
     setUser(null);
   };
 
+
+  // STATES DE PAGOS 
+  const [selectedEmpresa, setSelectedEmpresa] = useState(null);
+  const [inputNcuenta, setInputNcuenta] = useState("");
+  const [importePago, setImportePago] = useState(0);
+
+
+
   const userContextValue = {
     user,
     login,
     logout,
+    selectedEmpresa,
+    setSelectedEmpresa,
+    inputNcuenta,
+    setInputNcuenta,
+    importePago,
+    setImportePago
+
   };
 
   return (
