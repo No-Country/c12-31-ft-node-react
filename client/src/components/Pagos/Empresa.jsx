@@ -1,11 +1,25 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus } from "react-icons/ai";
+import { useState } from "react";
 import SliderEmpresa from "./SliderEmpresa";
 
 
 
 function Empresa() {
+
+  const [inputNcuenta, setInputNcuenta] = useState("");
+
+  const handleInputChange = (event) => {
+    const value = event.target.value;
+    // Limiting the input to 22 characters
+    if (value.length <= 22) {
+      setInputNcuenta(value);
+    }
+  };
+
+  const isButtonDisabled = inputNcuenta.length !== 22;
+
   return (
     <>
       <div className="flex justify-around items-center m-5">
@@ -24,7 +38,7 @@ function Empresa() {
 
         <label htmlFor="nCuenta" className="BtnPagosFondo p-2 w-36 text-center font-semibold rounded-md shadow-lg shadow-gray-400">N de Cuenta</label>
 
-       <input type="number" id="nCuenta" className="border-green-400 border-2 p-2 rounded-md"/>
+       <input type="number" id="nCuenta" className="border-green-400 border-2 p-2 rounded-md" maxLength={22} onChange={handleInputChange} value={inputNcuenta}/>
       </div>
 
       <div className="m-5">
@@ -42,8 +56,11 @@ function Empresa() {
         </div>
 
         <div className="flex justify-center mt-36">
-        <Link to={"/resumenPagos"}>
-        <button className="btn  border-2 rounded-full border-[#FD7A09] text-[#FD7A09] hover:bg-[#ffa251a4]">Siguiente</button>
+        <Link to={isButtonDisabled ? "#" : "/resumenPagos"}>
+        <button 
+        className={`btn border-2 rounded-full ${isButtonDisabled ? "bg-gray-300 text-gray-400 cursor-not-allowed" : "border-[#FD7A09] text-[#FD7A09] hover:bg-[#ffa251a4]"}`} 
+        disabled={isButtonDisabled}
+        >Siguiente</button>
         </Link>
         </div>
 

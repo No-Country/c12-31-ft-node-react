@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import { compare } from "utils/hash";
 import { UserService } from "./user.service";
 import { config } from "config/env.config";
-import { AuthResponseDto } from "dto/auth-response.dto";
 import { JwtPayload } from "types/jwt-payload.type";
 
 export class AuthService {
@@ -19,7 +18,7 @@ export class AuthService {
     }
 
     const user = await UserService.create(createUserDto);
-    const access_token = this.signToken({ sub: user.id });
+    const access_token = this.signToken({ id: user.id });
     // TODO: this could be refactorized writing an AuthResponseDto using class-transformer
     return {
       user: user,
@@ -33,7 +32,7 @@ export class AuthService {
     if (!user || !(await compare(password, user.password)))
       throw Boom.badRequest("Invalid username or password");
 
-    const access_token = this.signToken({ sub: user.id });
+    const access_token = this.signToken({ id: user.id });
     // TODO: this could be refactorized writing an AuthResponseDto using class-transformer
     return {
       user,

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { WalletController } from "controllers/wallet.controller";
-import { TransactionController } from "controllers/transaction.controller";
+import { VerifyToken } from "middleware/verifyToken.middleware";
 import {
   depositPesosValidator,
   getWalletByIdValidator,
@@ -11,12 +11,13 @@ const router = Router();
 router.post(
   "/transaction",
   depositPesosValidator,
+  VerifyToken,
   WalletController.depositPesos
 );
-router.get("/transaction", TransactionController.findAll);
 router.get(
   "/transaction/:id",
   getWalletByIdValidator,
+  VerifyToken,
   WalletController.findOne
 );
 export { router as walletRouter };
