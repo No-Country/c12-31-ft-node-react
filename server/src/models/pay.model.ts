@@ -12,7 +12,7 @@ import Wallet from "./wallet.model";
 
 @Exclude()
 @Entity()
-class Deposit {
+class Pay {
   @Expose()
   @PrimaryGeneratedColumn("uuid")
   id: string;
@@ -21,13 +21,17 @@ class Deposit {
   @Column("uuid")
   walletId: string;
 
-  @ManyToOne(() => Wallet, (wallet) => wallet.deposits)
+  @ManyToOne(() => Wallet, (wallet) => wallet.pays)
   @JoinColumn({ name: "walletId" })
   wallet: Wallet;
 
   @Expose()
   @Column("decimal")
   amount: number;
+
+  @Expose()
+  @Column("varchar")
+  serviceProvider: string;
 
   @Expose()
   @CreateDateColumn()
@@ -37,4 +41,4 @@ class Deposit {
   updatedOn: Date;
 }
 
-export { Deposit };
+export { Pay };

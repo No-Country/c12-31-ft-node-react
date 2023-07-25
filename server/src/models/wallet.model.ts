@@ -11,6 +11,7 @@ import {
 } from "typeorm";
 import Transaction from "./transaction.model";
 import { Deposit } from "./deposit.model";
+import { Pay } from "./pay.model";
 
 @Exclude()
 @Entity()
@@ -59,6 +60,13 @@ class Wallet {
   })
   @JoinColumn({ name: "walletId" })
   deposits: Deposit[];
+
+  @Expose()
+  @OneToMany(() => Pay, (pay) => pay.wallet, {
+    eager: true,
+  })
+  @JoinColumn({ name: "walletId" })
+  pays: Pay[];
 
   @CreateDateColumn()
   creationDate: Date;
