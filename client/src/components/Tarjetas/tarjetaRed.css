@@ -79,9 +79,9 @@
   .card-numberM {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin: 50px 12.5px 5px;
+    margin: 45px 12.5px 5px;
     font-size: 18px;
     font-family: 'cc font', monospace;
   }
