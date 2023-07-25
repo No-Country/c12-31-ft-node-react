@@ -1,14 +1,13 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { AiOutlinePlus } from "react-icons/ai";
-import { useState } from "react";
 import SliderEmpresa from "./SliderEmpresa";
-
+import { UserContext } from "../../context/useUserContext";
+import { useContext } from 'react';
 
 
 function Empresa() {
 
-  const [inputNcuenta, setInputNcuenta] = useState("");
+  const { selectedEmpresa, inputNcuenta, setInputNcuenta, setImportePago, importePago } = useContext(UserContext)
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -17,6 +16,14 @@ function Empresa() {
       setInputNcuenta(value);
     }
   };
+
+  const handleImportetChange = (event) => {
+    const value = event.target.value;   
+      setImportePago(value);
+    
+  };
+
+
 
   const isButtonDisabled = inputNcuenta.length !== 22;
 
@@ -28,7 +35,7 @@ function Empresa() {
             </Link>
 
             <p className="text-center text-black text-3xl ">
-            Movistar
+            {selectedEmpresa}
             </p>
 
             <div className="h-2 w-2"></div>
@@ -45,7 +52,7 @@ function Empresa() {
         <p className="mt-10 text-xl ">Ingrese el monto a pagar</p>
 
         <div className="flex justify-center items-center mt-10">
-        <input type="number"  className="border-none font-semibold w-56 h-20 text-center text-4xl" placeholder="$3500,70"/>
+        <input type="number"  className="border-none font-semibold w-56 h-20 text-center text-4xl" placeholder="$3500,70" onChange={handleImportetChange} value={importePago}/>
 
         </div>
 
