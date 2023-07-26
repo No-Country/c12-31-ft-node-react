@@ -49,7 +49,7 @@ const LimiteDiario = () => {
         </div>
       </div>
       <div>
-        <NavBarBottom />
+        <NavBarBottom /> 
       </div>
     </div>
   );
