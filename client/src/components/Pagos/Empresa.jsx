@@ -1,6 +1,6 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
-HEAD
+
 import { AiOutlinePlus } from "react-icons/ai";
 
 import SliderEmpresa from "./SliderEmpresa";
@@ -22,16 +22,11 @@ function Empresa() {
   };
 
   const handleImportetChange = (event) => {
-    const value = event.target.value;   
+    const value = event.target.value;
       setImportePago(value);
-    
+
   };
-
-
-
-
-
-  const isButtonDisabled = inputNcuenta.length !== 22;
+const isButtonDisabled = inputNcuenta.length !== 22;
 
 
   return (
@@ -48,11 +43,11 @@ function Empresa() {
             <div className="h-2 w-2"></div>
       </div>
 
-      <div className="flex gap-5 justify-center items-center mt-20">
+      <div className="flex gap-5 justify-center items-center mt-20 flex-wrap">
 
         <label htmlFor="nCuenta" className="BtnPagosFondo p-2 w-36 text-center font-semibold rounded-md shadow-lg shadow-gray-400">N de Cuenta</label>
 
-       <input type="number" id="nCuenta" className="border-green-400 border-2 p-2 rounded-md"/>
+        <input type="number" id="nCuenta" className="border-green-400 border-2 p-2 rounded-md" maxLength={22} onChange={handleInputChange} value={inputNcuenta}/>
       </div>
 
       <div className="m-5">
