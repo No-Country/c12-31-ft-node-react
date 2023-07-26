@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../../context/useUserContext";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../services/api";
+import { getUsers, loginUser } from "../../services/api";
 import { setTokenInCookies } from "../../utils/cookiesFn";
 
 function LoginScreen() {
@@ -19,22 +19,23 @@ function LoginScreen() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userLogged = await loginUser({ email, password: contraseña });
 
     //VALIDACION
     if (email === "" || contraseña === "" || pais === "") {
       setError(true);
       setMensaje("Complete todos los campos");
       return;
+    } else if(!userLogged) {
+        setError(true)
+        setMensaje('Usuario o contraseña incorrectos')
     } else {
-
-      setError(false);
-      const userLogged = await loginUser({ name:email, password: contraseña });
       if (userLogged.statusCode === 200) {
+        setError(false);
         login(userLogged.data);
         setTokenInCookies(userLogged.data.access_token);
         navegate("/dashboard");
       }
-
     }
   };
 

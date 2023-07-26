@@ -11,7 +11,16 @@ export default function TarjetaCoin() {
     const [verNumeros, setVerNumeros] = useState(true); 
     const { user } = useContext(UserContext);
 
+    function splitStringToArray(inputString, delimiter) {
+      const arrayResult = inputString.split(delimiter);
+      return arrayResult;
+    }
 
+    const [num1,num2,num3,num4] = splitStringToArray(user.user.wallet.cardNumber)
+    
+    
+
+    
 const mostrarNumeros = ()=>{
   setVerNumeros(!verNumeros)
 }
@@ -21,15 +30,18 @@ let toogleButton;
 let tarjNumber1;
 let tarjNumber2;
 let tarjNumber3;
-let tarjNumber4 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0')
+let tarjNumber4 = num4
 
 if(verNumeros){
   toogleButton = <div onClick={mostrarNumeros}>
     <TbEye className="w-8 h-8" />
   </div>
-  tarjNumber1 = Math.ceil(Math.random() * (1000)+5000);
-  tarjNumber2 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
-  tarjNumber3 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
+  // tarjNumber1 = Math.ceil(Math.random() * (1000)+5000);
+  // tarjNumber2 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
+  // tarjNumber3 = (Math.ceil(Math.random() * (10000))).toString().padStart(4,'0');
+  tarjNumber1 = num1
+  tarjNumber2 = num2
+  tarjNumber3 = num3
 }else{
   toogleButton =  <div onClick={mostrarNumeros}>
                     <TbEyeClosed className="w-8 h-8" />
@@ -39,8 +51,6 @@ if(verNumeros){
   tarjNumber3 = '****';
 }
 
-const name = "Perez Juan";
-const expDate = new Date();
 
   return (
     <>
@@ -82,10 +92,10 @@ const expDate = new Date();
                   <div className="end">
                     <span className="end-text">exp. end:</span>
                     <span className="end-date">
-                      {expDate.getMonth() + 1}/{expDate.getFullYear() + 4}
+                      {user.user.wallet.expirationDate}
                     </span>
                   </div>
-                  <div className="card-holder">{name}</div>
+                  <div className="card-holder">{user.user.name} {user.user.lastname}</div>
                   <div className="master">
                     <img src={Visa} alt="visa" className="w-12 h-auto"/>
                   </div>
@@ -94,7 +104,7 @@ const expDate = new Date();
                   <div className="strip-black"></div>
                   <div className="ccv">
                     <label>ccv</label>
-                    <div>123</div>
+                    <div>{user.user.wallet.cvv}</div>
                   </div>
                   <div className="terms">
                     <p>
