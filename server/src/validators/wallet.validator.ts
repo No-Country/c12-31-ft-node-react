@@ -15,6 +15,5 @@ export const depositPesosValidator = [
 export const payServiceValidator = [
   body("amount").isNumeric().withMessage("Invalid amount"),
   body("serviceProvider").isString().withMessage("Invalid serviceProvider"),
-  body("walletId").isUUID().withMessage("Invalid walletId"),
   validateRequestMiddleware,
 ];

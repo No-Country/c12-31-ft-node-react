@@ -19,10 +19,10 @@ class Pay {
 
   @Expose()
   @Column("uuid")
-  walletId: string;
+  senderId: string;
 
   @ManyToOne(() => Wallet, (wallet) => wallet.pays)
-  @JoinColumn({ name: "walletId" })
+  @JoinColumn({ name: "senderId" })
   wallet: Wallet;
 
   @Expose()

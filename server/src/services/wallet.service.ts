@@ -87,16 +87,14 @@ export class WalletService {
         await queryRunner.release();
       }
     } else {
-      const wallet = await this.walletRepository.findOneBy({
-        id: senderId,
-      });
+      const wallet = await UserService.findOne(senderId);
       if (!wallet) throw Boom.notFound("Wallet not found");
-      const balance = new Decimal(wallet.balancePesos);
+      const balance = new Decimal(wallet.wallet.balancePesos);
       const amountDecimal = new Decimal(amount);
       const newBalance = balance.plus(amountDecimal);
 
       await DepositService.createDeposit({
-        walletId: senderId,
+        walletId: wallet.wallet.id,
         amount: amountDecimal.toNumber(),
       });
 
@@ -106,7 +104,7 @@ export class WalletService {
       try {
         await queryRunner.manager.update(
           Wallet,
-          { id: wallet.id },
+          { id: wallet.wallet.id },
           { balancePesos: newBalance.toString() }
         );
         await queryRunner.commitTransaction();
@@ -129,17 +127,17 @@ export class WalletService {
 
   public static async payService(
     amount: number,
-    walletId: string,
+    senderId: string,
     serviceProvider: string
   ): Promise<void> {
-    const wallet = await this.walletRepository.findOneBy({ id: walletId });
+    const wallet = await UserService.findOne(senderId);
     if (!wallet) throw Boom.notFound("Wallet not found");
-    const balance = new Decimal(wallet.balancePesos);
+    const balance = new Decimal(wallet.wallet.balancePesos);
     const amountDecimal = new Decimal(amount);
     const newBalance = balance.minus(amountDecimal);
 
     await PayService.createPay({
-      walletId: walletId,
+      senderId: wallet.id,
       amount: amountDecimal.toNumber(),
       serviceProvider: serviceProvider,
     });
