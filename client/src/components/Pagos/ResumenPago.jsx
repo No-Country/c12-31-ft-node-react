@@ -6,7 +6,14 @@ import { useContext } from 'react';
 
 export default function ResumenPago() {
 
-  const { selectedEmpresa, inputNcuenta, importePago, user } = useContext(UserContext)
+  const { selectedEmpresa, inputNcuenta, importePago, user, setUser } = useContext(UserContext)
+
+  const handleSubmit = () => {
+    const updatedUser = { ...user };
+    updatedUser.user.wallet.balancePesos -= importePago;
+    setUser(updatedUser);
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+  }
 
 
 

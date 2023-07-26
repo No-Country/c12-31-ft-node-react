@@ -11,6 +11,11 @@ const UserContextProvider = ({ children }) => {
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
+  const setUserWithLocalStorage = (updatedUser) => {
+    setUser(updatedUser);
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+  };
+
   useEffect(() => {
     if (user === null) {
       localStorage.removeItem("user");
@@ -37,6 +42,7 @@ const UserContextProvider = ({ children }) => {
 
   const userContextValue = {
     user,
+    setUser: setUserWithLocalStorage,
     login,
     logout,
     selectedEmpresa,
@@ -44,8 +50,8 @@ const UserContextProvider = ({ children }) => {
     inputNcuenta,
     setInputNcuenta,
     importePago,
-    setImportePago
-
+    setImportePago,
+    
   };
 
   return (
