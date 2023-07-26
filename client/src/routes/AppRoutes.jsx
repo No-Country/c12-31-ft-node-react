@@ -25,6 +25,7 @@ import LimiteDiario from "../components/tarjetaDebito/LimiteDiario";
 import PaginaError from "../components/Error/PaginaError";
 import { Movimientos } from "../components/Movimientos";
 import { TransferenciaCelular } from "../components/Transferencias/TransferenciaCelular";
+import AvisoViaje from "../components/tarjetaDebito/AvisoViaje";
 
 
 function AppRoutes() {
@@ -67,9 +68,10 @@ function AppRoutes() {
           {/* AJUSTES */}
           <Route path="/ajustes" element={<AjustesScreen />} />
 
-          {/* DENUNCIAR TARJETA */}
+          {/* ACCIONES TARJETA */}
           <Route path="/denunciarTarjeta" element={<DenunciarTarjeta/>} />
           <Route path="/limiteDiario" element={<LimiteDiario/>} />
+          <Route path="/avisoViaje" element={<AvisoViaje/>} />
 
 
 

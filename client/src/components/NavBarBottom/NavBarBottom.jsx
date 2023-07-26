@@ -75,7 +75,11 @@ export const NavBarBottom = () => {
               <CgArrowsExchangeAlt className='text-3xl'/><p className='text-xl text-bold'>Cambiar el limite diario</p>
               </Link>
             </li>
-            <li className='flex justify-right items-center gap-2 m-2'><TbWorld className='text-3xl'/><p className='text-xl text-bold'>Dar aviso de viaje</p></li>
+            <li className='flex justify-right items-center gap-2 m-2'>
+              <Link to={"/avisoViaje"} className='flex justify-right items-center gap-2'>
+              <TbWorld className='text-3xl'/><p className='text-xl text-bold'>Dar aviso de viaje</p>
+              </Link>
+              </li>
           </ul>
         </div>
 

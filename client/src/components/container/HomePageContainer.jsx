@@ -52,7 +52,7 @@ const HomePageContainer = () => {
         </div>
       </header>
       <div>
-        <div className="bg-secondary flex justify-center items-center w-screen h-auto p-4">
+        <div className="bg-[#3ED62B] flex justify-center items-center w-screen h-auto p-4">
           <p className="text-[#090909] font-base text-center text-3xl">Mirá todo lo que  podés hacer en un mismo lugar...</p>
         </div>
         <div className="flex flex-col  mt-10">
