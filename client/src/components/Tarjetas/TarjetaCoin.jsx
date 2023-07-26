@@ -16,7 +16,7 @@ export default function TarjetaCoin() {
       return arrayResult;
     }
 
-    const [num1,num2,num3,num4] = splitStringToArray(user.user.wallet.cardNumber)
+    const [num1,num2,num3,num4] = splitStringToArray(user.user.wallet.cardNumber, '-')
     
     
 
