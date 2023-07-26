@@ -29,7 +29,7 @@ export const TrasferenciasScreen = () => {
 
     const getTransactions = async() => {
       const data = await allTransation();
-      console.log(data)
+      
     }
 
     useEffect(() => {
