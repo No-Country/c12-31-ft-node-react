@@ -29,7 +29,9 @@ export const Dashboard = () => {
     return `${diaFormateado}/${mesFormateado}/${anio}`;
   }
   const { user } = useContext(UserContext);
-  const [transferencias, setTransferencias] = useState(null)
+  const [transferencias, setTransferencias] = useState(null);
+
+
 
 
   
@@ -47,6 +49,8 @@ export const Dashboard = () => {
     fetchData();
   },[])
 
+
+
   const data = JSON;
 
   const dataSplice = [...data];
@@ -59,6 +63,8 @@ export const Dashboard = () => {
     const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
     return initials;
   });
+
+
   
   return (
     <div className="min-h-screen flex flex-col">

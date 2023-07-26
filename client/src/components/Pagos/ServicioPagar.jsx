@@ -3,8 +3,13 @@ import { data } from "./data";
 import { NavBarBottom } from "../NavBarBottom/NavBarBottom";
 import { Link } from "react-router-dom";
 import SliderServicios from "./SliderServicios";
+import { UserContext } from "../../context/useUserContext";
+import { useContext } from 'react';
 
 function ServicioPagar() {
+
+  const { setSelectedEmpresa } = useContext(UserContext)
+
 
   return (
     <>
@@ -35,10 +40,23 @@ function ServicioPagar() {
           <h3 className="font-bold text-center p-3 text-lg">Elija una empresa</h3>
 
           <div className="flex flex-col text-center gap-5">
-          <Link to={"/empresa"} className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl">Movistar</Link>
-          <p className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl">Flow</p>
-          <p className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl">Netflix</p>
-          <p className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl">Aysa</p>
+
+          <Link to={"/empresa"} 
+          className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl"
+          onClick={() => setSelectedEmpresa("Movistar")}
+          >Movistar</Link>
+
+          <Link to={"/empresa"} className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl"
+          onClick={() => setSelectedEmpresa("Flow")}
+          >Flow</Link>
+
+          <Link to={"/empresa"} className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl"
+          onClick={() => setSelectedEmpresa("Netflix")}
+          >Netflix</Link>
+
+          <Link to={"/empresa"} className=" rounded-md p-2 bg-[#FD7A09] hover:bg-green-500 duration-200 text-white text-xl"
+          onClick={() => setSelectedEmpresa("Aysa")}
+          >Aysa</Link>
           </div>
 
           <div className="modal-action">

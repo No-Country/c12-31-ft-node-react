@@ -17,4 +17,3 @@ export const payServiceValidator = [
   body("serviceProvider").isString().withMessage("Invalid serviceProvider"),
   validateRequestMiddleware,
 ];
-

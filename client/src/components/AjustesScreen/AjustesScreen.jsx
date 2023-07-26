@@ -28,8 +28,8 @@ export const AjustesScreen = () => {
 
 
             <div className='flex flex-col mx-8 mt-20'>
-                <hi className='text-xl mb-8'>Cambiar contraseña</hi>
-                <hi className='text-xl'>Cerrar cuenta</hi>
+                <h1 className='text-xl mb-8'>Cambiar contraseña</h1>
+                <h1 className='text-xl'>Cerrar cuenta</h1>
             </div>
         </main>
 

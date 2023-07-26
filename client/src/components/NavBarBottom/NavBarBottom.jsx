@@ -30,7 +30,7 @@ export const NavBarBottom = () => {
     }, []);
 
   return (
-    <div className="btm-nav sticky bottom-0 items-center bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09]">
+    <div className="btm-nav z-50 sticky bottom-0 items-center bg-gradient-to-r from-[#FD7A09] via-[#FFED48] to-[#FD7A09]">
         <button
               className={selectedButton === 'inicio' ? 'active bg-transparent' : ''}
               onClick={() => {
@@ -75,7 +75,11 @@ export const NavBarBottom = () => {
               <CgArrowsExchangeAlt className='text-3xl'/><p className='text-xl text-bold'>Cambiar el limite diario</p>
               </Link>
             </li>
-            <li className='flex justify-right items-center gap-2 m-2'><TbWorld className='text-3xl'/><p className='text-xl text-bold'>Dar aviso de viaje</p></li>
+            <li className='flex justify-right items-center gap-2 m-2'>
+              <Link to={"/avisoViaje"} className='flex justify-right items-center gap-2'>
+              <TbWorld className='text-3xl'/><p className='text-xl text-bold'>Dar aviso de viaje</p>
+              </Link>
+              </li>
           </ul>
         </div>
 

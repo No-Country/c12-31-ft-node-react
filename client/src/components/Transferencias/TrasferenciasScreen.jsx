@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import JSON from '../dataMovimientos.json';
 import { TransferenciasComponent } from './TransferenciasComponent';
+import { useEffect } from 'react';
+import { allTransation } from '../../services/api';
 
 
 
@@ -24,6 +26,15 @@ export const TrasferenciasScreen = () => {
     const dataShow = dataSplice.splice(0,4);
 
     const navigate = useNavigate()
+
+    const getTransactions = async() => {
+      const data = await allTransation();
+      
+    }
+
+    useEffect(() => {
+      getTransactions()
+    }, [])
     
     
     

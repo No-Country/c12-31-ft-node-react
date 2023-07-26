@@ -11,6 +11,11 @@ const UserContextProvider = ({ children }) => {
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
+  const setUserWithLocalStorage = (updatedUser) => {
+    setUser(updatedUser);
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+  };
+
   useEffect(() => {
     if (user === null) {
       localStorage.removeItem("user");
@@ -27,10 +32,26 @@ const UserContextProvider = ({ children }) => {
     setUser(null);
   };
 
+
+  // STATES DE PAGOS 
+  const [selectedEmpresa, setSelectedEmpresa] = useState(null);
+  const [inputNcuenta, setInputNcuenta] = useState("");
+  const [importePago, setImportePago] = useState(0);
+
+
+
   const userContextValue = {
     user,
+    setUser: setUserWithLocalStorage,
     login,
     logout,
+    selectedEmpresa,
+    setSelectedEmpresa,
+    inputNcuenta,
+    setInputNcuenta,
+    importePago,
+    setImportePago,
+    
   };
 
   return (
