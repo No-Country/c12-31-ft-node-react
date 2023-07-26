@@ -25,6 +25,8 @@ function Empresa() {
 
 
 
+
+
   const isButtonDisabled = inputNcuenta.length !== 22;
 
   return (
@@ -65,6 +67,7 @@ function Empresa() {
         <div className="flex justify-center mt-36">
         <Link to={isButtonDisabled ? "#" : "/resumenPagos"}>
         <button 
+        
         className={`btn border-2 rounded-full ${isButtonDisabled ? "bg-gray-300 text-gray-400 cursor-not-allowed" : "border-[#FD7A09] text-[#FD7A09] hover:bg-[#ffa251a4]"}`} 
         disabled={isButtonDisabled}
         >Siguiente</button>
