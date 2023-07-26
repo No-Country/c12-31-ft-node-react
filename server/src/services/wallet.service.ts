@@ -5,6 +5,7 @@ import Decimal from "decimal.js";
 import { TransactionService } from "./transaction.service";
 import { DepositService } from "./deposit.service";
 import { UserService } from "./user.service";
+import { PayService } from "./pay.service";
 export class WalletService {
   private static readonly walletRepository = dbContext.getRepository(Wallet);
 
@@ -18,7 +19,7 @@ export class WalletService {
     const cvv = Math.floor(100 + Math.random() * 900).toString();
 
     const expirationDate = `${Math.floor(1 + Math.random() * 12)}/${Math.floor(
-      2021 + Math.random() * 5
+      2024 + Math.random() * 5
     )}`;
 
     const wallet = await this.walletRepository.create({
@@ -86,16 +87,14 @@ export class WalletService {
         await queryRunner.release();
       }
     } else {
-      const wallet = await this.walletRepository.findOneBy({
-        id: senderId,
-      });
+      const wallet = await UserService.findOne(senderId);
       if (!wallet) throw Boom.notFound("Wallet not found");
-      const balance = new Decimal(wallet.balancePesos);
+      const balance = new Decimal(wallet.wallet.balancePesos);
       const amountDecimal = new Decimal(amount);
       const newBalance = balance.plus(amountDecimal);
 
       await DepositService.createDeposit({
-        walletId: senderId,
+        walletId: wallet.wallet.id,
         amount: amountDecimal.toNumber(),
       });
 
@@ -105,7 +104,7 @@ export class WalletService {
       try {
         await queryRunner.manager.update(
           Wallet,
-          { id: wallet.id },
+          { id: wallet.wallet.id },
           { balancePesos: newBalance.toString() }
         );
         await queryRunner.commitTransaction();
@@ -124,5 +123,40 @@ export class WalletService {
     if (!wallet) throw Boom.notFound(`Wallet with id ${id} not found`);
 
     return wallet;
+  }
+
+  public static async payService(
+    amount: number,
+    senderId: string,
+    serviceProvider: string
+  ): Promise<void> {
+    const wallet = await UserService.findOne(senderId);
+    if (!wallet) throw Boom.notFound("Wallet not found");
+    const balance = new Decimal(wallet.wallet.balancePesos);
+    const amountDecimal = new Decimal(amount);
+    const newBalance = balance.minus(amountDecimal);
+
+    await PayService.createPay({
+      senderId: wallet.id,
+      amount: amountDecimal.toNumber(),
+      serviceProvider: serviceProvider,
+    });
+
+    const queryRunner = dbContext.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+    try {
+      await queryRunner.manager.update(
+        Wallet,
+        { id: wallet.id },
+        { balancePesos: newBalance.toString() }
+      );
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      throw Boom.internal("Failed to pay, please try again");
+    } finally {
+      await queryRunner.release();
+    }
   }
 }

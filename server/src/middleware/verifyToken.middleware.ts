@@ -7,12 +7,14 @@ export async function VerifyToken(
   res: Response,
   next: NextFunction
 ) {
-  const token = req.headers.authorization;
+  const usstoken = req.headers.authorization;
+  const token = usstoken?.split(" ")[1];
   if (!token) return next(Boom.badRequest("No token provided"));
   try {
     const decoded = verify(token, config.jwt.secret);
     const { id } = decoded as { id: string };
     req.body.senderId = id;
+
     next();
   } catch (error) {
     return next(Boom.badRequest("Invalid token"));

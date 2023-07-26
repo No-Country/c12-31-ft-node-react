@@ -11,3 +11,10 @@ export const depositPesosValidator = [
   body("receiverId").optional().isUUID().withMessage("Invalid receiverId"),
   validateRequestMiddleware,
 ];
+
+export const payServiceValidator = [
+  body("amount").isNumeric().withMessage("Invalid amount"),
+  body("serviceProvider").isString().withMessage("Invalid serviceProvider"),
+  validateRequestMiddleware,
+];
+
