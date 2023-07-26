@@ -12,7 +12,7 @@ import { AuthResponseDto } from "dto/auth-response.dto";
 beforeAll(async () => {
   await dbContext.initialize();
   await dbContext.synchronize(true);
-});
+}, 10000);
 
 describe("User registrartion", () => {
   it("Given correct credentials user should be created successfully", async () => {

@@ -19,7 +19,7 @@ export class WalletService {
     const cvv = Math.floor(100 + Math.random() * 900).toString();
 
     const expirationDate = `${Math.floor(1 + Math.random() * 12)}/${Math.floor(
-      2021 + Math.random() * 5
+      2024 + Math.random() * 5
     )}`;
 
     const wallet = await this.walletRepository.create({

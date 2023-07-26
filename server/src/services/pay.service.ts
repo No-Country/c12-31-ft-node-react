@@ -47,40 +47,5 @@ export class PayService {
     } finally {
       await queryRunner.release();
     }
-
-    // const wallet = await WalletService.getWalletById(senderId);
-
-    // const pay = this.payRepository.create({
-    //   ...payDto,
-    //   wallet: wallet,
-    //   senderId: wallet.id,
-    //   serviceProvider: serviceProvider,
-    // });
-
-    // const queryRunner = dbContext.createQueryRunner();
-    // await queryRunner.connect();
-    // await queryRunner.startTransaction();
-
-    // try {
-    //   await queryRunner.manager.save(pay);
-    //   const walletBalance = new Decimal(wallet.balancePesos);
-    //   const amountDecimal = new Decimal(amount);
-
-    //   const newWalletBalance = walletBalance.minus(amountDecimal);
-
-    //   await queryRunner.manager.update(
-    //     Wallet,
-    //     { id: wallet.id },
-    //     { balancePesos: newWalletBalance.toString() }
-    //   );
-
-    //   await queryRunner.commitTransaction();
-    //   return pay;
-    // } catch (error) {
-    //   await queryRunner.rollbackTransaction();
-    //   throw error;
-    // } finally {
-    //   await queryRunner.release();
-    // }
   }
 }
