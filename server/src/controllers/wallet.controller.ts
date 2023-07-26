@@ -41,7 +41,7 @@ export class WalletController {
     try {
       await WalletService.payService(
         req.body.amount,
-        req.body.walletId,
+        req.body.senderId,
         req.body.serviceProvider
       );
       res.status(200).json({ message: "Payment successful" });

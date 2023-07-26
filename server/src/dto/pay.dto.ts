@@ -1,7 +1,7 @@
 export interface PayDto {
-  walletId: string;
+  senderId: string;
   amount: number;
   serviceProvider: string;
 }
 
-export type CreatePay = Pick<PayDto, "walletId" | "amount" | "serviceProvider">;
+export type CreatePay = Pick<PayDto, "senderId" | "amount" | "serviceProvider">;

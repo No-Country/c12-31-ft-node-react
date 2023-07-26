@@ -65,7 +65,7 @@ class Wallet {
   @OneToMany(() => Pay, (pay) => pay.wallet, {
     eager: true,
   })
-  @JoinColumn({ name: "walletId" })
+  @JoinColumn({ name: "senderId" })
   pays: Pay[];
 
   @CreateDateColumn()
