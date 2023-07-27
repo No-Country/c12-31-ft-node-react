@@ -35,7 +35,10 @@ export const Dashboard = () => {
   const senderTransactions = user.user.wallet.senderTransactions;
   
 
-  const dataSplice = [...receiverTransactions, ...senderTransactions];
+  const dataSplice = [
+    ...(receiverTransactions || []),
+    ...(senderTransactions || []),
+  ];
   const dataShow = dataSplice.slice(0,3);
 
 
@@ -85,7 +88,7 @@ export const Dashboard = () => {
         </div>
         <div className='w-full'>
         {
-                dataShow.map((item, index) => (
+               dataShow && dataShow.map((item, index) => (
                   // (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>
                   (item.amount > 0) ?<TransferenciasComponent initials={item.senderName[0]} key={index} user={item.senderName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Transferencia"} final= 'Recibida'/> : <TransferenciasComponent initials={item.receiverName[0]} key={index} user={item.receiverName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Pago"} final= 'Enviada'/>            
           ))

@@ -18,7 +18,10 @@ export const Movimientos = () => {
   const senderTransactions = user.user.wallet.senderTransactions;
   
 
-  const dataSplice = [...receiverTransactions, ...senderTransactions];
+  const dataSplice = [
+    ...(receiverTransactions || []),
+    ...(senderTransactions || []),
+  ];
 
 
   let initials = dataSplice.map(item => {

@@ -20,7 +20,10 @@ export const TransferenciasRealizadas = () => {
   
 
   
-  const transactionData = [...receiverTransactions, ...senderTransactions]
+  const dataSplice = [
+    ...(receiverTransactions || []),
+    ...(senderTransactions || []),
+  ];
   
   let initials = transactionData.map(item => {
     const nameParts = item.senderName.split(' ');
@@ -54,7 +57,7 @@ export const TransferenciasRealizadas = () => {
   
           <main>
               {
-                  transactionData.map((item, index) => (
+                  dataSplice.map((item, index) => (
                     (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.senderName} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
                   ))
               }

@@ -22,7 +22,10 @@ export const TrasferenciasScreen = () => {
     const senderTransactions = user.user.wallet.senderTransactions;
 
 
-    const dataSplice = [...receiverTransactions, ...senderTransactions];
+    const dataSplice = [
+      ...(receiverTransactions || []),
+      ...(senderTransactions || []),
+    ];
     const dataShow = dataSplice.slice(0,4);
 
     const navigate = useNavigate()
