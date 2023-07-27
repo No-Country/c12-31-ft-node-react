@@ -25,7 +25,7 @@ export const TransferenciasRealizadas = () => {
     ...(senderTransactions || []),
   ];
   
-  let initials = transactionData.map(item => {
+  let initials = dataSplice.map(item => {
     const nameParts = item.senderName.split(' ');
     const firstName = nameParts[0];
     const lastName = nameParts.length > 1 ? nameParts[1] : '';
@@ -52,7 +52,7 @@ export const TransferenciasRealizadas = () => {
               <BsFilter className='text-4xl '/>
           </div>
   
-          <h1 className='mt-10 mx-5 text-lg'>{transactionData.length} resultados</h1>
+          <h1 className='mt-10 mx-5 text-lg'>{dataSplice.length} resultados</h1>
   
   
           <main>
