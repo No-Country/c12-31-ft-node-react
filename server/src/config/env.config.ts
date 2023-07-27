@@ -11,7 +11,7 @@ export const config = {
     ssl: process.env.DB_SSL === "true",
   },
   server: {
-    port: parseInt(process.env.APP_PORT ?? "3000"),
+    port: parseInt(process.env.PORT ?? "3000"),
   },
   jwt: {
     secret: process.env.JWT_SECRET!,
