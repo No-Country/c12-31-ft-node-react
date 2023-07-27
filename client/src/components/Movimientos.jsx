@@ -4,14 +4,25 @@ import { NavBarBottom } from '../components/NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
 import JSON from './dataMovimientos.json'
 import { TransferenciasComponent } from './Transferencias/TransferenciasComponent';
+import { useContext } from 'react';
+import { UserContext } from '../context/useUserContext';
 
 
 export const Movimientos = () => {
+
+  const { user }= useContext(UserContext)
+
   const data = JSON;
 
+  const receiverTransactions = user.user.wallet.receiverTransactions;
+  const senderTransactions = user.user.wallet.senderTransactions;
+  
 
-  let initials = data.map(item => {
-    const nameParts = item.user.split(' ');
+  const dataSplice = [...receiverTransactions, ...senderTransactions];
+
+
+  let initials = dataSplice.map(item => {
+    const nameParts = item.senderName.split(' ');
     const firstName = nameParts[0];
     const lastName = nameParts.length > 1 ? nameParts[1] : '';
     const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
@@ -45,8 +56,8 @@ export const Movimientos = () => {
   
           <main>
               {
-                  data.map((item, index) => (
-                    (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
+                  dataSplice.map((item, index) => (
+                    (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.senderName} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
                   ))
               }
           </main>

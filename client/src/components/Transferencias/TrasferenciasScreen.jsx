@@ -14,24 +14,13 @@ import { UserContext } from '../../context/useUserContext';
 
 export const TrasferenciasScreen = () => {
 
-    const data = [];
-    const movimientos = JSON;
-    
-
-    movimientos.filter (i => { 
-      if(i.type === 'Transferencia'){
-        data.push(i)
-      }
-    })
 
     const { user } = useContext(UserContext);
-    const [transferencias, setTransferencias] = useState(null);
+
   
     const receiverTransactions = user.user.wallet.receiverTransactions;
     const senderTransactions = user.user.wallet.senderTransactions;
 
-    console.log(senderTransactions)
-    
 
     const dataSplice = [...receiverTransactions, ...senderTransactions];
     const dataShow = dataSplice.slice(0,4);

@@ -29,25 +29,7 @@ export const Dashboard = () => {
     return `${diaFormateado}/${mesFormateado}/${anio}`;
   }
   const { user } = useContext(UserContext);
-  const [transferencias, setTransferencias] = useState(null);
 
-
-
-
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await allTransation();
-      // console.log(data.data)
-      
-      const trasAccionFilted = data.data.filter(item => item.receiverId == user.user.wallet.id);
-      // console.log(trasAccionFilted)
-      setTransferencias(trasAccionFilted)
-    
-      // console.log(user.user.wallet.receiverTransactions)
-    }
-    fetchData();
-  },[])
 
   const receiverTransactions = user.user.wallet.receiverTransactions;
   const senderTransactions = user.user.wallet.senderTransactions;
@@ -55,7 +37,6 @@ export const Dashboard = () => {
 
   const dataSplice = [...receiverTransactions, ...senderTransactions];
   const dataShow = dataSplice.slice(0,3);
-
 
 
   
