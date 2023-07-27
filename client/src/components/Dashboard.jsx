@@ -40,7 +40,7 @@ export const Dashboard = () => {
       const data = await allTransation();
       // console.log(data.data)
       
-      const trasAccionFilted = data.data.filter(item => item.senderId == user.user.wallet.id);
+      const trasAccionFilted = data.data.filter(item => item.receiverId == user.user.wallet.id);
       // console.log(trasAccionFilted)
       setTransferencias(trasAccionFilted)
     
@@ -49,20 +49,13 @@ export const Dashboard = () => {
     fetchData();
   },[])
 
+  const receiverTransactions = user.user.wallet.receiverTransactions;
+  const senderTransactions = user.user.wallet.senderTransactions;
+  
 
+  const dataSplice = [...receiverTransactions, ...senderTransactions];
+  const dataShow = dataSplice.slice(0,3);
 
-  const data = JSON;
-
-  const dataSplice = [...data];
-  const dataShow = dataSplice.splice(0,3);
-
-  let initials = data.map(item => {
-    const nameParts = item.user.split(' ');
-    const firstName = nameParts[0];
-    const lastName = nameParts.length > 1 ? nameParts[1] : '';
-    const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
-    return initials;
-  });
 
 
   
@@ -111,9 +104,9 @@ export const Dashboard = () => {
         </div>
         <div className='w-full'>
         {
-                transferencias && transferencias.slice(0,3).map((item, index) => (
+                dataShow.map((item, index) => (
                   // (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.user} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>
-                  (item.amount > 0) ?<TransferenciasComponent initials={item.receiverName[0]} key={index} user={item.receiverName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Transferencia"} final= 'Recibida'/> : <TransferenciasComponent initials={item.receiverName[0]} key={index} user={item.receiverName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Pago"} final= 'Enviada'/>            
+                  (item.amount > 0) ?<TransferenciasComponent initials={item.senderName[0]} key={index} user={item.senderName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Transferencia"} final= 'Recibida'/> : <TransferenciasComponent initials={item.receiverName[0]} key={index} user={item.receiverName} amount={item.amount} date={formatearFecha(new Date(item.creationDate))} type={"Pago"} final= 'Enviada'/>            
           ))
             }
         </div>

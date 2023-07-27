@@ -12,7 +12,7 @@ export const TransferenciasComponent = ({user, amount, date, type, final, initia
                         </div>
                         <div className='ml-4'>
                             <h1>{type} {final}</h1>
-                            <h1 className='text-gray-500'>a {user}</h1>
+                            <h1 className='text-gray-500'>de {user}</h1>
                         </div>
                     </div>
 

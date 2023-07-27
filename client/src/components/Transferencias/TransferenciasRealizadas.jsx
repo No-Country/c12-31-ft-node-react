@@ -4,45 +4,31 @@ import { NavBarBottom } from '../NavBarBottom/NavBarBottom';
 import { useNavigate } from 'react-router-dom';
 import { TransferenciasComponent } from './TransferenciasComponent';
 import { allTransation } from '../../services/api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../context/useUserContext';
 
 
 
 export const TransferenciasRealizadas = () => {
-  const [transactionData, setTransactionData] = useState([]);
+
+  const { user } = useContext(UserContext)
+  const navigate = useNavigate()
 
 
+  const receiverTransactions = user.user.wallet.receiverTransactions;
+  const senderTransactions = user.user.wallet.senderTransactions;
+  
+
+  
+  const transactionData = [...receiverTransactions, ...senderTransactions]
+  
   let initials = transactionData.map(item => {
-    const nameParts = item.receiverName.split(' ');
+    const nameParts = item.senderName.split(' ');
     const firstName = nameParts[0];
     const lastName = nameParts.length > 1 ? nameParts[1] : '';
     const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`;
     return initials;
   });
-
-  const navigate = useNavigate()
-
-  const dataTransaction = async () => {
-    try {
-      const data = await allTransation();
-      return data.data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return []; 
-    }
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const transactionData = await dataTransaction();
-      setTransactionData(transactionData);
-    };
-    fetchData();
-  }, []);
-
-
-
-
 
 
   return (
@@ -69,7 +55,7 @@ export const TransferenciasRealizadas = () => {
           <main>
               {
                   transactionData.map((item, index) => (
-                    (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
+                    (item.amount > 0) ?<TransferenciasComponent initials={initials[index]} key={index} user={item.senderName} amount={item.amount} date={item.date} type={item.type} final= 'Recibida'/> : <TransferenciasComponent initials={initials[index]} key={index} user={item.receiverName} amount={item.amount} date={item.date} type={item.type} final= 'Enviada'/>            
                   ))
               }
           </main>
