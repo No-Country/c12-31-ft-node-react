@@ -2,7 +2,6 @@ import cors from "cors";
 import helmet from "helmet";
 import express, { json } from "express";
 import { exceptionHandlerMiddleware } from "middleware/excepction-handler.middleware";
-import path from "path";
 import "reflect-metadata";
 import { router } from "routes/index";
 import swaggerUi from "swagger-ui-express";
@@ -26,14 +25,6 @@ if (config.nodeEnv !== "test") {
   app.use(httpLogger);
 }
 app.use(json());
-
-if (config.nodeEnv === "production") {
-  app.use(
-    // TODO: could be stored in ENV variable
-    express.static(path.join(__dirname, "..", "..", "..", "client", "dist"))
-  );
-}
-
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 app.use("/api", router);
 

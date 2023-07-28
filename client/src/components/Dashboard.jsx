@@ -29,6 +29,7 @@ export const Dashboard = () => {
     return `${diaFormateado}/${mesFormateado}/${anio}`;
   }
   const { user } = useContext(UserContext);
+  console.log(user)
 
 
   const receiverTransactions = user.user.wallet.receiverTransactions;
