@@ -10,6 +10,7 @@ export const AjustesScreen = () => {
             <AiOutlineSearch className='text-3xl'/>
             <h1 className='text-2xl mx-5'>Ajustes</h1>
         </header>
+        
 
 
         <main className='mt-20'>
