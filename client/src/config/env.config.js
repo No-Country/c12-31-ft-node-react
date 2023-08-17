@@ -1,2 +1,2 @@
-export const baseURL = import.meta.env.VITE_BASE_URL_API || "http://localhost:3000/api"
+export const baseURL = process.env.VITE_BASE_URL_API || "https://countrycoin-production.up.railway.app/api"
 
